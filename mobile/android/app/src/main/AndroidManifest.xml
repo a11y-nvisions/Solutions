@@ -30,6 +30,9 @@
         <activity android:name=".LabelForActivity" android:label="@string/label_for_title" android:parentActivityName=".MainActivity"></activity>
         <activity android:label="@string/label_for_example1_title" android:name=".LabelForExample1Activity" android:parentActivityName=".LabelForActivity"></activity>
         <activity android:name=".LabelForExample2Activity" android:label="@string/label_for_example2_title" android:parentActivityName=".LabelForActivity"></activity>
+        <activity android:name=".CarouselActivity" android:label="@string/carousel_title" android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".CarouselExample1Activity" android:label="@string/carousel_bad_accessibility" android:parentActivityName=".CarouselActivity"></activity>
+        <activity android:name=".CarouselExample2Activity" android:label="@string/carousel_good_accessibility" android:parentActivityName=".CarouselActivity"></activity>
     </application>
 
 </manifest>
