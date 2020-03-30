@@ -11,10 +11,10 @@ custom-button,expand-button{
 
 custom-button,expand-button{
     font-family:"HY건고딕";
-    color:rgba(25, 0, 0, 0.7);
-    background:url(../style/img/pattern-wood.jpg), linear-gradient(to top,rgba(110,80,50,0.8), rgba(60,30,50,0.9));
+    color:#000;
+    background:linear-gradient(#ceae89, #eece9f);
     background-blend-mode: multiply;
-    text-shadow: 0 1px 1px rgba(255,255,255,0.7);
+    box-shadow:0 0 0 1px #000;
     box-sizing: border-box;
     border-color:
     rgba(255,255,255,0.8)/*TOP*/
@@ -24,7 +24,6 @@ custom-button,expand-button{
 }
 custom-button[disabled],expand-button[disabled]{
     opacity:0.3;
-    color:rgba(0, 0, 0, 0.9);
     border-color:
     rgba(255,255,255,0.9)/*TOP*/
     rgba(255,255,255,0.5)/*RIGHT*/
@@ -35,7 +34,8 @@ custom-button[disabled],expand-button[disabled]{
 
 @media (prefers-color-scheme:dark){
     custom-button,expand-button{
-        color:rgba(0, 0, 0, 0.9);
+        color:var(--theme-text-color);
+        background:linear-gradient(#111125, #23205A);
         text-shadow: 0 1px 1px rgba(255,255,255,0.5);
         border-color:
         rgba(255,255,255,0.4)/*TOP*/
@@ -45,7 +45,7 @@ custom-button[disabled],expand-button[disabled]{
     }
     custom-button[disabled],expand-button[disabled]{
         opacity:0.3;
-        color:rgba(0, 0, 0, 0.9);
+        color:var(--theme-text-color);
         border-color:
         rgba(255,255,255,0.9)/*TOP*/
         rgba(255,255,255,0.5)/*RIGHT*/

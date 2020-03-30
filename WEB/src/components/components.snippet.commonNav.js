@@ -1,6 +1,6 @@
 let temp=``;
 temp+=`
-<ul aria-label="해결방안 카테고리" data-simplebar>`
+<ul aria-label="해결방안 카테고리" data-simplebar data-simplebar-scrollbar-min-size="8">`
 for(let i = 0; i<SolutionPage.length; i++){
     temp+=`<li><strong aria-hidden="true" id="GroupHeader${i+1}">${SolutionPage[i].GroupName}</strong>`
     for(let c in SolutionPage[i] ){
@@ -17,8 +17,6 @@ for(let i = 0; i<SolutionPage.length; i++){
     temp+='</li>'
 }
 temp+=`</ul>`
-
-
 const GNB=document.querySelector('.GNB');
 GNB.innerHTML=temp;
 
