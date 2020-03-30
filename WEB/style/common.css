@@ -49,6 +49,27 @@ a:link{color:#319;}a:visited{color:#539;}
 footer{color:var(--theme-text-color);}
 div.simplebar-scrollbar.simplebar-visible:before{opacity:1;}
 div.simplebar-scrollbar:before{background:#210; border:solid 1px var(--theme-text-color);}
+header{border-color:
+    rgba(0,0,0,0.4)
+    rgba(0,0,0,0.2)
+    rgba(0,0,0,0.8)
+    rgba(0,0,0,0.4)
+;}
+
+nav.GNB{
+    border-color:
+    rgba(0,0,0,0.4)
+    rgba(0,0,0,0.8)
+    rgba(0,0,0,0.2)
+    rgba(0,0,0,0.4)
+;}
+
+footer{border-color:
+    rgba(0,0,0,0.8)
+    rgba(0,0,0,0.4)
+    rgba(0,0,0,0.2)
+    rgba(0,0,0,0.4)
+;}
 
 /*Dark*/
 @media (prefers-color-scheme: dark){
@@ -105,10 +126,10 @@ div.simplebar-scrollbar:before{background:#210; border:solid 1px var(--theme-tex
         overflow-y:auto;
         border-width:0 1px 1px 1px;
         border-color:
-        rgba(255,255,255,0.2)
-        rgba(255,255,255,0.4)
-        rgba(255,255,255,0.8)
-        rgba(255,255,255,0.4);
+        rgba(0,0,0,0.2)
+        rgba(0,0,0,0.4)
+        rgba(0,0,0,0.8)
+        rgba(0,0,0,0.4);
     }
     main{height:85%; width:100%}
     footer{
@@ -119,5 +140,15 @@ div.simplebar-scrollbar:before{background:#210; border:solid 1px var(--theme-tex
 
     footer>*{
         align-self: center;
+    }
+}
+
+@media screen and (max-width:768px) and (prefers-color-scheme:dark){
+    nav.GNB{
+        border-color:
+        rgba(255,255,255,0.2)
+        rgba(255,255,255,0.4)
+        rgba(255,255,255,0.8)
+        rgba(255,255,255,0.4);
     }
 }
