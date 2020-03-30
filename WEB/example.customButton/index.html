@@ -106,10 +106,18 @@
     <script src="../src/components/components.snippet.commonNav.js"></script>
     <script src="../src/components/component.class.button.js"></script>
     <script>
-        document.head.querySelector('title').innerHTML=document.querySelector('[aria-current=page]').textContent;
+        const title = document.head.querySelector('title');
+        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
+        title.innerHTML=document.querySelector('[aria-current=page]').textContent;
+        title.innerHTML=document.querySelector('[aria-current=page]').textContent;
+        mainScroll.addEventListener('scrollend',setBodyScrollToBottom);
+        function setBodyScrollToBottom(e){
+            document.body.scrollTo(0,document.body.scrollHeight);
+        }
     </script>
     <!--inline-->
     <script>
+        
         document.querySelector('custom-button').addEventListener('click',handle)
         document.querySelector('custom-button').addEventListener('keydown',handle)
         document.querySelector('custom-button[inaccessible]').addEventListener('click',handle)
