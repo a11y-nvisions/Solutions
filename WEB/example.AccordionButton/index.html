@@ -134,11 +134,6 @@
         const title = document.head.querySelector('title');
         const mainScroll = document.querySelector('main .simplebar-content-wrapper')
         title.innerHTML=document.querySelector('[aria-current=page]').textContent;
-        title.innerHTML=document.querySelector('[aria-current=page]').textContent;
-        mainScroll.addEventListener('scrollend',setBodyScrollToBottom);
-        function setBodyScrollToBottom(e){
-            document.body.scrollTo(0,document.body.scrollHeight);
-        }
     </script>
 </body>
 </html>

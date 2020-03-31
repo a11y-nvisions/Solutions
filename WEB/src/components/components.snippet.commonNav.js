@@ -1,3 +1,5 @@
+let pageDirectory=location.pathname.split('/');
+let CURRENT_DIR=pageDirectory[pageDirectory.length-2];
 let temp=``;
 temp+=`
 <ul aria-label="해결방안 카테고리" data-simplebar data-simplebar-scrollbar-min-size="8">`
@@ -22,7 +24,7 @@ GNB.innerHTML=temp;
 
 const links=GNB.querySelectorAll('a');
 for(let i=0; i<links.length; i++){
-    if(links[i].href == location.href ){
+    if( links[i].href.indexOf(CURRENT_DIR) != -1){
         links[i].setAttribute('aria-current','page');
     }
 }

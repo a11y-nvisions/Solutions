@@ -1,7 +1,7 @@
 class CustomButton extends HTMLElement {
     constructor(){
         super();
-        this.setAttribute('role','button')
+        this.setAttribute('role','button');
     }
     
     get __disabled__(){
@@ -22,6 +22,14 @@ class CustomButton extends HTMLElement {
             if(val == false){
                 this.disabled=val; this.tabIndex=0;
                 this.setAttribute('aria-disabled',val)
+            }
+        }else if( this.hasAttribute('inaccessible') ){
+            if(val == true){
+                this.disabled=val; this.tabIndex=-1
+            }
+            
+            if(val == false){
+                this.disabled=val; this.tabIndex=0;
             }
         }
     }

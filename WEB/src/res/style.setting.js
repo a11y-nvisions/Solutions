@@ -124,6 +124,37 @@ const ButtonStyle=`
 }
 `
 
-commonNAVStyle=`
+const commonNAVStyle=`
 	*{margin:inherit; padding:inherit;}
 `
+
+const RadioStyle=`
+:host,.radio.wrap{
+	display:inline-block;
+	vertical-align:top;
+	width:1em; height:1em;
+	border-color:inherit;
+}
+
+div.radio.outerCircle{
+	position:relative;
+	width:100%; height:100%;
+	overflow:hidden;
+	border:solid 2px transparent; text-align:center;
+	border-radius:50%; box-shadow:0 0 0 1px;
+}
+
+div.radio.innerCircle{
+	position:relative;
+	width:10%; height:10%; top:50%; left:50%; box-sizing:border-box;
+	border:solid 1px; border-color:rgba(0,0,0,0.1);
+	opacity:0; border:solid 1px; border-color:rgba(0,0,0,0.1);
+}
+
+:host([checked]) div.radio.innerCircle{
+	opacity:1;
+	width:100%;height:100%; vertical-align:top; top:0; left:0;
+	transition:width 0.3s, height 0.3s, top 0.3s, background-color 0.5s;
+	margin:0; border-radius:50%;
+	background-color:var(--radio-selected-color);
+}`

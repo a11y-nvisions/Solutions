@@ -1,3 +1,7 @@
+:root{
+    --radio-selected-color:#2a1512;
+}
+
 custom-button,expand-button{
     box-sizing:border-box;
     padding:0.2rem; font-weight: bold; overflow:hidden;
@@ -33,6 +37,10 @@ custom-button[disabled],expand-button[disabled]{
 
 
 @media (prefers-color-scheme:dark){
+    :root{
+        --radio-selected-color:#5af;
+    }
+
     custom-button,expand-button{
         color:var(--theme-text-color);
         background:linear-gradient(#111125, #23205A);
@@ -52,4 +60,23 @@ custom-button[disabled],expand-button[disabled]{
         rgba(255,255,255,0.3)/*BOTTOM*/
         rgba(255,255,255,0.5);/*LEFT*/
     }
+}
+
+label{
+    transition:font-weight 0.3s;
+    font-weight:100;
+}
+
+custom-radio[checked]+label{
+    font-weight:800;
+}
+
+custom-radio[disabled]{
+    opacity:0.3;
+}
+
+custom-radio{margin:0 0.5rem;}
+
+custom-radio[aria-checked="true"] .radio.innerCircle{
+    background-color:#fff;
 }

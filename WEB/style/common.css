@@ -9,7 +9,29 @@ letter-spacing:0.05rem; font-size:1.3rem}
 }
 html,body{width:100vw;height:100vh;overflow:hidden; position:relative; font-size:0.9rem;font-family: 'NanumSquare';}
 ul{list-style:none;}
-ol{margin-left:1.2rem;}
+ol{margin-left:1.1rem; width:95%; padding-left:0.7rem;}
+
+ol.type{
+    list-style:none;
+}
+ol.type.Hangul{
+    counter-reset:KOREAN;
+}
+ol.type.Hangul-consonant{
+    counter-reset:korean;
+}
+ol.type.Hangul>li::before{
+    content:counter(KOREAN, hangul) '. ';
+    content:counter(KOREAN, -moz-hangul) '. ';
+    counter-increment: KOREAN;
+}
+ol.type.Hangul-consonant>li::before{
+    content:counter(korean, hangul-consonant) '. ';
+    content:counter(korean, -moz-hangul-consonant) '. ';
+    counter-increment:korean;
+}
+p{margin:0.25rem 0;}
+
 .middle-wrap{height:85%;}
 header{width:100%;height:10%;}footer{width:100%; height:5%;}
 header h1{height:100%;margin:0; display:flex; align-items: center;}

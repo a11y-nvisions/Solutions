@@ -5,61 +5,76 @@ class CustomRadio extends HTMLElement{
         this.checked=false;
     }
 
+    get __disabled__(){
+        if(!this.hasAttribute('disabled')){
+            return this.disabled;
+        }else{
+            return this.disabled;
+        }
+    }
+
+    set __disabled__(val){
+        if(!this.hasAttribute('inaccessible')){
+            if(val == true){
+                this.disabled=val; this.tabIndex=-1
+                this.setAttribute('aria-disabled',val)
+            }
+            
+            if(val == false){
+                this.disabled=val; this.tabIndex=0;
+                this.setAttribute('aria-disabled',val)
+            }
+        }else if( this.hasAttribute('inaccessible') ){
+            if(val == true){
+                this.disabled=val; this.tabIndex=-1
+            }
+            
+            if(val == false){
+                this.disabled=val; this.tabIndex=0;
+            }
+        }
+    }
+    
     set check(bool){
-        this.checked=bool;
-        if(bool==true){this.setAttribute('checked',''),this.setAttribute('aria-checked',bool);
-        this.setAttribute('tabindex','0');
-        this.focus();
-        }
-        if(bool==false){
-            if(this.hasAttribute('checked')){
-                this.removeAttribute('checked');
+        if(this.__disabled__ == false){
+            
+            //check이 true 상태이면
+            if(bool==true){
+                this.setAttribute('checked','');
+                this.setAttribute('tabindex','0');
+                this.focus();
             }
-            if(this.hasAttribute('tabindex')){
-                this.removeAttribute('tabindex');
+            
+            //check이 false상태이면
+            if(bool==false){
+                if(this.hasAttribute('checked')){
+                    this.removeAttribute('checked');
+                }
+                //기본초점이 있다면 삭제
+                if(this.hasAttribute('tabindex')){
+                    if( this.getAttribute('tabindex') == '0' ){
+                        this.setAttribute('tabindex','-1');
+                        
+                    }
+                }
             }
+            if( !this.hasAttribute('inaccessible') ){
             this.setAttribute('aria-checked',bool);
+            }
         }
+        this.checked=bool;
     }
 
     connectedCallback(){
         const root=this;
-        
-        if(this.hasAttribute('name')){this.name=this.getAttribute('name')
-            this.setAttribute('role','radio')
+        this.__disabled__=this.hasAttribute('disabled');
+        if(this.hasAttribute('name')){
+            this.name=this.getAttribute('name')
+            this.setAttribute('role','radio');
             const shadow=this.attachShadow({mode:'open'})
             shadow.innerHTML=`
                 <style>
-                    div.radio.wrap{
-                        vertical-align:top;
-                        width:1em; height:1em;
-                    }
-                    div.radio{
-                        display:inline-block;
-                    } 
-                    
-                    div.radio.outerCircle{
-                        position:relative;
-                        width:100%; height:100%;
-                        overflow:hidden;
-                        border:solid 2px transparent; text-align:center;
-                        border-radius:50%; box-shadow:0 0 0 1px #000;
-                    }
-
-                    div.radio.innerCircle{
-                        position:relative;
-                        width:10%; height:10%; top:50%; left:50%; box-sizing:border-box;
-                        border:solid 1px; border-color:rgba(0,0,0,0.1);
-                        opacity:0; border:solid 1px; border-color:rgba(0,0,0,0.1); background-color:transparent;
-                    }
-
-                    :host([aria-checked="true"]) div.radio.innerCircle{
-                        opacity:1;
-                        width:100%;height:100%; vertical-align:top; top:0; left:0;
-                        transition:width 0.3s, height 0.3s, top 0.3s, background-color 0.5s;
-                        margin:0; border-color:rgba(0,0,0,1); background-color:#6ec;
-                        border-radius:50%;
-                    }
+                ${RadioStyle}
                 </style>
                 <div class="radio wrap">
                     <div class="radio outerCircle">
@@ -69,38 +84,51 @@ class CustomRadio extends HTMLElement{
                     <div>
                 </div>
                 `
-            if(this.hasAttribute('checked')){this.check=true}
+
+            //디풀트로 checked가 지정되어있는 경우
+            if( this.hasAttribute('checked') ){
+                this.check=true;
+            };
             
-            const Group=document.querySelectorAll(`[name="${this.name}"]`)
-            
+            const Group=document.querySelectorAll(`custom-radio[name="${this.name}"]:not([disabled])`)
             if(this.hasAttribute('id')){
                 const labelElement=document.querySelectorAll(`label[for="${this.getAttribute('id')}"]`);
                 let labelStrings='';
                 for(let i=0; i<labelElement.length; i++){
-                        labelElement[i].addEventListener('click',function(){
-                            document.querySelector('#'+labelElement[i].getAttribute('for')).click();
-                            document.querySelector('#'+labelElement[i].getAttribute('for')).focus();
-                        })
-                        labelStrings+=labelElement[i].innerHTML;
+                    labelElement[i].setAttribute('aria-hidden','true')
+                    labelElement[i].addEventListener('click',function(){
+                        const labelled = document.querySelector('#'+labelElement[i].getAttribute('for'))
+                        labelled.click();
+                        labelled.focus();
+                    })
+                    labelStrings+=labelElement[i].innerHTML;
                 }
                 this.setAttribute('aria-label',labelStrings);
             }
+            
             
             for(let i=0; i<Group.length; i++){
                 if(i<Group.length && !Group[i].hasAttribute('checked')){
                     Group[0].setAttribute('tabindex','0')
                 }
             }
+            
+            
+            if( !this.hasAttribute('disabled') ){
+                this.addEventListener('click',defaultEventHandler);
+                
+                if(!this.hasAttribute('inaccessible')){
+                    this.addEventListener('keydown',defaultEventHandler);
+                }
+            }
+            
 
-            this.addEventListener('click',defaultEventHandler);
-            this.addEventListener('keydown',defaultEventHandler);
             function defaultEventHandler(e){
                 const key={
                     next:[39,40],
                     prev:[37,38],
                     click:[32,13]
                 }
-                const [first,last]=[Group[0],Group[Group.length-1]]
 
                 for(let i = 0; i<Group.length; i++){
                         if(e.type=='click'){
@@ -111,9 +139,12 @@ class CustomRadio extends HTMLElement{
                             }
                         }
 
+                        const first=Group[0];
+                        const last=Group[Group.length-1];
                         if(e.type=='keydown'){
                             if(e.keyCode == (key.click[0] || key.click[1])){
                                 e.target.click();
+								e.target.focus();
                             }
                             
                             if( (e.keyCode == key.prev[0]) || (e.keyCode == key.prev[1]) ){
