@@ -3,7 +3,7 @@ SolutionPage=[
     GroupName:"컨트롤 요소의 접근성",
     List:[
             {
-            "URL":"../example.RadioButton/index.html",
+            "URL":"../example.radioButton/index.html",
             "TEXT":"올바른 커스텀 라디오     요소 제공방법",
             "STATE":"OPEN"
             },
