@@ -35,6 +35,21 @@ class CustomRadio extends HTMLElement{
         }
     }
     
+    set default_value(bool){
+        if(this.__disabled__ == false){
+            //check이 true 상태이면
+            if(bool==true){
+                this.setAttribute('checked','');
+                this.setAttribute('tabindex','0');
+
+            }
+            if( !this.hasAttribute('inaccessible') ){
+                this.setAttribute('aria-checked',bool);
+            }
+        }
+        this.checked=bool;
+    }
+
     set check(bool){
         if(this.__disabled__ == false){
             
@@ -87,7 +102,7 @@ class CustomRadio extends HTMLElement{
 
             //디풀트로 checked가 지정되어있는 경우
             if( this.hasAttribute('checked') ){
-                this.check=true;
+                this.default_value=true;
             };
             
             const Group=document.querySelectorAll(`custom-radio[name="${this.name}"]:not([disabled])`)
