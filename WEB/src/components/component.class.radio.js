@@ -74,7 +74,7 @@ class CustomRadio extends HTMLElement{
                 }
             }
             if( !this.hasAttribute('inaccessible') ){
-            this.setAttribute('aria-checked',bool);
+                this.setAttribute('aria-checked',bool);
             }
         }
         this.checked=bool;
