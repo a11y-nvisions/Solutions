@@ -28,20 +28,28 @@
             </p>
         </section>
         <section>
-            <H3>aria-expanded (필수)</H3>
-            스크린리더에 확장 및 축소 상태정보를 전달한다.
+            <h3>aria-expanded (필수)</h3>
+            <p>스크린리더에 확장 및 축소 상태정보를 전달한다.</p>
             <table>
                 <colgroup>
-                    <col width="20%" />
-                    <col />
+                    <col class="col1" />
+                    <col class="col2" />
                 </colgroup>
                 <tbody>
                     <tr>
-                        <th>문법</th>
-                        <td><P><code class="tag">&lt;element <span class="attribute">aria-expanded="<span class="valueType">boolean</span>"</span>&gt;&lt;/element&gt;</code></P></td>
+                        <th colspan="2">문법</th>
                     </tr>
                     <tr>
-                        <th><span class="tag">사용 태그(역할)</code></th>
+                        <td colspan="2">
+                            <p>
+                                <code class="tag">
+                                    &lt;element <span class="attribute">aria-expanded="<span class="valueType">boolean</span>"</span>&gt;&lt;/element&gt;
+                                </code>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="tag">사용 태그(역할)</span></th>
                         <td>
                             <ul>
                                 <li>application</li>
@@ -53,6 +61,8 @@
                             </ul>
                         </td>
                     </tr>
+                </tbody>
+                <tbody>
                     <tr>
                         <th colspan="2">속성값</th>
                     </tr>
@@ -70,6 +80,8 @@
                         <th><span class="valueType">undefined(기본값)</span></th>
                         <td><p>확장/축소 정보를 제공하지 않는다. 이 값은 사용되지 않는다. 해당 기능을 수행하려면 ElementObject.removeAttribute()메서드를 사용하여 상태정보를 제거해야 한다.</p></td>
                     </tr>
+                </tbody>
+                <tbody>
                     <tr>
                         <th colspan="2">원칙</th>
                     </tr>
