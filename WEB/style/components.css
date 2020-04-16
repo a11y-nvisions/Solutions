@@ -80,3 +80,109 @@ custom-radio{margin:0 0.5rem;}
 custom-radio[aria-checked="true"] .radio.innerCircle{
     background-color:#fff;
 }
+
+
+
+
+custom-search{
+    display:block;
+    position: relative;
+    background-color:var(--common-box-color);
+    border:solid 0.1rem;
+}
+
+custom-search *{
+    user-select:none;
+}
+
+custom-search .search-bar-wrap{
+    display:flex;
+    padding:1rem; border:solid 0.05rem;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+custom-search .search-bar-wrap *{
+    flex-grow:1; align-self:center;
+}
+
+custom-search .btn_comboBox{
+    display:inline-block;
+    background-color:var(--search-selected-option-background-color);
+    flex:0 0 calc(var(--default-font-size)*1.3);
+    flex-direction: column;
+    align-self:stretch;
+    background-size:90%; background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btn_comboBox.closed{
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' fill='rgba(0,0,0)' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 491.996 491.996' style='enable-background:new 0 0 491.996 491.996;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M484.132,124.986l-16.116-16.228c-5.072-5.068-11.82-7.86-19.032-7.86c-7.208,0-13.964,2.792-19.036,7.86l-183.84,183.848 L62.056,108.554c-5.064-5.068-11.82-7.856-19.028-7.856s-13.968,2.788-19.036,7.856l-16.12,16.128 c-10.496,10.488-10.496,27.572,0,38.06l219.136,219.924c5.064,5.064,11.812,8.632,19.084,8.632h0.084 c7.212,0,13.96-3.572,19.024-8.632l218.932-219.328c5.072-5.064,7.856-12.016,7.864-19.224 C491.996,136.902,489.204,130.046,484.132,124.986z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.btn_comboBox.opened{
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 492.002 492.002' style='enable-background:new 0 0 492.002 492.002;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M484.136,328.473L264.988,109.329c-5.064-5.064-11.816-7.844-19.172-7.844c-7.208,0-13.964,2.78-19.02,7.844 L7.852,328.265C2.788,333.333,0,340.089,0,347.297c0,7.208,2.784,13.968,7.852,19.032l16.124,16.124 c5.064,5.064,11.824,7.86,19.032,7.86s13.964-2.796,19.032-7.86l183.852-183.852l184.056,184.064 c5.064,5.06,11.82,7.852,19.032,7.852c7.208,0,13.96-2.792,19.028-7.852l16.128-16.132 C494.624,356.041,494.624,338.965,484.136,328.473z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+custom-search label{
+    display:inline-block; margin-right:1rem;
+    text-align: center;
+    font-weight:bold;
+}
+
+custom-search input[aria-autocomplete]{
+    background-color:transparent;
+    color:var(--search-input-text-color);
+    text-indent: 0.5rem;
+    padding:0.1rem; background-color:var(--search-input-background-color);
+    border:solid 0.1rem;;
+}
+custom-search input[aria-autocomplete]:focus,custom-search input[aria-autocomplete]:hover{
+    background-color:var(--search-input-background-color-interact);
+}
+
+custom-search input::selection{
+    color:var(--theme-selection-text-color);
+    background-color:var(--theme-selection-background-color);
+}
+
+custom-search [role="listbox"]{
+    background-color:var(--search-option-background-color);
+    color:var(--search-option-text-color);
+    border: solid 1px;
+    border-top:none;
+}
+
+custom-search [role="listbox"].collapsed{
+    display:none;
+}
+
+li[role="option"]:hover{
+    color:var(--search-selected-option-text-color);
+    background-color:var(--search-selected-option-background-color);
+}
+
+li[role="option"]{
+    opacity: background-color 0.3s;
+    padding:0.2rem 0.1rem;
+    border-bottom:solid 0.05rem;
+}
+
+li[role="option"]:last-child{
+    border-color:transparent;
+    border-bottom-width:0.025rem;
+}
+
+.selected{
+    color:var(--search-selected-option-text-color);
+    background-color:var(--search-selected-option-background-color);
+    filter:brightness(1.1) contrast(1.2); font-weight: bold;
+}
+
+.selected:hover{
+    filter:brightness(1.5);
+}
+
+custom-search .box-voice-hint{
+    display:none;
+}
