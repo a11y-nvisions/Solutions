@@ -102,6 +102,7 @@ class SearchBox extends HTMLElement{
         }
         
         root.searchInput.addEventListener('keyup',acHandler);
+        root.searchInput.addEventListener('input',acHandler);
         root.searchInput.addEventListener('click',acHandler);
         root.searchInput.addEventListener('keydown',function(e){const list = root.ListBox.querySelectorAll('li[role="option"]');if( list.length <=0 ){root.expanded=false;};});
         root.comboBoxButton.addEventListener('click',function(){
@@ -151,84 +152,85 @@ class SearchBox extends HTMLElement{
                         container+=`<li role="option" onclick="location.href=this.dataset.href;" aria-describedby="hint_article_search" data-href="${NavItems[i].getAttribute('href')}">${NavItemsList[i]}</li>`
                     }
                 }
-            }
-
-            if( e.keyCode != 37 && e.keyCode != 38 && e.keyCode != 39 && e.keyCode != 40
-                && e.keyCode != 13 && e.keyCode != 9 && e.keyCode != 27 &&
-                 e.keyCode != 16 && e.keyCode != 17 && e.keyCode != 25 && e.keyCode != 18 &&
-                 e.keyCode != 32 && e.keyCode != 33 && e.keyCode != 34 && e.keyCode != 35 && e.keyCode != 36 && e.keyCode != 45 && e.keyCode != 46){
-                    
-                    showList();
-                    
-                    if(list.length > 0){
-                        root.expanded=true;
-                    }
-                    
                 root.ListBox.innerHTML=container;
             }
 
-            if(list.length > 0){
+            if(e.type == 'input'){
+                showList();
+                if(list.length > 0){
+                    root.expanded=false;
+                }
+            }
+
+            if(e.type == 'keyup'){
                 
-                if(!root.expanded){
-                    if(e.keyCode == 40 ){
-                        root.expanded=true;
-                    }
+                if(list.length > 0){
+                    root.expanded=true;
                 }
 
-                if(root.expanded){
-                    if(e.keyCode == 38 ){
-                        if(root.select <= 0){
-                            root.select=list.length-1;
-                            list[list.length-1].classList.add('selected');
-                            list[list.length-1].id=root.activeID;
-                        }else{
-                            root.select=root.__select__-1;
-                            list[root.select].classList.add('selected');
-                            list[root.select].id=root.activeID;
-                        }
-                    }
-
-                    if(e.keyCode == 40 ){
-                        if(root.select == list.length-1){
-                            root.select=0;
-                            list[0].classList.add('selected');
-                            list[0].id=root.activeID;
-                        }else{
-                            root.select=root.__select__+1;
-                            list[root.select].classList.add('selected');
-                            list[root.select].id=root.activeID;
-                        }
-                    }
-
-                    if(e.keyCode == 13){
-                        if( root.select != -1){
-                        list[root.select].click();
-                        }else{
-                            
+                if(list.length > 0){
+                    
+                    if(!root.expanded){
+                        if(e.keyCode == 40 ){
                             root.expanded=true;
                         }
                     }
 
-                    if(e.keyCode == 27){
-                        root.select= -1;
-                        if(root.select == -1){
-                            root.expanded=false;
+                    if(root.expanded){
+                        if(e.keyCode == 38 ){
+                            if(root.select <= 0){
+                                root.select=list.length-1;
+                                list[list.length-1].classList.add('selected');
+                                list[list.length-1].id=root.activeID;
+                            }else{
+                                root.select=root.__select__-1;
+                                list[root.select].classList.add('selected');
+                                list[root.select].id=root.activeID;
+                            }
                         }
-                    }
 
-                    for(var i = 0; i < list.length; i++){
-                        if(root.select >= -1 && i!=root.select){
-                            if(list[i].classList.contains('selected')){
-                                list[i].removeAttribute('class');
-                            }
-                            if(list[i].hasAttribute('id')){
-                                list[i].removeAttribute('id');
+                        if(e.keyCode == 40 ){
+                            if(root.select == list.length-1){
+                                root.select=0;
+                                list[0].classList.add('selected');
+                                list[0].id=root.activeID;
+                            }else{
+                                root.select=root.__select__+1;
+                                list[root.select].classList.add('selected');
+                                list[root.select].id=root.activeID;
                             }
                         }
+
+                        if(e.keyCode == 13){
+                            if( root.select != -1){
+                            list[root.select].click();
+                            }else{
+                                
+                                root.expanded=true;
+                            }
+                        }
+
+                        if(e.keyCode == 27){
+                            root.select= -1;
+                            if(root.select == -1){
+                                root.expanded=false;
+                            }
+                        }
+
+                        for(var i = 0; i < list.length; i++){
+                            if(root.select >= -1 && i!=root.select){
+                                if(list[i].classList.contains('selected')){
+                                    list[i].removeAttribute('class');
+                                }
+                                if(list[i].hasAttribute('id')){
+                                    list[i].removeAttribute('id');
+                                }
+                            }
+                        }
+                        /* if(root.select != -1){
+                        target.value=list[root.select].textContent;
+                        } */
                     }
-                    /* if(root.select != -1){
-                    target.value=list[root.select].textContent;
-                    } */
                 }
             }
         }

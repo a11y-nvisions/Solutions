@@ -39,35 +39,34 @@
                     <th colspan="2">주요 속성(편집창)</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th><span class="attribute">role="<span class="valueType">combobox</span>"</span></th>
+                    <tr>                <th><span class="attribute">role="<span class="valueType">combobox</span>"</span></th>
                         <td>
                             자동완성의 경우, 사용자가 입력한 값에 따라, 일치하는 글자가 있는 결과를 목록화하여
-                            표시하므로, role="combobox"를 편집 가능한 type="Text"인 input태그에 부여한다.
+                            표시하므로, role="combobox"를 편집 가능한 type="Text"인 input 태그에 부여한다.
                         </td>
                     </tr>
                     <tr>
-                        <th><span class="attribute">aria-expanded="<span class="valueType">boolean</span>"</span></th>
+                        <th><span class="attribute">aria-expanded="<span class="valueType">Boolean</span>"</span></th>
                         <td>
                             <p>
-                                자동완성 편집창으로 사용되는 콤보 상자와 일반적인 콤보상자는 확장/축소가 가능하므로 aria-expanded로 확장 및 축소 상태를 제공해야 한다
+                                자동완성 편집창으로 사용되는 콤보 상자와 일반적인 콤보 상자는 확장/축소가 가능하므로 aria-expanded로 확장 및 축소 상태를 제공해야 한다
                             </p>
                             <p>
-                                이 속성에 대한 정보는 <a href="../example.AccordionButton/index.html">여기</a>를 참고하기 바람  
+                                이 속성에 대한 정보는 <a href="../example.AccordionButton/index.html" class="here">여기</a>를 참고하기 바람  
                             </p>
                         </td>
                     </tr>
                     <tr>
-                        <th><span class="attribute">aria-autocomplete="<span class="valueType">type</span>"</span></th>
+                        <th><span class="attribute">aria-autocomplete="<span class="valueType">Type</span>"</span></th>
                         <td>
                             <p>
-                                스크린리더가 자동완성이 가능한 편집창임을 사용자에게 알려줄 수 있도록 하는 속성으로
+                                스크린 리더가 자동완성이 가능한 편집창임을 사용자에게 알려줄 수 있도록 하는 속성으로
                                 속성값은 다음과 같다.
                             </p>
                             <ul>
                                 <li><strong>inline</strong> : 하단에 항목을 제공하지 않고, 옅은 글씨로 제안 텍스트만을 표시하는 경우</li>
                                 <li><strong>list</strong> : 목록이 하단에 표시되는 경우</li>
-                                <li><strong>both</strong> : 편집창에 옅은 글씨로 제안이 표시되며, 목록또한 표시되는 경우</li>
+                                <li><strong>both</strong> : 편집창에 옅은 글씨로 제안이 표시되며, 목록 또한 표시되는 경우</li>
                             </ul>
                             <p>
                                 이 세 가지의 속성에서 의미하는 자동완성의 유형에는 분명히 차이가 존재하나, 현재의 접근성 API로부터
@@ -78,14 +77,14 @@
                     <tr>
                         <th><span class="attribute">aria-controls="<span class="valueType">Id</span>"</span></th>
                         <td>
-                            검색 콤보상자의 목록(role="listbox") 컨테이너의 아이디를 명시하여 연결하는 역할을 한다.
+                            검색 콤보 상자의 목록(role="listbox") 컨테이너의 아이디를 명시하여 연결하는 역할을 한다.
                         </td>
                     </tr>
                     <tr>
                         <th><span class="attribute">aria-activedescendant="<span class="valueType">id</span>"</span></th>
                         <td>
                             선택된 option에 id를 부여하고, 해당 option의 id를 aria-activedescendant의 속성값으로 전달하면
-                            해당 텍스트와 몇 개의 목록 중 몇 번쨰 목록을 탐색중인가를 스크린리더 사용자에게 음성으로 전달한다.
+                            해당 텍스트와 몇 개의 목록 중 몇 번쨰 목록을 탐색 중인가를 스크린 리더 사용자에게 음성으로 전달한다.
                         </td>
                     </tr>
                 </tbody>
@@ -97,7 +96,7 @@
                     <col class="col2" />
                 </colgroup>
                 <thead>
-                    <th colspan="2">주요 속성(목록상자/항목)</th>
+                    <th colspan="2">주요 속성(목록 상자/항목)</th>
                 </thead>
                 <tbody>
                     <tr>
@@ -105,7 +104,7 @@
                         <td>
                             <p>
                                 컨테이너가 option의 목록임을 알 수 있도록 role="listbox"를 사용해야 하며,
-                                목록상자에는 콤보상자에서 연결할 때 사용할 id가 필요하다.
+                                목록 상자에는 콤보 상자에서 연결할 때 사용할 id가 필요하다.
                             </p>
                         </td>
                     </tr>
@@ -114,15 +113,15 @@
                         <td>
                             <ol>
                                 <li>
-                                    접근성 API에서 listbox의 하위항목임을 인지할 수 있도록 항목에 해당하는 요소나
+                                    접근성 API에서 listbox 의 하위항목임을 인지할 수 있도록 항목에 해당하는 요소나
                                     이벤트가 발생하여야 하는 하위 항목의 자손 태그에 option 역할을 부여해야 한다.
                                 </li>
                                 <li>
-                                    목록 컨테이너 하위에 option 태그가 별도로 존재할 경우에는 목록 태그의 역할을
+                                    목록 컨테이너 하위에 option 태그가 별도로 존재할 때는 목록 태그의 역할을
                                     role="none"을 통해 제거해야 한다
                                 </li>
                                 <li>
-                                    aria-activedescendant가 선택된 항목의 정보를 스크린리더 사용자에게 제공할 수 있도록
+                                    aria-activedescendant가 선택된 항목의 정보를 스크린 리더 사용자에게 제공할 수 있도록
                                     선택된 항목에 id를 제공해야 한다.
                                 </li>
                             </ol>
@@ -145,22 +144,22 @@
                         <td> 
                             <p>
                                 WAI-ARIA 1.1의 콤보 상자의 구조는 컨테이너에 combobox 역할을 제공하고, text 유형의 input 태그를 넣는 형태였다.
-                                하지만, w3c 표준 마크업 규칙에 위배되어 현재 최신의 WAI-ARIA 1.2 에서는 input에 직접 combobox 역할을 제공하는 것으려 변공되었다.
+                                하지만, W3C 표준 마크업 규칙에 위배되어 현재 최신의 WAI-ARIA 1.2 에서는 input에 직접 combobox 역할을 제공하는 것으로 변경되었다.
                             </p>
-                            <p>또한 WAI-ARIA 1.2에서의 콤보 상자에서는 aria-owns 속성 사용이 제외되어 더 이상 사용하지 않는다.</p>
+                            <p>또한 WAI-ARIA 1.2에서의 콤보 상자에서는 aria-owns 속성 사용이 제외되어 더는 사용하지 않는다.</p>
                         </td>
                     </tr>
                     <tr>
                         <th>키보드/마우스 조작 이벤트 제공</th>
                         <td>
                             <ol>
-                                <li>아래 화살표 키로 확장이 가능하고, esc키로 축소가 가능해야 한다. 마우스의 경우, 콤보상자의 부속 요소를 제외한 모든 요소 클릭 시 콤보상자가 축소되어야 한다.</li>
+                                <li>아래 화살표 키로 확장이 가능하고, ESC 키로 축소가 가능해야 한다. 마우스의 경우, 콤보 상자의 부속 요소를 제외한 모든 요소 클릭 시 콤보 상자가 축소되어야 한다.</li>
                                 <li>
                                     위 화살표 키를 통해 이전 option 항목 탐색, 아래 화살표 키를 통해 이전 option 항목 탐색이 가능해야 하며, 목록의 첫 항목과 끝 항목에서 이전 또는 다음 항목 탐색 시 순환되어야 한다.
-                                    일반 콤보상자와 다르게 입력과 목록 탐색이 동시에 이루어지기 때문에 Home 키에 End 키에 탐색 조작 기능을 부여해서는 안 된다.
+                                    일반 콤보 상자와 다르게 입력과 목록 탐색이 동시에 이루어지기 때문에 Home 키에 End 키에 탐색 조작 기능을 부여해서는 안 된다.
                                 </li>
-                                <li>입력 도중 일치하는 검색목록이 있을 경우, 자동으로 확장되어야 하며 일치하는 검색 결과가 없을 경우, 자동으로 축소되어야 함.</li>
-                                <li>마우스 클릭이나 Enter 키로 탐색중인 option 항목을 선택하여 기능을 실행하거나, 편집창에 해당 키워드를 체워넣을 수 있어야 함.</li>
+                                <li>입력 도중 일치하는 검색목록이 있을 때, 자동으로 확장되어야 하며 일치하는 검색 결과가 없을 경우, 자동으로 축소되어야 함.</li>
+                                <li>마우스 클릭이나 Enter 키로 탐색 중인 option 항목을 선택하여 기능을 실행하거나, 편집창에 해당 키워드를 채워 넣을 수 있어야 함.</li>
                             </ol>
                         </td>
                     </tr>
