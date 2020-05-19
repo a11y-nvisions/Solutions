@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>솔루션</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../style/common.css" type="text/css" />
+    <link rel="stylesheet" href="../style/components.css" type="text/css" />
+    <link rel="stylesheet"href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <style>
+        .Desc-Panel>*{
+            box-sizing:border-box;
+            height:40vh; width:100%;
+            padding:1rem; border:solid 1px rgba(255,255,255,0.15);
+        }
+
+        .Desc-Panel>*{
+            outline:none;
+        }
+
+        .Desc-Panel code{
+            display:block;
+            padding:2rem;
+            border-left:solid 0.7rem;
+            background-color:rgba(0,0,0,0.15);
+            margin-bottom:0.4rem;
+        }
+
+        .simplebar-content-wrapper:focus,.simplebar-content-wrapper:hover{
+            outline:none;
+            box-shadow: inset 0 0 0.3rem 1px #000;
+        
+        }
+
+        dt{text-align:center;
+        font-size:1.2rem; padding-bottom:0.25rem;}
+        dd{
+            margin-bottom:1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="javascript:location.href=document.querySelector('.GNB a:first-child').href" class="logo"><img src="../style/img/SolutionsLogo.png" alt="Solutions For Web Accessibility" /></a>
+        </h1>
+    </header>
+    <div class="middle-wrap">
+        <nav class="GNB"></nav>
+        <main data-simplebar>
+			<section>
+                <h2>탭 컨트롤</h2>
+                <div is="tab-list" id="sectionsTab" aria-label="탭 컨트롤">
+                    <button is="tab-item">개요(Overview)</button>
+                    <button is="tab-item">구현 방법</button>
+                </div>
+                <div is="panel-list" panel-controller="sectionsTab">
+                    <div>
+                        <h3>탭 컨트롤이란 어떤 요소인가?</h3>
+                        <p><strong>탭 컨트롤(Tab Control)</strong>은 한 페이지 또는 창(Window) 내에서 여러 콘탠츠 중에서
+                        사용자가 원하는 한 가지의 정보를 선택하여 볼 수 있는 요소이다.</p>
+                        탭 요소는 탭 목록(탭 막대)과 항목이 되는 탭 버튼, 정보를 전달하는 패널로 구성되며, 이 세가지의 연관된 요소를 다 포함하여
+                         탭 컨트롤 요소라고 부른다. 마치 부모가 되는 ul,ol, 그리고 li를 하나로 묶어 목록 요소라고 부르는 것과 비숫하다.</p>
+                        <p>원래는 웹페이지의 구성요소가 아니나, 필요에 의해 접근성 API에서 제공하는 요소 유형이다. 
+                        따라서 웹보다는 Windows의 응용 프로그램에서 주로 접할 수 있다.</p>
+                        <p>
+                        탭 컨트롤을 볼 수 있는 대표적인 UI는 Windows의 파일나 폴더의 속성(Alt + Enter, 또는 우클릭 + R)의 상단 탭 막대나
+                        Internet Explorer의 인터넷 옵션 등에서 볼 수 있으며, 크롬 개발자 도구의 화면 항목도 이와 같은 웹 기반의 탭 컨트롤을 사용한다.
+                        </p>
+                        <h4>이미지 및 설명</h4> 
+                        <div class="graphicInfo">
+                            <figure>
+                                <img src="images/ChromeInspectorTab.PNG" alt="">
+                                <figcaption>크롬 개발자 도구 화면, 크롬 단축키(F12)</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="images/IEInternetOption.PNG" alt=""></li>
+                                <figcaption>
+                                    인터넷 옵션 Windows 화면, 익스플로러 단축키 Alt+X, 목록에서 O
+                                </figcaption>
+                            </figure>
+                            <figure>
+                                <img src="images/WindowsFileProperties.PNG" alt="">
+                                <figcaption>
+                                    파일 속성 윈도 화면, 파일 및 폴더 선택 후 Alt + Enter
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <div>
+                        <p>탭 컨트롤의 구조는 패널 표시를 제어할 탭 목록/항목과 패널 영역으로 나눌 수 있다.</p>
+                        <div aria-label="탭 컨트롤 구조 이해하기" is="tab-list" id="TheWayOfmakingTabControl" aria-orientation="vertical">
+                            <button is="tab-item">탭 목록</button>
+                            <button is="tab-item">탭 버튼</button>
+                            <button is="tab-item">탭 패널</button>
+                        </div>
+                        <div class="Desc-Panel" is="panel-list" panel-controller="TheWayOfmakingTabControl">
+                            <div>
+                                <div>
+                                    <code>
+                                        <span class="tag">&lt;element <span class="attribute">role="<span class="valueType">tablist"</span></span>&gt;</span>········<span class="tag">&lt;/element&gt;</span>
+                                    </code>
+                                    <p>탭 요소를 이루는 컨테이너로, 목록 태그(ol이나 ul)과 같은 탭 항목의 부모 요소</p>
+                                    <p>하위 요소로는 오로지 아무 역할도 없는 컨테이너 요소와 탭 버튼 요소(role="tab") 만을 둘 수 있으며, 이 역할로 컨테이너를 만들면 스크린 리더 사용자에게 탭의 갯수와 몇 번째 탭을 선택하였는가를 알 수 있게 하므로 반드시 사용해야 한다.</p>
+                                    <section>
+                                        <h4>속성</h4>
+                                        <dl>
+                                            <dt>
+                                                <strong>aria-orientation (조건 필수)</strong>
+                                            </dt>
+                                            <dd>
+                                                탭 요소의 조작 방향을 알려주는 속성으로, vertical과 horizontal 값이 있다.
+                                                속성을 제공하지 않아도 적용되는 기본값이 horizontal 이기 때문에 위 또는 아래 화살표 키로 탐색하는 수직(vertical) 형태의
+                                                탭 요소에만 사용해도 무관하다.
+                                            </dd>
+                                            <dt><strong>aria-label (필수)</strong></dt>
+                                            <dd>
+                                                <p>
+                                                aria-label은 제목 텍스트를 속성 값으로 받는다.
+                                                어떠한 카테고리를 모아둔 탭 컨트롤인지 알 수 있도록 제목을 지정한다. 탭 컨트롤이 여러 개 있을 때, 다른 탭 컨트롤임을 명확히 식별할 수 있으므로 <strong class="important">반드시</strong> 제공해야 한다.
+                                                </p>
+                                            </dd>
+                                        </dl>
+                                    </section>
+                                    <section>
+                                        <h4>주의사항</h4>
+                                        <p>탭 목록을 마크업할 때, ul과 li로 목록을 구성하고, li에 초점을 받을 수 있는 탭 요소를 사용하는 경우는
+                                            반드시 항목 태그인 li 요소의 유형정보를 role="none"으로 <strong class="important">반드시</strong> 삭제해야 한다.
+                                        </p>
+                                    </section>
+                                </div>
+                            </div>
+                            <div>
+                                <code><span class="tag">&lt;element <span class="attribute">role="<span class="valueType">tab</span>"</span>
+                                </span>&gt;</span>Tab Name String<span class="tag">&lt;/element&gt;</span></code>
+                                <p>탭 컨트롤의 주 기능을 수행하는 요소로, 클릭, 방향키 동작을 통해 한 가지 요소를 라디오 버튼처럼 선택할 수 있다</p>
+                                <p>올바른 탭 컨트롤 버튼에 대한 조건은 다음과 같다.</p>
+                                <section>
+                                <h4>속성</h4>
+                                <dl>
+                                    <dt>
+                                        <strong>aria-selected (필수)</strong>
+                                    </dt>
+                                    <dd>
+                                        <p>어떤 버튼이 선택되었는가를 스크린리더 사용자에게 안내하는 boolean을 필요로 한다.</p>
+                                        <p>선택된 요소에는 true를 사용하며, 기본값이 undefined 이므로 선택 안 된 요소는 반드시 false 값을 전달해야한다.</p>
+                                        <p>속성값은 아래와 같다.</p>
+                                        <ul>
+                                            <li><span class="valueType">true</span> : 선택됨 상태정보를 전달</li>
+                                            <li><span class="valueType">false</span> : 선택안됨 상태정보</li>
+                                            <li><span class="valueType">undefined</span> : (기본값)</li>
+                                        </ul>
+                                    </dd>
+                                    <dt>
+                                        <strong>aria-controls (필수)</strong>
+                                    </dt>
+                                    <dd>
+                                        해당 탭와 어떤 패널이 연결되어 있는가 연관 관계를 정의하는 속성이며, 속성값으로는 html문서의 id 값이 필요하다.
+                                        JAWS의 경우, 탭 컨트롤에서 JAWS + ALT + M 단축키를 통해 탭 패널로 빠른 이동이 가능하다.
+                                    </dd>
+                                    <dt>
+                                        <strong>tabindex (필수)</strong>
+                                    </dt>
+                                    <dd>선택 안 된 요소에는 초점을 없애기 위해 -1 값을 사용하며, 선택된 요소에만 초점이 가도록 0 값을 사용해야 한다.</dd>
+                                    <dt>
+                                        <strong>id(조건 필수)</strong>
+                                    </dt>
+                                    <dd>
+                                        패널 내에 제목이나 aria-label을 별로도 제공하지 않는 경우, 탭 패널 요소에서 aria-labelledby로 연결하여 패널의 제목을 정의해줄 때 필요하다.
+                                    </dd>
+                                </dl>
+                            </section>
+                            <section>
+                                <h4>키보드 접근성</h4>
+                                <p>탭 컨트롤은 기본적으로 마우스 클릭으로 선택이 가능하나, 마우스를 사용할 수 없는 시각장애인이나 팔이과 손이 불편한 지체장애인 사용자를 위해 <strong class="important">반드시</strong> 제공해주어야 한다.</p>
+                                <p>탭 조작에 대한 키보드 이벤트는 다음과 같다.</p>
+                                <dl>
+                                    <dt>
+                                        <strong>탭 버튼 선택 (필수)</strong>
+                                    </dt>
+                                    <dd>
+                                        <p>키보드 사용자는 탭 컨트롤의 선택된 탭 버튼에 초점을 보낸 뒤, 다음과 같은 동작으로 탭 선택 조작이 가능해야 한다.</p>
+                                        <p>
+                                            수평 탭은 왼쪽 화살표 키로 이전 탭 선택, 오른쪽 화살표 키로 다음 탭 선택이 가능해야 하며,
+                                            수직 탭은 위 화살표 키로 이전 탭 선택, 아래 화살표 키로 다음 탭 선택이 가능해야 한다.
+                                        </p>
+                                        <p>
+                                            또한, 탭의 갯수가 많을 경우, 반복적인 키 입력이 발생하므로, Home 키로 첫 번째 탭을 선택하고,
+                                            End 키로 마지막 탭을 선택할 수 있게끔 하여, 불필요한 탐색을 단축할 수 있도록 해야 한다.
+                                        </p>
+                                        <p>
+                                           또한, 첫 번째 탭이나 마지막 탭에서 더 이상 다음 또는 이전 탭 요소가 없어 선택할 수 없으면 재량에 따라 탭의 초점을 순환하게끔 할 수 있다.
+                                        </p>
+                                    </dd>
+                                    <dt><strong>반복된 영역 탐색 방지 (필수)</strong></dt>
+                                    <dd>
+                                        <p>속성 섹션을 참고하고 tabindex로 선택되지 않은 모든 탭에 대한 초점을 이동되지 않도록 해야 한다</p>
+                                        <p>이또한 <strong class="important">반드시</strong> 지켜야 하며, 지키지 않으면 탭 컨트롤의 갯수가 많을 시,
+                                        탭 패널 영역까지 접근하려면 불필요하게 Tab 키를 많이 눌러야 하는 문제점이 생긴다.</p>
+                                    </dd>
+                                    <dt>탭 삭제(선택)</dt>
+                                    <dd>
+                                        탭 삭제가 가능한 탭 컨텐츠의 경우, 앱의 특성에 맞는 탭 닫기 또는 탭 삭제 단축키를 제공하여야 한다.
+                                        가장 기본적인 단축키는 Delete로 하며, 웹 문서작성 응용프로그램과 같이 기존 응용프로그램과 유사한 형태의
+                                        웹 애플리케이션에 탭이 있을 경우에는 관습에 따라 보편적으로 사용하는 단축키(인터넷이나 탭이 있는 문서 작성 프로그램에서
+                                        탭을 닫을 때, CTRL + W를 사용하는 것과 같이 보편적인 단축키)를 주는 것이 좋다.
+                                    </dd>
+                                </dl>
+                            </section>
+                            </div>
+                            <div>
+                                <code><span class="tag">&lt;element <span class="attribute">role="<span class="valueType">tabpanel</span></span>"&gt;</span>Contents<span class="tag">&lt;/element&gt;</span></code>
+                                <p>탭 패널은 선택된 탭 컨트롤 버튼에 해당하는 컨텐츠를 표시하는 컨테이너 요소로, 어떠한 컨텐츠든 담을 수 있다.</p>
+                                <p>올바른 탭 패널에 대한 조건은 다음과 같다.</p>
+                                <dl>
+                                    <dt><strong>aria-label, labelledby (조건 필수)</strong></dt>
+                                    <dd>
+                                        <p>aria-label은 레이블용 텍스트 스트링을 값으로 받으며, 스크린리더로 컨테이너에 접근할 때, 지정된 레이블 텍스트로 탭 패널의 제목을 안내한다.</p>
+                                        <p>각 탭 컨트롤 버튼에 id가 있는 경우, aria-labelledby를 사용하여 연결하는 것이 좋다.</p>
+                                        <p>탭 패널 첫 요소로 제목을 제공한 경우에는 이 둘을 사용하지 않아도 된다.</p>
+                                    </dd>
+                                    <dt><strong>tabindex (필수)</strong></dt>
+                                    <dd>
+                                        tabindex의 값을 0으로 지정하여, 탭 패널을 읽을 수 있도록 한다. 애플리케이션의 설정 창과 같이 초점을 받을 수 있는 요소가 대부분을 차지하는 경우, 예외적으로 tabindex를 컨테이너에 주지 않아도 된다.
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <div class="copyright">
+            <span>Copyright &copy; 
+            <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
+        </div>
+    </footer>
+    <!--polyfills-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
+    <!--Methods-->
+    <script src="../src/methods/Element.multipleSetter.js"></script>
+    <script src="../src/methods/Element.getParents.js"></script>
+    <!--Resource Script-->
+    <script src="../src/res/style.setting.js"></script>
+    <script src="../src/res/pageIndex.list.js"></script>
+    <!--DOM and components Scripts-->
+    <script src="../src/components/components.snippet.commonNav.js"></script>
+    <script src="../src/components/component.class.tabControl.js"></script>
+    <!--load a main script-->
+    <script>
+        const title = document.head.querySelector('title');
+        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
+        title.innerHTML=document.querySelector('[aria-current=page]').textContent;
+        
+        var tablist=document.querySelectorAll('[is=tab-list]')
+        for ( i of tablist ){
+            i.addEventListener('keydown',preventScrollHandler)
+        }
+        function preventScrollHandler(e){
+            var parents = e.target.getParents();
+            for (i of parents){
+                if(i.classList.contains('simplebar-content')){
+                    i.addEventListener('keydown',preventScroll);
+                }
+            }
+
+            function preventScroll(e){
+                if(e.key == 'ArrowUp' || e.key == 'ArrowDown' || e.key == 'ArrowLeft' || e.key == 'ArrowRight' || e.key == 'Home' || e.key == 'End'){
+                    e.preventDefault();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

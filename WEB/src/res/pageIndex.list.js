@@ -21,6 +21,11 @@ SolutionPage=[
                 "URL":"../example.autoComplete/index.html",
                 "TEXT":"올바른 자동완성 기능 제공 방법",
                 "STATE":"OPEN"
+            },
+            {
+                "URL":"../example.tabControl/index.html",
+                "TEXT":"올바른 탭 컨트롤 제공 방법",
+                "STATE":"OPEN"
             }
         ]
     }

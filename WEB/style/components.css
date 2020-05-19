@@ -1,5 +1,12 @@
 :root{
     --radio-selected-color:#2a1512;
+    --tab-controller-selected-color:rgba(225,175,115,0.8);
+    --tab-controller-color:#bf8b5c;
+}
+
+.live{
+    width:0px;height:0px;
+    color:transparent; overflow:hidden;
 }
 
 custom-button,expand-button{
@@ -38,6 +45,8 @@ custom-button[disabled],expand-button[disabled]{
 
 @media (prefers-color-scheme:dark){
     :root{
+        --tab-controller-color:#1a1c38;
+        --tab-controller-selected-color:#2b3d89;
         --radio-selected-color:#5af;
     }
 
@@ -188,16 +197,100 @@ li[role="option"]:last-child{
     border-bottom-width:0.025rem;
 }
 
-.selected{
+li[role="option"].selected{
     color:var(--search-selected-option-text-color);
     background-color:var(--search-selected-option-background-color);
     filter:brightness(1.1) contrast(1.2); font-weight: bold;
 }
 
-.selected:hover{
+li[role="option"].selected:hover{
     filter:brightness(1.5);
 }
 
 custom-search .box-voice-hint{
     display:none;
+}
+
+[is=tab-list]{
+    display:grid;
+    grid-auto-columns: 1fr; grid-auto-flow: column;
+    background:var(--tab-controller-color);
+}
+
+[is=tab-list][aria-orientation="horizontal"]{
+    transition:all 0.5s linear;
+    margin-bottom:0.7rem;
+}
+
+[is=tab-list][aria-orientation=vertical]{
+    grid-auto-flow: row;
+}
+
+[is="tab-item"]{
+    color:var(--theme-text-color);
+    font-size:1.2rem;
+    background-color:transparent;
+    border:none;
+    box-shadow: 0 0.05rem 0.1rem #000,
+    inset 0 0.08rem 0.03rem rgba(255,255,255,0.2);
+    filter:brightness(1);
+}
+
+[is="tab-item"][aria-selected="true"]{
+    font-weight:bold;
+    background:var(--tab-controller-selected-color);
+    transition:all 0.5s linear;
+}
+
+[is="tab-list"][aria-orientation="vertical"]>[is="tab-item"]{
+    border:none;
+    box-shadow:inset 0 0 0.1rem #000,
+    inset 0 0.08rem 0.03rem rgba(255,255,255,0.2);    
+}
+
+[role="tabpanel"]{
+    display:none;
+}
+
+[role="tabpanel"].selected{
+    display:block;
+}
+
+[role="tabpanel"]>*{
+    overflow:hidden; overflow-y:auto;
+}
+
+.graphicInfo{
+    display: grid; width:100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows:1fr;
+    grid-auto-flow: row;
+}
+
+.graphicInfo figure{
+    display:grid;
+    width:100%;
+    grid-template-rows:25rem 5rem;
+}
+
+.graphicInfo figure img{
+    align-content: center;
+    width:100%; height: 100%;
+}
+
+.graphicInfo figcaption{
+    padding:0.5rem;
+}
+
+@media screen and (max-width:1024px){
+    .graphicInfo{
+        display:block;
+    }
+    .graphicInfo figure{
+        flex:1;
+        display:grid;
+        width:100%;
+        grid-template-rows:25rem auto;
+        margin:0.5rem auto;
+    }
 }
