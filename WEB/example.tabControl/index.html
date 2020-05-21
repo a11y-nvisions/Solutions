@@ -58,6 +58,7 @@
                 </div>
                 <div is="panel-list" panel-controller="sectionsTab">
                     <div>
+                        <p>들어가기 앞서, 이 페이지의 탭 컨트롤은 알 수 없는 버그로 인해 Apple의 브라우저인 Safari에서 올바르게 동작하지 않으므로, Safari를 제외한 브라우저로 접속해주시기 바랍니다.</p>
                         <h3>탭 컨트롤이란 어떤 요소인가?</h3>
                         <p><strong>탭 컨트롤(Tab Control)</strong>은 한 페이지 또는 창(Window) 내에서 여러 콘탠츠 중에서
                         사용자가 원하는 한 가지의 정보를 선택하여 볼 수 있는 요소이다.</p>
@@ -95,8 +96,11 @@
                             <button is="tab-item">탭 목록</button>
                             <button is="tab-item">탭 버튼</button>
                             <button is="tab-item">탭 패널</button>
+                            <button is="tab-item">주의사항</button>
                         </div>
+
                         <div class="Desc-Panel" is="panel-list" panel-controller="TheWayOfmakingTabControl">
+                           
                             <div>
                                 <div>
                                     <code>
@@ -126,12 +130,14 @@
                                     </section>
                                     <section>
                                         <h4>주의사항</h4>
-                                        <p>탭 목록을 마크업할 때, ul과 li로 목록을 구성하고, li에 초점을 받을 수 있는 탭 요소를 사용하는 경우는
+                                        <p>
+                                            탭 목록을 마크업할 때, ul과 li로 목록을 구성하고, li에 초점을 받을 수 있는 탭 요소를 사용하는 경우는
                                             반드시 항목 태그인 li 요소의 유형정보를 role="none"으로 <strong class="important">반드시</strong> 삭제해야 한다.
                                         </p>
                                     </section>
                                 </div>
                             </div>
+                            
                             <div>
                                 <code><span class="tag">&lt;element <span class="attribute">role="<span class="valueType">tab</span>"</span>
                                 </span>&gt;</span>Tab Name String<span class="tag">&lt;/element&gt;</span></code>
@@ -226,6 +232,14 @@
                                         tabindex의 값을 0으로 지정하여, 탭 패널을 읽을 수 있도록 한다. 애플리케이션의 설정 창과 같이 초점을 받을 수 있는 요소가 대부분을 차지하는 경우, 예외적으로 tabindex를 컨테이너에 주지 않아도 된다.
                                     </dd>
                                 </dl>
+                            </div>
+                            <div>
+                                <h4>모바일 환경에서의 문제점</h4>
+                                <p>
+                                    안드로이드의 TalkBack을 사용하는 환경에서 aria-label의 호환성 문제로 인해
+                                    tabpanel 컨테이너에 aria-label이나 labelledby를 사용하면 패널 내의 콘텐츠에
+                                    접근하지 못하는 현상이 있으므로 모바일 대응이 필요한 때는 컨테이너 대신에 <strong class="important">탭 패널의 첫 번째 자식 요소에 tabindex를 제공해야</strong> 한다.
+                                </p>
                             </div>
                         </div>
                     </div>

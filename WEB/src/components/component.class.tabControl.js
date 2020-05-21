@@ -168,7 +168,7 @@ class PanelList extends HTMLDivElement {
         this.panels=this.children;
         for(let i=0; i<this.panels.length; i++){
             this.panels[i].id=this.controller+'_panel'+(i+1)
-            this.panels[i].setAttribute('aria-labelledby',`${this.controller}_items${i+1}`);
+            this.panels[i].setAttribute('aria-labelledby',`${this.controller}_tab_item${i+1}`);
             this.panels[i].setAttribute('role','tabpanel');
             this.panels[i].setAttribute('tabindex','0');
             if(this.controllerElement.getAttribute('aria-orientation') == 'vertical' ){
