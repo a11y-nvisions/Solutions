@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.Touch;
 import android.view.View;
 import android.widget.Button;
 
@@ -40,5 +41,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button fix_focus = (Button)findViewById(R.id.fix_focus);
+        fix_focus.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+             Intent intent = new Intent(getApplicationContext(),    StayFocusActivity.class);
+             startActivity(intent);
+         }
+        });
+
+        Button progressBar = (Button)findViewById(R.id.progressBar);
+        progressBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ProgressBarActivity.class);
+startActivity(intent);
+            }
+        });
     }
 }
+

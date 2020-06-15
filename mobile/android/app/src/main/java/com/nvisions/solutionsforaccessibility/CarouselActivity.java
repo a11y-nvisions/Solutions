@@ -22,6 +22,7 @@ Button example1 = (Button)findViewById(R.id.example1);
         example1.setOnClickListener(this);
         example2.setOnClickListener(this);
     }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {

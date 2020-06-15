@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LiveRegionActivity extends AppCompatActivity implements View.OnClickListener {
+
     private Button example1;
     private Button example2;
 
@@ -38,3 +39,4 @@ public class LiveRegionActivity extends AppCompatActivity implements View.OnClic
         }
     }
 }
+

@@ -60,15 +60,17 @@
             android:layout_height="wrap_content"
             android:text="@string/next_desc"
             android:id="@+id/next" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/talk_back_turned_on"
+            android:text="@string/talk_back_turned_on"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/talk_back_turned_off"
+            android:text="@string/talk_back_turned_off"/>
+
     </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/talk_back_turned_on"
-        android:text="@string/talk_back_turned_on"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/talk_back_turned_off"
-        android:text="@string/talk_back_turned_off"/>
-</RelativeLayout>
+    </RelativeLayout>
+

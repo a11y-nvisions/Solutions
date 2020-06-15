@@ -92,3 +92,4 @@ public class CarouselExample2Activity extends AppCompatActivity {
     }
 
 }
+

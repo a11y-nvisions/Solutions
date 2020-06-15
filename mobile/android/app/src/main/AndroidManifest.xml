@@ -33,6 +33,20 @@
         <activity android:name=".CarouselActivity" android:label="@string/carousel_title" android:parentActivityName=".MainActivity"></activity>
         <activity android:name=".CarouselExample1Activity" android:label="@string/carousel_bad_accessibility" android:parentActivityName=".CarouselActivity"></activity>
         <activity android:name=".CarouselExample2Activity" android:label="@string/carousel_good_accessibility" android:parentActivityName=".CarouselActivity"></activity>
+        <activity android:name=".OnTouchActivity" android:label="@string/on_touch_title" android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".RecyclerViewFocusActivity" android:label="@string/stay_focus_example" android:parentActivityName=".StayFocusActivity"></activity>
+<activity android:name=".StayFocusActivity"
+    android:label="@string/stay_focus"
+    android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".ProgressBarActivity"
+            android:label="@string/progressBar"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".ProgressBarAccessibleExampleActivity"
+            android:label="@string/progressBarAccessibleExample"
+            android:parentActivityName=".ProgressBarActivity"></activity>
+        <activity android:name=".ProgressBarNoneAccessibleExampleActivity"
+            android:parentActivityName=".ProgressBarActivity"
+            android:label="@string/progressBarNoneAccessibleExample"/>
     </application>
 
 </manifest>

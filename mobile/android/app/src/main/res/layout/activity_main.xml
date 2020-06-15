@@ -30,5 +30,16 @@ android:text="@string/liveregion_title" />
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/carousel_title" />
-
+    <Button
+        android:id="@+id/fix_focus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/stay_focus" />
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/progressBar"
+    android:layout_gravity="center"
+android:text="@string/progressBar"/>
 </LinearLayout>

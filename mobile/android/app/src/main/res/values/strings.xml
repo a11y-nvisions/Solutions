@@ -33,5 +33,57 @@
     <string name="person_holding_android">안드로이드 폰을 들고 있는 사람</string>
 <string name="talk_back_turned_on">톡백을 켠 상태로 해당 화면에 진입하셨습니다. 톡백을 끄고 뒤로 빠져 나갔다가 다시 해당 화면으로도 진입해 보세요.</string>
     <string name="talk_back_turned_off">톡백을 끈 상태로 해당 화면에 진입하셨습니다. 이번에는 톡백을 켜고 뒤로 빠져나갔다가 다시 해당 화면에 진입해 보세요.</string>
+<string name="edit_text">힌트 메시지를 사용할 수 없을때</string>
+<string name="onTouch">온터치리스너를 사용해야 할 때</string>
+<string name="on_touch_title">온터치 리스너 구현 시</string>
+<string name="stay_focus">접근성 포커스 유지하기</string>
 
-</resources>
+
+    <string name="title_grouping">Grouping</string>
+    <string name="title_roles_and_actions">Roles and Actions</string>
+    <string name="title_stage_changes">State Changes</string>
+    <string name="title_recycler_view_scrolling">RecyclerView Scrolling</string>
+    <string name="title_recycler_view_focus">RecyclerView Focus</string>
+
+    <string name="grouping_bad_description">An example of bad grouping.</string>
+    <string name="grouping_improved_description">An example of improved grouping.</string>
+
+    <string name="user_name_example">Name</string>
+    <string name="user_surname_example">Surname</string>
+    <string name="placeholder_avatar_content_description_example">User placeholder avatar</string>
+    <string name="content_description_user_combined">Name Surname</string>
+
+    <string name="button_login">Login</string>
+    <string name="button_role">Button</string>
+    <string name="roles_description">An example of the roles.\nThe following components are Button, TextView with listener, TextView with listener and role.</string>
+
+    <string name="content_description_edit_note">Edit note</string>
+    <string name="action_edit_note">Edit note</string>
+    <string name="action_copy_note">Copy note</string>
+    <string name="actions_description">An example of actions.\nThe following elements have tap and long tap actions, one is default and the other sets additional action descriptions.</string>
+    <string name="recycler_view_non_scrolling_description">The following RecyclerView cannot scroll to all elements with Talkback.</string>
+    <string name="recycler_view_scrolling_description">The following RecyclerView scrolls to all elements with Talkback.</string>
+    <string name="recycler_view_lost_focus">The following RecyclerView loses focus with Talkback.</string>
+    <string name="recycler_view_with_focus">The following RecyclerView does not loose focus with Talkback.</string>
+    <string name="content_description_delete_item">삭제</string>
+    <string name="description_state_changes">An example of states changes.\nFirst button does not update accessibility information, including content description and action, second one does.</string>
+    <string name="content_description_favorite">Favorite item</string>
+    <string name="content_description_not_favorite">Not favorite item</string>
+    <string name="content_description_action_favorite">Add to favorites</string>
+    <string name="content_description_action_remove_from_favorites">Remove from favorites</string>
+    <string name="item_deleted_x">%s 삭제됨</string>
+<string name="stay_focus_content">특정 요소를 이중탭하면 레이아웃이 변경되지만 포커스를 유지해야 할 때가 있을 수 있습니다. 이 때 딜레이 속성을 걸어주지 않으면 스크린 리더 포커스가 상단으로 튀어버리는 접근성 문제가 발생합니다.</string>
+
+<string name="stay_focus_use">접근성 데모 안에 들어가셔서 각 숫자 다음에 있는 삭제 버튼을 이중탭해보세요. 접근성이 적용되지 않은 예시에서는 스크린리더 포커스가 상단으로 튀는 이슈가 발생합니다.</string>
+<string name="stay_focus_example">접근성 포커스 유지 예제</string>
+    <string name="stay_focus_good">접근성이 적용된 경우</string>
+    <string name="stay_focus_bad">접근성이 적용되지 않은 경우</string>
+    <string name="progressBar">막대 그래프로만 진행률을 표시하는 경우</string>
+<string name="progressBarText">ProgressBar 클래스를 사용하여 진행률 상태를 그래프로 표시하는 경우에는 스크린 리더 사용자를 위해 대체 텍스트를 삽입하여 진행률 바에 접근할 수 있도록 해 주어야 합니다.</string>
+<string name="progressBarAccessibleExample">진행률막대, 접근성이 적용된 예시</string>
+    <string name="progressBarNoneAccessibleExample">진행률 막대, 접근성이 적용되지 않은 예시</string>
+<string name="startProgress">진행률 표시줄 테스트 시작하기</string>
+    <string name="resetProgress">퍼센트 0으로 초기화 하기</string>
+    <string name="progressResetComplete">0%로 초기화됨</string>
+
+    </resources>
