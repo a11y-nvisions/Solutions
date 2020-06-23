@@ -115,15 +115,6 @@ table td{background-color:rgba(165,115,80,0.4);}
 table input[type="text"]{width:100%; text-align:center;}
 `
 
-const ButtonStyle=`
-*{margin:inherit; padding:inherit;}
-:host{
-	border:solid 1px;
-	display:inline-block; padding:inherit;
-	cursor:default; user-select:none;
-}
-`
-
 const commonNAVStyle=`
 	*{margin:inherit; padding:inherit;}
 `

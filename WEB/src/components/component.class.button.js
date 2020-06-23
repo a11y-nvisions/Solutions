@@ -39,9 +39,6 @@ class CustomButton extends HTMLElement {
         const shadowRoot=this.attachShadow({mode:'open'});
         
         shadowRoot.innerHTML=`
-        <style>
-            ${ButtonStyle}
-        </style>
         ${this.innerHTML}
         `;
         if(!this.disabled && !this.hasAttribute('inaccessible')){

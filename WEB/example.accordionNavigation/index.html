@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>솔루션</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../style/common.css" type="text/css" />
+    <link rel="stylesheet" href="../style/components.css" type="text/css" />
+    <link rel="stylesheet"href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <style>
+        .icons a{
+            display:grid; grid-auto-flow:row;
+            grid-template-columns:1.5em auto;
+        }
+        .icons a:before{
+            content:'';
+            display: inline-block; width:1.5em; height:1.5em; vertical-align: middle;
+            padding:0.2rem; border-radius: 50%;
+        }
+        .icons.Chrome a:before{
+            background:url('./images/chrome.png') no-repeat;
+            background-color:aliceblue;
+            background-size:80%; background-position: center;
+        }
+        .icons.Firefox a:before{
+            background:url('./images/firefox.png') no-repeat;
+            background-color:aliceblue;
+            background-size:80%; background-position: center;
+        }
+
+        .icons.Edge a:before{
+            background:url('./images/edge.png') no-repeat;
+            margin-right:1rem;
+            background-color:aliceblue;
+            background-size:95%; background-position: center;
+        }
+        .icons.SenseReader a:before{
+            background:url('./images/SR.png') no-repeat;
+            background-color:aliceblue;
+            background-size:80%; background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="javascript:location.href=document.querySelector('.GNB a:first-child').href" class="logo"><img src="../style/img/SolutionsLogo.png" alt="Solutions For Web Accessibility" /></a>
+        </h1>
+    </header>
+    <div class="middle-wrap">
+        <nav class="GNB"></nav>
+        <main data-simplebar>
+			<section>
+                <div is="nav-list" aria-label="접근성 테스트 환경지원">
+                    <ul>
+                        <li><expand-button control-target="#browser-download">브라우저 다운로드</expand-button>
+                            <ul id="browser-download">
+                                <li class="icons Chrome"><a href="#">Chrome</a></li>
+                                <li class="icons Firefox"><a href="#">Firefox</a></li>
+                                <li class="icons Edge"><a href="#">Edge</a></li>
+                            </ul>
+                        </li>
+                        <li><expand-button control-target="#SR-download">스크린리더 다운로드</expand-button>
+                            <ul id="SR-download">
+                                <li><a href="#">JAWS</a></li>
+                                <li><a href="#">NVDA</a></li>
+                                <li class="icons SenseReader"><a href="#">Sense Reader</a></li>
+                            </ul>
+                        </li>
+                        <li><expand-button control-target="#help-mobileA11y">모바일 접근성 도움말</expand-button>
+                            <ul id="help-mobileA11y">
+                                <li><a href="#">iOS</a></li>
+                                <li><a href="#">Android</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+			</section>
+        </main>
+    </div>
+    <footer>
+        <div class="copyright">
+            <span>Copyright &copy; 
+            <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
+        </div>
+    </footer>
+    <!--polyfills-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
+    <!--Methods-->
+    <script src="../src/methods/Element.multipleSetter.js"></script>
+    <!--Resource Script-->
+    <script src="../src/res/style.setting.js"></script>
+    <script src="../src/res/pageIndex.list.js"></script>
+    <!--DOM and components Scripts-->
+    <script src="../src/components/components.snippet.commonNav.js"></script>    
+    <script src="../src/components/component.class.button.js"></script>    
+    <script src="../src/components/component.class.accordion.js"></script>    
+    <script src="../src/components/component.class.navigation.js"></script>    
+    <!--load a main script-->
+    <script>
+        const title = document.head.querySelector('title');
+        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
+        title.innerHTML=document.querySelector('[aria-current=page]').textContent;
+    </script>
+</body>
+</html>
