@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox</title>
+</head>
+<body>
+    <style>
+        :root{
+            --outline-chkbox:0.1rem;
+        }
+
+        *{
+            padding:0; margin:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-size:1rem;
+        }
+
+        custom-checkbox:focus{
+            outline:0;
+        }
+
+        custom-checkbox:focus::after{
+            content:'';
+            display:inline-block; position: absolute;
+            width:calc(1.1rem + var(--outline-chkbox)); height:calc(1.1rem + var(--outline-chkbox)); top:50%; left:50%;
+            box-sizing: content-box;
+            transform:translateX(-50%) translateY(-50%);
+            box-shadow:
+            0 0 0 0.03rem #9ff,
+            0 0 0 0.05rem #06c,
+            0 0 0 0.06rem #036f;
+            border-radius:0.2rem;
+        }
+        [data-for]{
+            user-select:none;
+            vertical-align: middle;
+        }
+        custom-checkbox{
+            position:relative;
+            vertical-align: middle;
+            display:inline-block;
+            background-color: #2f7fcf;
+            box-shadow:inset 1px 0px 2px 1px rgba(0,0,100,0.3),
+            0 0 1px 0 #000;
+            width:1.2rem; height:1.2rem;
+            z-index:99; margin:0.1rem;
+            border:solid var(--outline-chkbox) #3fcfff;;
+            border-radius:0.2rem;
+        }
+
+        .check-sign{
+            fill: #7fdaff;
+            stroke:#3f9fff;
+            filter:drop-shadow(0 1px 0 #35a);
+            stroke-width:0.6rem;
+            vertical-align:top;
+            transform:scale(1.2);
+            z-index:100;
+        }
+    </style>
+    <strong data-for="chk_agree">동의함</strong>
+    <custom-checkbox id="chk_agree"></custom-checkbox>
+    <input type="checkbox">
+    <script src="checkbox.js"></script>
+    <script>
+        function ReversedString (val){
+            let s = String(val);
+            let r = '';
+            for(let i=s.length-1; i>=0; i--){
+                r+=s[i];
+            }
+            return r;
+        }
+    </script>
+</body>
+</html>
