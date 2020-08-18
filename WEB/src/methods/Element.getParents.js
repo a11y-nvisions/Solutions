@@ -1,3 +1,4 @@
+'use strict';
 Element.prototype.getParents= function(){
     var parentsList = []
     var start = this;

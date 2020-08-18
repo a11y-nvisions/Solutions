@@ -3,99 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>콤보박스</title>
-    <style>
-        *{
-            margin: 0; padding:0;
-            box-sizing: border-box;
-        }
-
-        body{
-            font-size:2rem;
-        }
-
-        ul{list-style: none;}
-        label{display:inline; vertical-align:text-top;}
-        
-        select-box {
-            display:inline-flex;
-            margin:1rem; overflow:hidden; flex-flow:column;
-            justify-content: center; width:15rem;
-        }
-
-        select-box [role=combobox]{
-            border-radius:0.5rem; display:block; width:100%;
-            font-size:inherit; overflow:hidden; text-overflow: ellipsis; white-space: nowrap;
-            padding:0 1em; position:relative; border:none;
-            border:solid 0.01em #000; text-align: center;
-            min-height:1em; background-color: transparent;
-            user-select:none;
-        }
-
-        select-box [role="combobox"]:focus{
-            outline:none; box-shadow:inset 0.1rem 0.1rem 0.1rem;
-        }
-
-        select-box [role=combobox]:after{
-            content:''; position:absolute;
-            display:inline-block; right:2%;
-            top:50%; transform: translateY(-50%);
-            width:0.7em; height:0.7em;
-            align-self: center;
-        }
-
-        select-box [role=combobox][aria-expanded=false]:after{
-            background-image:url('http://a11y-nvisions.github.io/svg/down arrow.svg');
-        }
-
-        select-box [role=combobox][aria-expanded=true]:after{
-            background-image:url('http://a11y-nvisions.github.io/svg/up arrow.svg');
-        }
-
-        select-box [role=listbox]{
-            background-color:#fff;
-            transition: height 0.3s, max-height 0.3s, opacity 0.3s, visibility 0.3s;
-            border:solid 1px;
-            border-radius: 0.5rem;
-            position: absolute;
-        }
-
-        select-box [role=listbox] .simplebar-mask,[role=listbox] .simplebar-wrapper{
-            overflow:hidden; border-radius: 0.5rem;
-        }
-
-        select-box [role=listbox] [role=group][aria-label]:before{
-            content:attr(aria-label); display:block;
-            font-weight: bold; text-align: center;
-        }
-
-        select-box [role=listbox].expanded{
-            min-height:1em;
-            visibility:visible; position: absolute;
-            z-index:9999;
-        }
-
-        select-box [role=listbox].collapsed{
-
-            min-height:0; opacity:0;
-            max-height:0; visibility:hidden;
-        }
-
-        select-box [role=option]{
-            user-select:none;
-            text-align: center;
-        }
-
-        select-box [role=option].focused{
-            background-color: cornflowerblue;
-        }
-
-    </style>
+    <title>Web A11y - Nvisions Soltuions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../style/common.css" type="text/css" />
+    <link rel="stylesheet" href="../style/components.css" type="text/css" />
     <link rel="stylesheet"href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
     <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <!--polyfills-->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
+    <!--Methods-->
+    <script defer src="../src/methods/Element.multipleSetter.js"></script>
+    <!--Resource Script-->
+    <script defer src="../src/res/style.setting.js"></script>
+    <script defer src="../src/res/pageIndex.list.js"></script>
+    <!--DOM and components Scripts-->
+    <script defer src="../src/components/component.snippet.commonNav.js"></script>
+    <script defer src="../src/components/component.class.combobox.js"></script>
 </head>
 <body>
-    
-    <script src="../src/components/component.class.combobox.js"></script>
+    <header>
+        <h1>
+            <a href="javascript:location.href=document.querySelector('.GNB a:first-child').href" class="logo"><img src="../style/img/SolutionsLogo.png" alt="Solutions For Web Accessibility" /></a>
+        </h1>
+    </header>
+    <div class="middle-wrap">
+        <nav class="GNB"></nav>
+        <main>
+            <h2>콤보 상자(ComboBox : select)</h2>
+            <section></section>
+            <h3>개요(Overview)</h3>
+            <p>콤보상자는 기본적으로 정해진 옵션 중에 한 가지 메뉴를 선택하는 입력서식으로,
+            접힌 상태에서 간편하게 화살표 키를 통해 탐색과 선택이 동시에 가능하며,
+            클릭하여 확장하여 화살표 키로 탐색을 먼저 진행 한 다음 선택하는 드롭다운형 요소이다.
+            </p>
+            <p>
+                HTML에서 지원하는 select 태그에는 multiple 속성을 통해 펼처진 형태의 메뉴로
+                제공할 수 있으나, 대중적으로 사용하지 아니하여 다루지 않는다.
+            </p>
+            <p>
+            국내 사이트에서는 주로 게시글 검색 필터나 회원가입에서의 전화번호 앞 세 자리 등을 입력받을 때
+            찾아볼 수 있다.
+            </p>
+
+            <section>
+                <section aria-roledescription="주의사항 안내문">
+                    <h3>이 예제의 내용은 다소 생략돼 있습니다</h3>
+                    <p>상태/선택정보 및 초점관리는 앞서 업로드한
+                        <a href="../example.autoComplete/index.html">올바른 자동완성 기능 제공방법</a>과
+                        많은 부분을 공유하므로 중복된 내용을 생략합니다.
+                    </p>
+                </section>
+                <section>
+                    <h3>추가 키보드 조작</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>알파벳 키 탐색</th>
+                                <td>select 요소는 영문으로 된 option 한정으로 a부터 z까지의 단축키로
+                                    옵션을 탐색할 수 있어야 한다.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>첫번째/마지막 요소로 이동</th>
+                                <td>
+                                    자동완성 편집기능이 없는 일반적인 select 요소는 Home 또는 End 키를 통해
+                                    첫 요소와 마지막 요소로 이동할 수 있어야 한다.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+            </section>
+			<section>
+                <h3>EXAMPLE</h3>
+                <label attachTo="comfruit_controller">
+                    Fruits
+                </label>
+                <select-box id="comfruit" size="5">
+                    <div class="radius-wrap">
+                        <ul data-simplebar>
+                            <div role="group" aria-label="In Korea">
+                            <li>Apple</li>
+                            <li>Apricot</li>
+                            <li>Fig</li>
+                            <li>Grapes</li>
+                            <li>Korean Melon</li>
+                            <li>StrawBerry</li>
+                            <li>Tangerine</li>
+                            <li>Persimmon</li>
+                            <li>Pear</li>
+                            <li>Peach</li>
+                            <li>Plum</li>
+                            <li>Pomegranates</li>
+                            <li>Watermelon</li>
+                            </div>
+                            <div role="group" aria-label="Tropical">
+                            <li>Banana</li>
+                            <li>Mango</li>
+                            <li>Pineapple</li>
+                            </div>
+                        </ul>
+                    </div>
+                </select-box>
+			</section>
+        </main>
+    </div>
+    <footer>
+        <div class="copyright">
+            <span>Copyright &copy; 
+            <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
+        </div>
+    </footer>
+    <!--load a main script-->
+    <script defer>
+        const title = document.head.querySelector('title');
+        const mainScroll = new SimpleBar(document.querySelector('main'));
+        const selectBoxes = document.querySelectorAll('select-box');
+        window.addEventListener('DOMContentLoaded',function(){
+            title.innerHTML=document.querySelector('[aria-current=page]').textContent;
+            for(let i=0; i<selectBoxes.length; i++){
+                const element = selectBoxes[i];
+                element.addEventListener('focusin',function(){
+                    mainScroll.getScrollElement().addEventListener('keydown',preventScroll)
+                })
+                element.addEventListener('focusout',function(){
+                    mainScroll.getScrollElement().removeEventListener('keydown',preventScroll)
+                })
+            }
+
+            function preventScroll(e){
+                if(e.code === 'Home' || e.code === 'End'
+                    || e.code === "ArrowDown"  || e.code === 'ArrowUp'
+                ){
+                    e.preventDefault();
+                }
+            }
+        })
+        
+    </script>    
 </body>
 </html>

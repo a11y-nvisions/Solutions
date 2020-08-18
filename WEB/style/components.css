@@ -2,6 +2,7 @@
     --radio-selected-color:#2a1512;
     --tab-controller-selected-color:rgba(225,175,115,0.8);
     --tab-controller-color:#bf8b5c;
+    --outline-chkbox:0.1rem;
 }
 
 .live{
@@ -9,7 +10,7 @@
     color:transparent; overflow:hidden;
 }
 
-custom-button,expand-button{
+custom-button,expand-button,button{
     box-sizing:border-box; display:inline-block;
     padding:0.2rem; font-weight: bold; overflow:hidden;
     position:relative; border-width:0.1rem; user-select:none;
@@ -20,7 +21,7 @@ custom-button,expand-button{
 /***System Theme***/
 /*Light and no proference*//*색상 프로퍼티만을 작성하세요*/
 
-custom-button,expand-button{
+custom-button,expand-button,button{
     font-family:"HY건고딕";
     color:#000;
     background:linear-gradient(#ceae89, #eece9f);
@@ -33,7 +34,7 @@ custom-button,expand-button{
     rgba(255,255,255,0.2)/*BOTTOM*/
     rgba(255,255,255,0.3);/*LEFT*/
 }
-custom-button[disabled],expand-button[disabled]{
+custom-button[disabled],expand-button[disabled],button[disabled]{
     opacity:0.3;
     border-color:
     rgba(255,255,255,0.9)/*TOP*/
@@ -50,7 +51,7 @@ custom-button[disabled],expand-button[disabled]{
         --radio-selected-color:#5af;
     }
 
-    custom-button,expand-button{
+    custom-button,expand-button,button{
         color:var(--theme-text-color);
         background:linear-gradient(#111125, #23205A);
         text-shadow: 0 1px 1px rgba(255,255,255,0.5);
@@ -60,7 +61,7 @@ custom-button[disabled],expand-button[disabled]{
         rgba(205,205,205,0.1)/*BOTTOM*/
         rgba(205,205,205,0.2);/*LEFT*/
     }
-    custom-button[disabled],expand-button[disabled]{
+    custom-button[disabled],expand-button[disabled],button[disabled]{
         opacity:0.3;
         color:var(--theme-text-color);
         border-color:
@@ -313,7 +314,7 @@ custom-search .box-voice-hint{
 }
 
 
-[is=nav-list] expand-button{
+[is=nav-list] expand-button,[is=nav-list] button{
     width:100%; background: transparent; box-shadow: none;
     border:solid 0.05rem var(--theme-text-color);
 }
@@ -324,18 +325,22 @@ select-box {
     margin:1rem; overflow:hidden; flex-flow:column;
     justify-content: center; width:15rem;
 }
-
+select-box button{
+    all:inherit;
+    margin:0;
+}
 select-box [role=combobox]{
     border-radius:0.5rem; display:block; width:100%;
+    color:var(--theme-text-color); background-color:var(--tab-controller-color);
     font-size:inherit; overflow:hidden; text-overflow: ellipsis; white-space: nowrap;
-    padding:0 1em; position:relative; border:none;
-    border:solid 0.01em #000; text-align: center;
-    min-height:1em; background-color: transparent;
+    padding:0 1em; position:relative;
+    border:solid 0.01em; text-align: center;
+    min-height:1em;
     user-select:none;
 }
 
 select-box [role="combobox"]:focus{
-    outline:none; box-shadow:inset 0.1rem 0.1rem 0.1rem;
+    outline:none; box-shadow:inset 0.1rem 0.1rem 0.1rem rgba(0,0,0,0.6);
 }
 
 select-box [role=combobox]:after{
@@ -347,15 +352,19 @@ select-box [role=combobox]:after{
 }
 
 select-box [role=combobox][aria-expanded=false]:after{
-    background-image:url('http://a11y-nvisions.github.io/svg/down arrow.svg');
+    -webkit-mask-image:url('http://a11y-nvisions.github.io/svg/down arrow.svg');
+    mask-size:100%; background-color:var(--theme-text-color);
+    mask-image:url('http://a11y-nvisions.github.io/svg/down arrow.svg') #fff;
 }
 
 select-box [role=combobox][aria-expanded=true]:after{
-    background-image:url('http://a11y-nvisions.github.io/svg/up arrow.svg');
+    -webkit-mask-image:url('http://a11y-nvisions.github.io/svg/up arrow.svg');
+    mask-size:100%; background-color:var(--theme-text-color);
+    mask-image:url('http://a11y-nvisions.github.io/svg/up arrow.svg');
 }
 
 select-box [role=listbox]{
-    background-color:#fff;
+    background-color:var(--tab-controller-color);
     transition: height 0.3s, max-height 0.3s, opacity 0.3s, visibility 0.3s;
     border:solid 1px;
     border-radius: 0.5rem;
@@ -374,7 +383,7 @@ select-box [role=listbox] [role=group][aria-label]:before{
 select-box [role=listbox].expanded{
     min-height:1em;
     visibility:visible; position: absolute;
-    z-index:9999;
+    z-index:99999;
 }
 
 select-box [role=listbox].collapsed{
@@ -386,8 +395,69 @@ select-box [role=listbox].collapsed{
 select-box [role=option]{
     user-select:none;
     text-align: center;
+    border:none;
 }
 
 select-box [role=option].focused{
     background-color: cornflowerblue;
+}
+
+
+/* checkbox.js */
+custom-checkbox:focus{
+    outline:0;
+}
+
+custom-checkbox:focus::after{
+    content:'';
+    display:inline-block; position: absolute;
+    width:calc(1.1rem + var(--outline-chkbox)); height:calc(1.1rem + var(--outline-chkbox)); top:50%; left:50%;
+    box-sizing: content-box;
+    transform:translateX(-50%) translateY(-50%);
+    box-shadow:
+    0 0 0 0.08rem #036f,
+    0 0 0 0.1rem #9ff,
+    0 0 0 0.12rem #06c;
+    border-radius:0.2rem;
+}
+[data-for]{
+    user-select:none;
+    vertical-align: middle;
+}
+custom-checkbox{
+    user-select:none;
+    position:relative;
+    vertical-align: middle;
+    display:inline-block;
+    background-color: #2f7fcf;
+    box-shadow:inset 1px 0px 2px 1px rgba(0,0,100,0.3),
+    0 0 1px 0 #000;
+    width:1.2rem; height:1.2rem;
+    z-index:99; margin:0.1rem;
+    border:solid var(--outline-chkbox) #3fcfff;;
+    border-radius:0.2rem;
+}
+
+.check-sign{
+    fill: #7fdaff;
+    stroke:#3f9fff;
+    filter:drop-shadow(0 1px 0 #35a);
+    stroke-width:0.6rem;
+    vertical-align:top;
+    transform:scale(1.2);
+    z-index:100;
+}
+
+custom-checkbox[aria-disabled="true"]{
+    filter: opacity(0.6) grayscale(0.2);
+}
+
+.disabled[data-for]{
+    filter: opacity(0.6) grayscale(0.2);
+}
+
+custom-checkbox[aria-checked="mixed"] .mixed{
+   width:90%; height:0.3em; position: absolute;
+   top:50%; left:50%; transform: translateY(-50%) translateX(-50%);
+   background-color:#5fefff;
 }

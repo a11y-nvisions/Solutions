@@ -1,3 +1,4 @@
+'use strict';
 class Custom_Checkbox extends HTMLElement {
     constructor(){
         super();

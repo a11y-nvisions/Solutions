@@ -8,7 +8,48 @@
     <link rel="stylesheet" href="../style/common.css" type="text/css" />
     <link rel="stylesheet" href="../style/components.css" type="text/css" />
     <link rel="stylesheet"href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <!--polyfills-->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
+    <!--Methods-->
+    <script defer src="../src/methods/Element.multipleSetter.js"></script>
+    <script defer src="../src/methods/Element.getParents.js"></script>
+    <!--Resource Script-->
+    <script defer src="../src/res/style.setting.js"></script>
+    <script defer src="../src/res/pageIndex.list.js"></script>
+    <!--DOM and components Scripts-->
+    <script defer src="../src/components/component.snippet.commonNav.js"></script>
+    <script defer src="../src/components/component.class.tabControl.js"></script>
+    <!--load a main script-->
+    <script defer>
+        const title = document.head.querySelector('title');
+        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
+        window.addEventListener('DOMContentLoaded',function(){
+            title.innerHTML=document.querySelector('[aria-current=page]').textContent;
+        })
+        
+        var tablist=document.querySelectorAll('[is=tab-list]')
+        for ( i of tablist ){
+            i.addEventListener('keydown',preventScrollHandler)
+        }
+        function preventScrollHandler(e){
+            var parents = e.target.getParents();
+            for (i of parents){
+                if(i.classList.contains('simplebar-content')){
+                    i.addEventListener('keydown',preventScroll);
+                }
+            }
+
+            function preventScroll(e){
+                if(e.key == 'ArrowUp' || e.key == 'ArrowDown' || e.key == 'ArrowLeft' || e.key == 'ArrowRight' || e.key == 'Home' || e.key == 'End'){
+                    e.preventDefault();
+                }
+            }
+        }
+    </script>
     <style>
         .Desc-Panel>*{
             box-sizing:border-box;
@@ -239,44 +280,5 @@
             <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
         </div>
     </footer>
-    <!--polyfills-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
-    <!--Methods-->
-    <script src="../src/methods/Element.multipleSetter.js"></script>
-    <script src="../src/methods/Element.getParents.js"></script>
-    <!--Resource Script-->
-    <script src="../src/res/style.setting.js"></script>
-    <script src="../src/res/pageIndex.list.js"></script>
-    <!--DOM and components Scripts-->
-    <script src="../src/components/components.snippet.commonNav.js"></script>
-    <script src="../src/components/component.class.tabControl.js"></script>
-    <!--load a main script-->
-    <script>
-        const title = document.head.querySelector('title');
-        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
-        title.innerHTML=document.querySelector('[aria-current=page]').textContent;
-        
-        var tablist=document.querySelectorAll('[is=tab-list]')
-        for ( i of tablist ){
-            i.addEventListener('keydown',preventScrollHandler)
-        }
-        function preventScrollHandler(e){
-            var parents = e.target.getParents();
-            for (i of parents){
-                if(i.classList.contains('simplebar-content')){
-                    i.addEventListener('keydown',preventScroll);
-                }
-            }
-
-            function preventScroll(e){
-                if(e.key == 'ArrowUp' || e.key == 'ArrowDown' || e.key == 'ArrowLeft' || e.key == 'ArrowRight' || e.key == 'Home' || e.key == 'End'){
-                    e.preventDefault();
-                }
-            }
-        }
-    </script>
 </body>
 </html>

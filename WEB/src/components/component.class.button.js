@@ -1,3 +1,4 @@
+'use strict';
 class CustomButton extends HTMLElement {
     constructor(){
         super();

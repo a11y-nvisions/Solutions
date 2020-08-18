@@ -8,7 +8,63 @@
     <link rel="stylesheet" href="../style/common.css" type="text/css" />
     <link rel="stylesheet" href="../style/components.css" type="text/css" />
     <link rel="stylesheet"href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <!--polyfills-->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
+    <!--Methods-->
+    <script defer src="../src/methods/Element.multipleSetter.js"></script>
+    <script defer src="../src/methods/Element.getParents.js"></script>
+    <!--Resource Script-->
+    <script defer src="../src/res/style.setting.js"></script>
+    <script defer src="../src/res/pageIndex.list.js"></script>
+    <!--DOM Scripts-->
+    <script defer src="../src/components/component.snippet.commonNav.js"></script>
+    <script defer src="../src/components/component.class.button.js"></script>
+    <script defer>
+        'use strict'
+        const title = document.head.querySelector('title');
+        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
+        window.addEventListener('DOMContentLoaded',function(){
+            title.innerHTML=document.querySelector('[aria-current=page]').textContent;
+        })
+    </script>
+    <!--inline-->
+    <script defer>
+        'use strict'
+        window.addEventListener('click',function(){
+            document.querySelector('custom-button').addEventListener('click',handle)
+            document.querySelector('custom-button').addEventListener('keydown',handle)
+            document.querySelector('custom-button[inaccessible]').addEventListener('click',handle)
+            document.querySelector('custom-button[inaccessible]').addEventListener('keydown',handle)
+            document.querySelector('custom-button[inaccessible][disabled]').addEventListener('click',handle)
+            document.querySelector('custom-button[inaccessible][disabled]').addEventListener('keydown',handle)
+            document.querySelector('custom-button[inaccessible][disabled]').addEventListener('focus',handle)
+        })
+        
+        function handle(e){
+            console.log(e.type);
+            if( e.type == 'keydown'){
+                if(e.keyCode == 32 || e.keyCode == 13 ){
+                    e.target.hasAttribute('disabled') ?  alert('disabled 요소에는 이렇게 클릭이 되어서는 안 됩니다.') : alert('keydown 이벤트가 감지되었습니다.');
+                }
+            }else if( e.type == 'click' ){
+                    
+                !e.target.hasAttribute('inaccessible') && (e.target.hasAttribute('disabled') == false) ? alert('click 이벤트가 감지되었습니다.') : false;
+
+                e.target.hasAttribute('inaccessible') && (e.target.hasAttribute('disabled') == false) ? alert('click 이벤트가 감지되었습니다. 키보드로 눌렀음에도 이 메시지가 출력된다면 NVDA의 브라우즈 모드(Insert+Space), 센스 리더의 가상커서 사용 중지(Ctrl + Shift + F12)를 통해 해당 기능을 끄고 테스트하십시오') : false;
+                e.target.hasAttribute('inaccessible') && e.target.hasAttribute('disabled') ? alert('disabled 요소에는 이렇게 click 이벤트 또한 발생해서는 안 됩니다.') : false;
+
+            }
+
+            if( e.type == "focus" ){
+                e.target.hasAttribute('disabled') ? 
+                (function(){alert('비활성화 상태의 요소에는 초점이 제공되어서는 안 됩니다.'); e.target.blur();})() : false;
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -92,56 +148,5 @@
             <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
         </div>
     </footer>
-    <!--polyfills-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
-    <!--Methods-->
-    <script src="../src/methods/Element.multipleSetter.js"></script>
-    <script src="../src/methods/Element.getParents.js"></script>
-    <!--Resource Script-->
-    <script src="../src/res/style.setting.js"></script>
-    <script src="../src/res/pageIndex.list.js"></script>
-    <!--DOM Scripts-->
-    <script src="../src/components/components.snippet.commonNav.js"></script>
-    <script src="../src/components/component.class.button.js"></script>
-    <script>
-        const title = document.head.querySelector('title');
-        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
-        title.innerHTML=document.querySelector('[aria-current=page]').textContent;
-    </script>
-    <!--inline-->
-    <script>
-        
-        document.querySelector('custom-button').addEventListener('click',handle)
-        document.querySelector('custom-button').addEventListener('keydown',handle)
-        document.querySelector('custom-button[inaccessible]').addEventListener('click',handle)
-        document.querySelector('custom-button[inaccessible]').addEventListener('keydown',handle)
-        document.querySelector('custom-button[inaccessible][disabled]').addEventListener('click',handle)
-        document.querySelector('custom-button[inaccessible][disabled]').addEventListener('keydown',handle)
-        document.querySelector('custom-button[inaccessible][disabled]').addEventListener('focus',handle)
-        
-        function handle(e){
-            console.log(e.type);
-            if( e.type == 'keydown'){
-                if(e.keyCode == 32 || e.keyCode == 13 ){
-                    e.target.hasAttribute('disabled') ?  alert('disabled 요소에는 이렇게 클릭이 되어서는 안 됩니다.') : alert('keydown 이벤트가 감지되었습니다.');
-                }
-            }else if( e.type == 'click' ){
-                    
-                !e.target.hasAttribute('inaccessible') && (e.target.hasAttribute('disabled') == false) ? alert('click 이벤트가 감지되었습니다.') : false;
-
-                e.target.hasAttribute('inaccessible') && (e.target.hasAttribute('disabled') == false) ? alert('click 이벤트가 감지되었습니다. 키보드로 눌렀음에도 이 메시지가 출력된다면 NVDA의 브라우즈 모드(Insert+Space), 센스 리더의 가상커서 사용 중지(Ctrl + Shift + F12)를 통해 해당 기능을 끄고 테스트하십시오') : false;
-                e.target.hasAttribute('inaccessible') && e.target.hasAttribute('disabled') ? alert('disabled 요소에는 이렇게 click 이벤트 또한 발생해서는 안 됩니다.') : false;
-
-            }
-
-            if( e.type == "focus" ){
-                e.target.hasAttribute('disabled') ? 
-                (function(){alert('비활성화 상태의 요소에는 초점이 제공되어서는 안 됩니다.'); e.target.blur();})() : false;
-            }
-        }
-    </script>
 </body>
 </html>

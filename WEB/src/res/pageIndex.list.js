@@ -26,6 +26,16 @@ SolutionPage=[
                 "URL":"../example.tabControl/index.html",
                 "TEXT":"올바른 탭 컨트롤 제공 방법",
                 "STATE":"OPEN"
+            },
+            {
+                "URL":"../example.selectBox/index.html",
+                "TEXT":"올바른 콤보박스 제공 방법",
+                "STATE":"OPEN"
+            },
+            {
+                "URL":"../example.checkbox/index.html",
+                "TEXT":"올바른 체크상자 제공 방법",
+                "STATE":"OPEN"
             }
         ]
     },
@@ -33,7 +43,7 @@ SolutionPage=[
         GroupName:'국내 웹 사례별 요소 제공 방법',
         List:[
             {
-                "URL":"../example.accordionNavigation",
+                "URL":"../example.accordionNavigation/index.html",
                 "TEXT":"올바른 드롭다운 네비게이션",
                 "STATE":"OPEN"
             }

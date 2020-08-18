@@ -1,3 +1,4 @@
+'use strict';
 var AnnounceOrientation=document.querySelector('.announce-orientation')
 if(!document.body.contains(AnnounceOrientation)){
     var AnnounceOrientationArea = document.createElement('div')

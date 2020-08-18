@@ -1,3 +1,4 @@
+'use strict';
 const NavItems=document.querySelectorAll('.GNB li>a')
 const NavItemsList = [];
 for (let i of NavItems){
@@ -89,12 +90,14 @@ class SearchBox extends HTMLElement{
         }
 
         if(root.hasAttribute('data-innerlabel')){
-            const label=document.createElement('label');
-            if(root.hasAttribute('data-id')){
-                label.setAttribute('for',root.searchInput.id);
+            if(!document.querySelector('[for='+root.searchInput.id+']')){
+                const label=document.createElement('label');
+                if(root.hasAttribute('data-id')){
+                    label.setAttribute('for',root.searchInput.id);
+                }
+                label.innerHTML=root.dataset.innerlabel;
+                this.wrap.prepend(label);
             }
-            label.innerHTML=root.dataset.innerlabel;
-            this.wrap.prepend(label);
         }
 
         if(root.hasAttribute('data-labelledby')){
@@ -115,20 +118,24 @@ class SearchBox extends HTMLElement{
                 }
             }
         })
-        window.addEventListener('focusin',expandHandler)
-        window.addEventListener('click',expandHandler)
+
+        window.addEventListener('focusin',expandHandler);
+        window.addEventListener('click',expandHandler);
 
         function expandHandler(e){
             const list = root.ListBox.querySelectorAll('li[role="option"]');
             if(e.type=='focusin'){
                 if(e.target === root.searchInput){
+                    
                     if(list.length > 0){
                         root.expanded=true;
                     }
+
                 }
+
                 else if(e.target !== root.searchInput ){
                     root.select = -1
-                    root.expanded=false;
+                    root.expanded = false;
                 }
             }
 

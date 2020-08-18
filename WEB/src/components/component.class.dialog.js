@@ -1,3 +1,4 @@
+'use strict';
 var ElementsToBeBlocking=document.querySelectorAll('body *:not([aria-hidden]):not([tabindex="-1"]):not(script)');
 var wasFocusedPreviousElement;
 class CustomDialog extends HTMLElement{

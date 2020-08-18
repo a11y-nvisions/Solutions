@@ -8,7 +8,26 @@
     <link rel="stylesheet" href="../style/common.css" type="text/css" />
     <link rel="stylesheet" href="../style/components.css" type="text/css" />
     <link rel="stylesheet"href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <!--polyfills-->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
+    <!--Methods-->
+    <script defer src="../src/methods/Element.multipleSetter.js"></script>
+    <!--Resource Script-->
+    <script defer src="../src/res/style.setting.js"></script>
+    <script defer src="../src/res/pageIndex.list.js"></script>
+    <!--DOM Scripts-->
+    <script defer src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <script defer src="../src/components/component.snippet.commonNav.js"></script>
+    <script defer src="../src/components/component.class.searchBox.js"></script>
+    <script defer>
+        const title = document.head.querySelector('title');
+        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
+        title.innerHTML=document.querySelector('[aria-current=page]').textContent;
+    </script>
+    <!--inline-->
 </head>
 <body>
     <header>
@@ -39,7 +58,8 @@
                     <th colspan="2">주요 속성(편집창)</th>
                 </thead>
                 <tbody>
-                    <tr>                <th><span class="attribute">role="<span class="valueType">combobox</span>"</span></th>
+                    <tr>
+                        <th><span class="attribute">role="<span class="valueType">combobox</span>"</span></th>
                         <td>
                             자동완성의 경우, 사용자가 입력한 값에 따라, 일치하는 글자가 있는 결과를 목록화하여
                             표시하므로, role="combobox"를 편집 가능한 type="Text"인 input 태그에 부여한다.
@@ -186,24 +206,5 @@
             <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
         </div>
     </footer>
-    <!--polyfills-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
-    <!--Methods-->
-    <script src="../src/methods/Element.multipleSetter.js"></script>
-    <!--Resource Script-->
-    <script src="../src/res/style.setting.js"></script>
-    <script src="../src/res/pageIndex.list.js"></script>
-    <!--DOM Scripts-->
-    <script src="../src/components/components.snippet.commonNav.js"></script>
-    <script src="../src/components/component.class.searchBox.js"></script>
-    <script>
-        const title = document.head.querySelector('title');
-        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
-        title.innerHTML=document.querySelector('[aria-current=page]').textContent;
-    </script>
-    <!--inline-->
 </body>
 </html>

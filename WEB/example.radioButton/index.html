@@ -9,6 +9,27 @@
         <link rel="stylesheet" href="../style/components.css" type="text/css" />
         <link rel="stylesheet"href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
         <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+        <!--polyfills-->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
+    <!--Methods-->
+    <script defer src="../src/methods/Element.multipleSetter.js"></script>
+    <!--Resource Script-->
+    <script defer src="../src/res/style.setting.js"></script>
+    <script defer src="../src/res/pageIndex.list.js"></script>
+    <!--DOM Scripts-->
+    <script defer src="../src/components/component.class.radio.js"></script>
+    <script defer src="../src/components/component.snippet.commonNav.js"></script>
+    <script defer>
+        'use strict'
+        const title = document.head.querySelector('title');
+        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
+        window.addEventListener('DOMContentLoaded',function(){
+            title.innerHTML=document.querySelector('[aria-current=page]').textContent;
+        })
+    </script>
     </head>
     <body>
     <header>
@@ -187,23 +208,5 @@
             <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
         </div>
     </footer>
-    <!--polyfills-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
-    <!--Methods-->
-    <script src="../src/methods/Element.multipleSetter.js"></script>
-    <!--Resource Script-->
-    <script src="../src/res/style.setting.js"></script>
-    <script src="../src/res/pageIndex.list.js"></script>
-    <!--DOM Scripts-->
-    <script src="../src/components/component.class.radio.js"></script>
-    <script src="../src/components/components.snippet.commonNav.js"></script>
-    <script>
-        const title = document.head.querySelector('title');
-        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
-        title.innerHTML=document.querySelector('[aria-current=page]').textContent;
-    </script>
     </body>
 </html>

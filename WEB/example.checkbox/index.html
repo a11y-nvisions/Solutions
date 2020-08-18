@@ -8,7 +8,30 @@
     <link rel="stylesheet" href="../style/common.css" type="text/css" />
     <link rel="stylesheet" href="../style/components.css" type="text/css" />
     <link rel="stylesheet"href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+
+    <!--polyfills-->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
+    <!--Methods-->
+    <script defer src="../src/methods/Element.multipleSetter.js"></script>
+    <!--Resource Script-->
+    <script defer src="../src/res/style.setting.js"></script>
+    <script defer src="../src/res/pageIndex.list.js"></script>
+    <!--DOM and components Scripts-->
+    <script defer src="../src/components/component.snippet.commonNav.js"></script>
+    <script defer src="../src/components/component.class.checkbox.js"></script>
+    
+    <!--load a main script-->
+    <script>
+        const title = document.head.querySelector('title');
+        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
+        window.addEventListener('DOMContentLoaded',function(){
+            title.innerHTML=document.querySelector('[aria-current=page]').textContent;
+        })
+    </script>
 </head>
 <body>
     <header>
@@ -19,7 +42,50 @@
     <div class="middle-wrap">
         <nav class="GNB"></nav>
         <main data-simplebar>
+            <h2>체크박스(확인란)</h2>
+            <section>
+                <h3>개요(Overview)</h3>
+                <p>
+                    체크박스는 직역하면 확인란으로 해석할 수 있으며, 빈 상자에 가위 표시를 서면으로 쓰는
+                    서류 상의 확인란에서 유례된 요소임을 단 번에 알 수 있다. 많은 웹사이트에서 여러 용도로 사용되며,
+                    많이 볼 수 있는 곳은 이메일 서비스에서의 메일 목록이다.
+                </p>
+            </section>
+            <section>
+                <h3>필수 속성</h3>
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>속성</th>
+                            <th>설명</th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span class="attribute">role="<span class="valueType">checkbox</span>"</span>
+                            </th>
+                            <td>스크린리더와 접근성 API에서 checkbox로 인식할 수 있도록 합니다.</td>
+                        </tr>
+                        <tr>
+                            <th><span class="attribute">aria-checked=<span class="valueType">"boolean/mixed"</span></span></th>
+                            <td>
+                                <p>체크상자에 대한 상태를 접근성 API로 전달하여, 스크린리더 사용자가 체크상자의 선택정보를 들을 수 있도록 합니다.</p>
+                                <p>속성값은 세 개로, 2개의 bool값 또는 mixed상태를 쓸 수 있으며, mixed 속성은 주로 메일함의 전체선택 체크상자등에서 확인할 수 있습니다.</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 			<section>
+                <h3>Example</h3>
+                <custom-checkbox id="example_checkbox"></custom-checkbox>
+                <strong data-for="example_checkbox">Agree?</strong>
+                <custom-checkbox id="example_checkbox_disabled" aria-disabled="true"></custom-checkbox>
+                <strong data-for="example_checkbox_disabled">Disagree? But you don't have the decision right.</strong>
+                <p>
+                    <custom-checkbox id="example_checkbox_mixed" aria-checked="mixed"></custom-checkbox>
+                    <strong data-for="example_checkbox_mixed">I'm not a checked or not checked!</strong>
+                </p>
 			</section>
         </main>
     </div>
@@ -29,25 +95,16 @@
             <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
         </div>
     </footer>
-    <!--polyfills-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
-    <!--Methods-->
-    <script src="../src/methods/Element.multipleSetter.js"></script>
-    <!--Resource Script-->
-    <script src="../src/res/style.setting.js"></script>
-    <script src="../src/res/pageIndex.list.js"></script>
-    <!--DOM and components Scripts-->
-    <script src="../src/components/components.snippet.commonNav.js"></script>
-    <script src="../src/components/components.class.checkbox.js"></script>
-    
-    <!--load a main script-->
     <script>
-        const title = document.head.querySelector('title');
-        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
-        title.innerHTML=document.querySelector('[aria-current=page]').textContent;
+        const disagree = document.querySelector('#example_checkbox_disabled')
+        const disagreeLabel = document.querySelector('[data-for="example_checkbox_disabled"]')
+        disagree.addEventListener('click',function(){
+            alert('You have no choice but to agree :) I certainly said, you have not the decision right.')
+        })
+        disagreeLabel.addEventListener('click',function(){
+            alert('You have no choice but to agree :) I certainly said, you have not the decision right. It\'s no use you\'re pressing label.')
+        })
+        
     </script>
 </body>
 </html>

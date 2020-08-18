@@ -1,3 +1,4 @@
+'use strict';
 Element.prototype.setStyle=function(object){
 	var styleTemp='';
 	if( object instanceof (Object || !Function || !Array) == true
