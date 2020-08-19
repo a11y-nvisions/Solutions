@@ -36,6 +36,11 @@ SolutionPage=[
                 "URL":"../example.checkbox/index.html",
                 "TEXT":"올바른 체크상자 제공 방법",
                 "STATE":"OPEN"
+            },
+            {
+                "URL":"../example.roleDescription/index.html",
+                "TEXT":"올바른 aria-roledescription 사용방법",
+                "STATE":"OPEN"
             }
         ]
     },
