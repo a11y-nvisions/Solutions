@@ -51,6 +51,11 @@ SolutionPage=[
                 "URL":"../example.accordionNavigation/index.html",
                 "TEXT":"올바른 드롭다운 네비게이션",
                 "STATE":"OPEN"
+            },
+            {
+                "URL":"../example.customContext/index.html",
+                "TEXT":"올바른 커스텀 컨텍스트 메뉴",
+                "STATE":"OPEN"
             }
         ]
     }
