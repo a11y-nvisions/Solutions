@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster+Two&display=swap');
 @import url('https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css');
+@import url('https://fonts.googleapis.com/css2?family=Material+Icons');
+
 *{margin:0; padding:0; box-sizing:border-box;
-    letter-spacing:0.05rem;
-    word-break:keep-all; word-wrap: break-word;}
+letter-spacing:0.05rem;word-break:keep-all; word-wrap: break-word;}
 
 :root{
     --default-font-size:1.3rem;
@@ -22,7 +23,66 @@
     --search-option-text-color:var(--search-selected-option-background-color);
     --search-selected-option-background-color:rgba(60,35,15,0.7);
     --search-option-background-color:rgba(255,235,195,0.8);
+    --keycap-gradient-color:linear-gradient(to left,var(--common-box-color), #ffefce ,var(--common-box-color));
+    --keycap-print-color:var(--theme-text-color);
 }
+
+
+.visuallyhidden {
+    clip: rect(0 0 0 0);   height: 1px; width: 1px;
+    margin: -1px; padding: 0; border: 0;
+    position: absolute; overflow: hidden;
+    user-select:none;
+}
+
+.material-icons{
+    vertical-align: middle;
+    font-weight:bold;
+}
+
+.keycaps.Shift{width:6rem;}.keycaps.Shift .material-icons{margin-left:0.5rem;}
+.keycaps.Enter{width:5em;}.keycaps.Enter .material-icons{margin-left:0.5rem;}
+.keycaps{
+    display:inline-flex; box-sizing:border-box;
+    width:3rem; height:3rem; border:solid 1px;
+    color:var(--keycap-print-color);
+    background:var(--keycap-gradient-color);
+    border-top:solid 0.01rem rgba(55,25,0,0.05);
+    border-left:solid 0.1rem rgba(55,25,0,0.05);
+    border-right:solid 0.1rem rgba(55,25,0,0.1);
+    border-bottom:solid 0.5rem rgba(55,25,0,0.25);
+    font-size:2rem; border-radius:0.15rem;
+    box-shadow:0 0 1px 1px #000; user-select: none;
+    text-shadow:0 0.1rem 0.05rem #420; vertical-align: middle;
+    overflow:hidden; place-content:center; place-items:center; margin:0 auto;
+    text-align:center;
+}
+
+.keycaps span.print-text{
+    flex:1; text-align:center; font-size:1rem;
+}
+
+.mouse{font-size:3rem; user-select:none; position:relative; display:inline-block;
+width:3rem;height:3rem; display:inline-block; -webkit-text-fill-color: transparent; background-blend-mode: color-burn;}
+.mouse,.keycaps{ margin:0 0.5rem; }
+
+
+
+.mouse.right-click{
+    background:linear-gradient(#aaa,#fff), linear-gradient(#f00, #a00) top right/1.6rem 1.2rem no-repeat;
+    background-clip:text; -webkit-background-clip:text; color:transparent;
+    background-origin:text; -webkit-background-origin: text;
+}
+
+.mouse.left-click{
+    background:linear-gradient(#aaa,#fff), linear-gradient(#00f, #00a) top left /1.6rem 1.2rem no-repeat;
+    background-clip:text; -webkit-background-clip:text; color:transparent;
+    background-origin:text; -webkit-background-origin: text;
+}
+
+
+.print-text{font-size:0.8rem;}
+
 html,body{width:100vw;height:100vh;overflow:hidden; position:relative;
     font-size:var(--default-font-size);
     font-family: 'NanumSquare';
@@ -66,7 +126,7 @@ table thead th{
     background-color:var(--common-top-thead-color);
     font-size:110%;
 }
-table td, table th{border:solid 1px; padding:0.4rem; box-sizing:border-box;}
+table td, table th{border:solid 1px; padding:0.4rem; box-sizing:border-box; position:relative;}
 col.col1{width:30%;}
 code,code *{font-family:'NanumSquare'; font-size:1rem;}
 custom-search{
@@ -122,12 +182,24 @@ footer{border-color:
         --search-option-background-color:rgba(35,75,105,0.9);
         --search-selected-option-background-color:rgba(110,230,250,0.8);
         --search-input-background-color-interact:rgba(50,100,140,0.3);
+        --keycap-gradient-color:linear-gradient(to left, #0f0f25, var(--common-box-color), #0f0f2f);
+        --keycap-print-color:#afcfff;
     }
     header .logo img{filter:invert(0);}
     html{background-color:rgba(50,50,50,0.99); color:#fff;}
     main{background-color:rgba(10,10,20,0.35);}
     header,footer{background-color:rgba(10,10,30,0.6);}
     
+    .keycaps{
+        color:var(--keycap-print-color);
+        background:var(--keycap-gradient-color);
+        border-top:solid 0.01rem rgba(0,0,0,0.1);
+        border-left:solid 0.1rem rgba(0,0,0,0.2);
+        border-right:solid 0.1rem rgba(0,0,0,0.2);
+        border-bottom:solid 0.5rem rgba(0,0,0,0.4);
+        text-shadow:0 -0.1rem 0.01rem #6a98f0;
+    }
+
     header{border-color:
         rgba(255,255,255,0.4)
         rgba(255,255,255,0.2)

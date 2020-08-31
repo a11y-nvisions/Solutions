@@ -66,6 +66,7 @@ class PageContextMenu {
                 root.menuItemElements[i].innerText=element.string;
                 root.menuItemElements[i].addEventListener('click',element.callback);
                 root.menuItemElements[i].addEventListener('keydown',keyboardClickHandler);
+                root.menuItemElements[i].addEventListener('contextmenu',function(e){e.preventDefault()})
                 root.menuBox.appendChild(root.menuItemElements[i]);
             };
         }
@@ -117,13 +118,12 @@ class PageContextMenu {
                 if(root.isMenuOpen && e.keyCode === 9){
                     e.preventDefault();
                 }
-
             }
         }
 
+        document.addEventListener('click',showContextMenuHandler);
         root.contextEventTarget.addEventListener('contextmenu',showContextMenuHandler);
-        root.contextEventTarget.addEventListener('click',showContextMenuHandler);
-        root.contextEventTarget.addEventListener('keydown',showContextMenuHandler);
+        root.menuBox.addEventListener('keydown',showContextMenuHandler);
         root.menuBox.addEventListener('keydown',keyboardNavigateHandler)
     }
 }
@@ -145,5 +145,5 @@ const PageNavigator=new PageContextMenu([
             string:'구글 바로가기',callback:function(){
             location.href="http://www.google.com"}
         }
-    ]
+    ],document.querySelector('#context_example')
 )

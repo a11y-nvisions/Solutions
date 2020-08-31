@@ -39,7 +39,12 @@ SolutionPage=[
             },
             {
                 "URL":"../example.roleDescription/index.html",
-                "TEXT":"올바른 aria-roledescription 사용방법",
+                "TEXT":"올바른 aria-roledescription 사용 방법",
+                "STATE":"OPEN"
+            },
+            {
+                "URL":"../example.customContext/index.html",
+                "TEXT":"올바른 커스텀 컨텍스트 메뉴 제공 방법",
                 "STATE":"OPEN"
             }
         ]
@@ -50,11 +55,6 @@ SolutionPage=[
             {
                 "URL":"../example.accordionNavigation/index.html",
                 "TEXT":"올바른 드롭다운 네비게이션",
-                "STATE":"OPEN"
-            },
-            {
-                "URL":"../example.customContext/index.html",
-                "TEXT":"올바른 커스텀 컨텍스트 메뉴",
                 "STATE":"OPEN"
             }
         ]
