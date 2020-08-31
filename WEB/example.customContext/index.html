@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web A11y - Nvisions Soltuions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../style/common.css" type="text/css" />
+    <link rel="stylesheet" href="../style/components.css" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <!--polyfills-->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
+    <!--Methods-->
+    <script defer src="../src/methods/Element.multipleSetter.js"></script>
+    <script defer src="../src/methods/Element.getParents.js"></script>
+    <!--Resource Script-->
+    <script defer src="../src/res/style.setting.js"></script>
+    <script defer src="../src/res/pageIndex.list.js"></script>
+    <!--DOM Scripts-->
+    <script defer src="../src/components/component.snippet.commonNav.js"></script>
+    <script defer src="../src/components/component.class.simpleContext.js"></script>
+    <script defer>
+        'use strict'
+        const title = document.head.querySelector('title');
+        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
+        window.addEventListener('DOMContentLoaded',function(){
+            title.innerHTML=document.querySelector('[aria-current=page]').textContent;
+        })
+    </script>
+    <style>
+        *{margin:0; padding:0; box-sizing:border-box;}
+        html,body{
+            position:relative;
+            width:100%;height:100%;
+        }
+
+        [role=menu].hide{
+            display:none;
+        }
+
+        [role=menu]{
+            width:30vw;
+            display: flex; flex-flow:column;
+            position: absolute;
+            z-index: 999;
+            user-select: none;
+            list-style:none;
+            box-shadow:
+            0 0 0 1px rgba(255,255,255,0.7),
+            0 0 2px 2px #000;
+        }
+
+        [role=menuitem]{
+            flex:1; text-indent:2rem;
+            background-color:#2f2f2f; color:#efefef;
+            padding:0.2rem 1rem;
+        }
+
+        [role="menuitem"]:hover{
+            background-color:#9f9f9f; color:#1f1f1f;
+        }
+
+        #selectedMenu{
+            color:#2f2f2f; background-color:#efefef;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="javascript:location.href=document.querySelector('.GNB a:first-child').href" class="logo"><img src="../style/img/SolutionsLogo.png" alt="Solutions For Web Accessibility" /></a>
+        </h1>
+    </header>
+    <div class="middle-wrap">
+        <nav class="GNB"></nav>
+        <main data-simplebar>
+            <h2>커스텀 컨텍스트 메뉴</h2>
+            <p>
+                이 페이지의 아무 곳이나 마우스 오른쪽 단추로 클릭해보세요.
+                또는 팝업 키나 Shift + F10로 눌러보세요.
+            </p>
+        </main>
+    </div>
+    <footer>
+        <div class="copyright">
+            <span>Copyright &copy; 
+            <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
+        </div>
+    </footer>
+</body>
+</html>
