@@ -12,6 +12,7 @@ class PageContextMenu {
         this.menuItemElements = [];
         this.active = false;
         this.selected = -1;
+        this.exitFocus = null;
         this.load();
     }
 
@@ -31,6 +32,7 @@ class PageContextMenu {
 
     showMenu(){
         this.setSelect =-1;
+        this.exitFocus=document.activeElement;
         this.setMenuState=true;
         this.menuBox.style.left=this.clientX+'px';
         this.menuBox.style.top=this.clientY+'px';
@@ -114,6 +116,7 @@ class PageContextMenu {
             if(e.type === 'keydown'){
                 if(root.isMenuOpen && e.keyCode === 27){
                     root.hideMenu();
+                    root.exitFocus.focus();
                 }
                 if(root.isMenuOpen && e.keyCode === 9){
                     e.preventDefault();
