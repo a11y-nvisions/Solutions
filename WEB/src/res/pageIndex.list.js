@@ -46,6 +46,11 @@ SolutionPage=[
                 "URL":"../example.customContext/index.html",
                 "TEXT":"올바른 커스텀 컨텍스트 메뉴 제공 방법",
                 "STATE":"OPEN"
+            },
+            {
+                "URL":"../example.slider/index.html",
+                "TEXT":"올바른 커스텀 슬라이더 제공 방법",
+                "STATE":"OPEN"
             }
         ]
     },

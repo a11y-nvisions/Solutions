@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web A11y - Nvisions Soltuions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../style/common.css" type="text/css" />
+    <link rel="stylesheet" href="../style/components.css" type="text/css" />
+    <link rel="stylesheet" href="./slider.css" type="text/css" />
+    <link rel="stylesheet"href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <!--polyfills-->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
+    <!--Methods-->
+    <script defer src="../src/methods/Element.getParents.js"></script>
+    <script defer src="../src/methods/Element.multipleSetter.js"></script>
+    <!--Resource Script-->
+    <script defer src="../src/res/style.setting.js"></script>
+    <script defer src="../src/res/pageIndex.list.js"></script>
+    <!--DOM and components Scripts-->
+    <script defer src="../src/components/component.snippet.commonNav.js"></script>
+    <script defer src="../src/components/component.class.slider.js"></script>
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="javascript:location.href=document.querySelector('.GNB a:first-child').href" class="logo"><img src="../style/img/SolutionsLogo.png" alt="Solutions For Web Accessibility" /></a>
+        </h1>
+    </header>
+    <div class="middle-wrap">
+        <nav class="GNB"></nav>
+        <main data-simplebar>
+            <h2>슬라이더(slider : range)</h2>
+            <section>
+                <h3>개요(Overview)</h3>
+            </section>
+            <section>
+                <h3>주요 속성</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>속성</th>
+                            <th>설명</th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span class="attribute">
+                                    aria-valuemin=<span class="valueType">"int_string"</span>
+                                </span>
+                            </th>
+                            <td>
+                                input에서의 min과 동일한 역할을 구현하기 위해 사용합니다(필수).
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span class="attribute">
+                                    aria-valuemax=<span class="valueType">"int_string"</span>
+                                </span>
+                            </th>
+                            <td>
+                                input에서의 max와 동일한 역할을 구현하기 위해 사용합니다(필수).
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span class="attribute">
+                                    aria-valuenow=<span class="valueType">"int_string"</span>
+                                </span>
+                            </th>
+                            <td>
+                                input에서의 value와 동일한 역할을 구현하기 위해 사용합니다(필수).
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span class="attribute">
+                                    aria-valuetext=<span class="valueType">"string"</span>
+                                </span>
+                            </th>
+                            <td>
+                                <p>
+                                    현재 값을 어떤 단위로 읽은 것인지 계산한 다음, 이 속성으로 전달하면
+                                    값을 조절할 때 현재 재생 시간이나 퍼센트 등으로 현재 슬라이더 값을 사용자에게 전달할 수 있습니다.
+                                </p>
+                                <p><strong>예):</strong>&lt;custom-slider aria-valuetext="0점" /&gt;</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h3>입력장치로 조작 및 접근</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>슬라이더 조절</th>
+                            <td>
+                                <p>슬라이더 요소는 좌/우 화살표 키(code: 'ArrowLeft' / 'ArrowRight')로 슬라이더 수치를 조절하고,
+                                조절된 값을 스크린리더를 통해 들을 수 있어야 한다.</p>
+                                
+                                <p>HTML5의 range 입력서식에서는 PageUp과 PageDown으로도 슬라이더 값을
+                                화살표 키를 누른 것과 동일한 값만큼을 조절 가능하며 구현하면 좋으나, 구현하지 않아도 큰 문제가 되진 않는다.</p>
+                                
+                                <p>기본 입력서식에 따라 PageDown/PageUp 슬라이더 조절 구현 시, 동일한 수치로 조절하는 것도 좋으나
+                                    화살표 키로 조절하는 것과 슬라이더 조절 단위에 차별점을 두는 것또한 좋다.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>슬라이더를 시작부분/끝 부분으로 조절(선택)</th>
+                            <td>
+                                HTML5의 range 입력서식에서는 Home 키로 슬라이더의 시작부분으로 핸들을 보내거나
+                                슬라이더는 End 키로 슬라이더의 끝부분으로 핸들을 조절할 수 있다.
+                                이를 동일하게 구현하는 것이 좋으나, 슬라이더의 용도에 따라 생략될 수 있다.
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>슬라이더 값 읽기</th>
+                            <td>
+                                <p>스크린리더 사용자는 Tab 키로 슬라이더에 초점을 보냈을 때와 오른쪽 또는 왼쪽 화살표 키로 슬라이더를 조절했을 때 값을 음성으로 들을 수 있어야 한다.</p>
+                                <p>
+                                    단, 재생시간 조절 슬라이더와 같이 값이 자동으로 업데이트되는 슬라이더는 Tab 키로 슬라이더에 초점을 보냈을 때 슬라이더의 값을 개속 읽어서는 안 되며,
+                                    초점을 받았을 때, 단 한 번만 알려야 한다. (Audio 객체의 timeupdate 이벤트 도중 aria-valuetext를 업데이트하지 말 것)
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>모바일 하드웨어키 조작 지원(선택)</th>
+                            <td>
+                                <p>모바일 스크린리더 사용자는 특정 제스처나 모바일의 물리적인 버튼으로 슬라이더 값을 조절할 수 있고, 개발자는 이를 지원할 수 있습니다.</p>
+                                <p>
+                                    현재로서는 모바일의 볼륨버튼이나 제스처를 인식하는 API가 웹에 존재하지 않아 이를 순수 커스텀으로 지원함에 어려움이 있습니다.
+                                    시각적으로 숨김처리한 input[type="range"]를 커스텀 슬라이더와 동기화시켜 모바일 제스처나 물리적 버튼 조작을 지원할 수 있습니다.
+                                </p>
+                                <p>숨김처리한 range로 모바일 디바이스의 조작을 지원하려면 userAgent이 모바일인지 체크하여 PC로 접속중이면 display:none;으로 숨겨야 합니다.</p>
+                                <div><strong>참고자료: CSS로 range 숨기기</strong>:
+                                    <strong><u>CSS 속성</u></strong>
+                                    <ul>
+                                        <li>
+                                            appearance:none - 브라우저에서 제공하는 스타일을 제거합니다.
+                                            브라우저에 따라 접두사 -moz-, -webkit-등이 붙을 수 있습니다.
+                                        </li>
+                                        <li>
+                                            background-color:tranparent - 트랙 바의 색상을 투명하게 숨깁니다.
+                                        </li>
+                                    </ul>
+                                    <strong><u>CSS 의사 클래스(pesudo-class)</u></strong>
+                                    <ul>
+                                        <li>input[type=range]::-moz-range-thumb - Firefox에서 슬라이더 핸들 스타일을 정의하는 의사 클래스입니다. -moz-appearance:none 을 제공하면 핸들을 숨길 수 있습니다.</li>
+                                        <li>input[type=range]::-webkit-slider-thumb - Chrome/Safari에서 슬라이더 핸들 스타일을 정의하는 의사 클래스입니다. -webkit-appearance:none 을 제공하면 핸들을 숨길 수 있습니다.</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+			<section>
+                <h3>EXAMPLE</h3>
+                <h4>Right Example</h4>
+                <audio-player data-rgb-style="true" class="sample-music-player"></audio-player>
+                <h4>Wrong Example</h4>
+                <audio-player a11y-support="false" class="sample-music-player"></audio-player>
+			</section>
+        </main>
+    </div>
+    <footer>
+        <div class="copyright">
+            <span>Copyright &copy; 
+            <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
+        </div>
+    </footer>
+    <!--load a main script-->
+</html>
