@@ -101,6 +101,7 @@ custom-slider input[type=range]::-webkit-slider-thumb {
 custom-slider input[type=range]::-moz-range-thumb{
     -moz-appearance: none;
 }
-[type='range'].disabled{
+
+.mobile-adjustable-slider.disabled{
     display: none;
 }
