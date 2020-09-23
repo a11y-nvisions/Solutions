@@ -83,6 +83,7 @@ class CustomSlider extends HTMLElement {
             this.mobileAdjustableSlider.classList.add(subClass);
             this.setAttribute('tabindex',-1);
             this.setAttribute('aria-hidden',true);
+            this.removeAttribute('role');
         }
     }
 
@@ -121,6 +122,7 @@ class CustomSlider extends HTMLElement {
         window.addEventListener('mouseup',HandleDragActionHandler)
         window.addEventListener('mouseleave',HandleDragActionHandler)
         root.addEventListener('keydown',preventKeyDownToScroll);
+        root.mobileAdjustableSlider.addEventListener('change',AdjustMobileSliderHandler);
 
         function preventKeyDownToScroll (e){
             if(
