@@ -340,7 +340,7 @@ class AudioPlayer extends HTMLElement{
                 }
             })
 
-            root.playSlider.AdjustMobileSliderHandler.addEventListener('change',function(){
+            root.playSlider.mobileAdjustableSlider.addEventListener('change',function(){
                 root.Audio.currentTime = this.value;
                 root.setCurrentTimeText = root.getCurrentTime;
             })
