@@ -81,8 +81,7 @@ class CustomSlider extends HTMLElement {
         const subClass = v === true ? 'enabled' : 'disabled';
         if( !this.mobileAdjustableSlider.classList.contains('enabled'||'disabled') ){
             this.mobileAdjustableSlider.classList.add(subClass);
-            this.setAttribute('tabindex',-1);
-            this.setAttribute('aria-hidden',true);
+            this.removeAttribute('tabindex');
             this.removeAttribute('role');
         }
     }

@@ -103,6 +103,3 @@ custom-slider input[type=range]::-moz-range-thumb{
 [type='range'].disabled{
     display: none;
 }
-
-[data-rgb-style=true]{
-}
