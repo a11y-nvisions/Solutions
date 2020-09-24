@@ -147,6 +147,7 @@ class CustomSlider extends HTMLElement {
         }
 
         function AdjustMobileSliderHandler (){
+            console.log(this.value);
             root.setValueNow = this.value;
         }
 
