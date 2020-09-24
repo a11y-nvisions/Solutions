@@ -103,5 +103,5 @@ custom-slider input[type=range]::-moz-range-thumb{
 }
 
 .mobile-adjustable-slider.disabled{
-    display: none;
+
 }

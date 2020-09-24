@@ -317,7 +317,7 @@ class AudioPlayer extends HTMLElement{
                 root.playSlider.setPercent = this.currentTime;
                 root.setVisiblePlayTimeText = this.currentTime;
 
-                if(!root.GEcurrent_SLIDER_A11Y_SUPPORT){
+                if(!root.GET_SLIDER_A11Y_SUPPORT){
                     root.setCurrentTimeText = this.currentTime;
                 }
 
