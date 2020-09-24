@@ -4,6 +4,7 @@ class CustomSlider extends HTMLElement {
         this.range = null;
         this.isDragging = false;
         this.valueNow;
+        this.onSliderTouch = false;
         this.userAgent = navigator.userAgent;
         this.valuePercent = 0;
         this.sliderHandle=document.createElement('div');
@@ -13,9 +14,9 @@ class CustomSlider extends HTMLElement {
 
 
     get getValueNow(){
-        const now = this.getAttribute('aria-valuenow');
+        const now = Number(this.getAttribute('aria-valuenow'));
         
-        if( now !== null && !isNaN(Number(now)) ){
+        if( typeof now === 'number' && now !== null && !isNaN(Number(now)) ){
             return Number(now)
         }else if(now === ""){
             return Number(0)
@@ -23,14 +24,21 @@ class CustomSlider extends HTMLElement {
         else if( now === null ){
             return Number(0)
         }
-
-        else if( isNaN((Number(now))) ){
-            console.error('aria-valuenow allows only number string, But, a non-numeric value was used on aria-valuenow.');
-        }
     }
 
     get isMobile(){
         return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 0)
+    }
+
+    get isAndroid(){
+        if(this.isMobile){
+            return /Android/i.test(navigator.userAgent)
+        }
+    }
+    get isIOS(){
+        if(this.isMobile){
+            return (/iPhone|iPad|iPod/i.test(navigator.userAgent) || /Macintosh/i.test && (navigator.maxTouchPoints === 5) )
+        }
     }
 
     set setValueNow(v){
@@ -86,10 +94,12 @@ class CustomSlider extends HTMLElement {
 
 
     connectedCallback(root=this){
+        let AgentClass = '';
         root.setRange = root.getRange;
         root.setValueNow = root.getValueNow;
         root.mobileAdjustableSlider.className='mobile-adjustable-slider';
         root.MobileSupport = root.isMobile;
+        
         if(!root.isMobile){
             root.setAttribute('role','slider');
             root.tabIndex = 0;
@@ -97,6 +107,9 @@ class CustomSlider extends HTMLElement {
         root.labelString = root.getAttribute('aria-label');
         root.getAttribute('aria-label') !== null && root.mobileAdjustableSlider.setAttribute('aria-label',root.labelString);
         root.mobileAdjustableSlider.setAttribute('type','range');
+        if(root.isIOS){AgentClass = 'AppleDevices'}else if(root.isAndroid){AgentClass = 'AndroidDevices'}else{AgentClass='PC'};
+        root.mobileAdjustableSlider.classList.add(AgentClass);
+        root.mobileAdjustableSlider.value = 0;
 
         root.ProgressedTrack.classList.add('custom-slider-progressed-track');
         root.classList.add('custom-slider-track');
@@ -115,14 +128,21 @@ class CustomSlider extends HTMLElement {
         root.appendChild(root.mobileAdjustableSlider);
         
         root.addEventListener('keydown',AdjustValueKeyHandler);
-        root.addEventListener('mousedown',AdjustValueClickHandler)
-        root.sliderHandle.addEventListener('mousedown',HandleDragActionHandler);
-        root.addEventListener('mousemove',HandleDragActionHandler)
-        window.addEventListener('mouseup',HandleDragActionHandler)
-        window.addEventListener('mouseleave',HandleDragActionHandler)
         root.addEventListener('keydown',preventKeyDownToScroll);
-        root.mobileAdjustableSlider.addEventListener('input',AdjustMobileSliderHandler);
+        
+        if(!root.isIOS){
+            window.addEventListener('mouseup',HandleDragActionHandler);
+            window.addEventListener('mouseleave',HandleDragActionHandler);
+            root.addEventListener('mousedown',AdjustValueClickHandler,{capture:false});
+            root.addEventListener('mousemove',HandleDragActionHandler,{capture:false});
+            root.sliderHandle.addEventListener('mousedown',HandleDragActionHandler,{capture:false});
+            root.mobileAdjustableSlider.addEventListener('input',AdjustMobileSliderHandler);
+        }else{
+            root.mobileAdjustableSlider.addEventListener('change',AdjustMobileSliderHandler);
+            root.mobileAdjustableSlider.addEventListener('touchmove',TouchDragHandler);
+        }
 
+        
         function preventKeyDownToScroll (e){
             if(
                 e.key === 'PageDown' ||
@@ -146,9 +166,8 @@ class CustomSlider extends HTMLElement {
             }
         }
 
-        function AdjustMobileSliderHandler (){
-            console.log(this.value);
-            root.setValueNow = this.value;
+        function AdjustMobileSliderHandler (e){
+            root.setValueNow = Number(this.value);
         }
 
         function AdjustValueKeyHandler (e){            
@@ -178,30 +197,52 @@ class CustomSlider extends HTMLElement {
                 root.setValueNow = limit_max;
             }
         }
-        function HandleDragActionHandler(e){
+
+        function TouchDragHandler (e){
+            const percent=(e.layerX / root.offsetWidth)*100;
             const limit_max = root.getRange['aria-valuemax'];
             const limit_min = root.getRange['aria-valuemin'];
-            let percent = 0;
-            
-            if(e.type=== 'mousedown' && e.buttons === 1 ){
-                root.isDragging = true;
-                root.sliderHandle.classList.toggle('onDragging');
-                e.stopPropagation()
-            }
-            if( e.type === 'mouseup' || e.type === 'mouseleave'){
-                root.isDragging = false   
-                root.sliderHandle.classList.toggle('onDragging');
-            }
-            
-            if(root.isDragging && e.type === 'mousemove'){
-                percent=(e.offsetX / root.offsetWidth)*100;
+            if(e.type==='touchmove'){
                 if(percent > 100 || percent < 0 && !root.isDragging){
                     root.sliderHandle.classList.toggle('onDragging')
                     percent > 100 ? root.setValueNow = limit_max :
                     percent < 0 ? root.setValueNow = limit_min : false;
                 }
-                
                 root.setValueNow = (root.range['aria-valuemax'] * percent) / 100
+            }
+
+            if(e.type === 'touchstart'){
+                root.onSliderTouch = true;
+            }
+            if(e.type === 'touchend'){
+                root.onSliderTouch = false;
+            }
+        }
+
+        function HandleDragActionHandler(e){
+            const limit_max = root.getRange['aria-valuemax'];
+            const limit_min = root.getRange['aria-valuemin'];
+            let percent = 0;
+            if( 
+                (e.type === 'mousedown' && e.buttons === 1)
+             ){
+                root.isDragging = true;
+                root.sliderHandle.classList.toggle('onDragging');
+                e.stopPropagation()
+            }
+            if(e.type === 'mouseup' || e.type === 'mouseleave'){
+                root.isDragging = false;
+                root.sliderHandle.classList.toggle('onDragging');
+            }
+            
+            if( root.isDragging && e.type === 'mousemove' ){
+                percent=(e.offsetX / root.offsetWidth)*100;
+                if(percent > 100 || percent < 0 && !root.isDragging){
+                    root.sliderHandle.classList.toggle('onDragging')
+                    percent > 100 ? root.setValueNow = limit_max :
+                    percent < 0 && (root.setValueNow = limit_min);
+                }
+                root.setValueNow = (limit_max * percent) / 100
             }
         }
     }
@@ -215,6 +256,7 @@ class AudioPlayer extends HTMLElement{
         this.playSlider = document.createElement('custom-slider')
         this.playButton = document.createElement('button');
         this.visiblePlayTime = document.createElement('div');
+        this.mobileAdjustAnnouncer = document.createElement('div');
         this.AudioFileList = [
             'bensound-creativeminds.mp3'
         ];
@@ -234,6 +276,9 @@ class AudioPlayer extends HTMLElement{
 
     get getCurrentTime(){
         return this.playSlider.getValueNow
+    }
+    get getCurrentTimeText(){
+        return this.playSlider.getAttribute('aria-valuetext');
     }
 
     set setCurrentTimeText(v){
@@ -295,6 +340,8 @@ class AudioPlayer extends HTMLElement{
         root.playButton.classList.add('material-icons','btn_PlayAndPuase');
         root.visiblePlayTime.classList.add('player-visible-play-time');
         root.visiblePlayTime.setAttribute('aria-hidden','true');
+        root.mobileAdjustAnnouncer.classList.add('slider-adjustedValue-announcer','visuallyhidden');
+        root.mobileAdjustAnnouncer.setAttribute('aria-live','assertive');
         root.playSlider.setAttribute('aria-label','재생시간 조절');
         root.playSlider.setAttribute('aria-describedby','playTime_total')
         root.playSlider.mobileAdjustableSlider.setAttribute('aria-describedby','playTime_total')
@@ -315,43 +362,50 @@ class AudioPlayer extends HTMLElement{
             })
 
             root.Audio.addEventListener("timeupdate",function(){
-                root.playSlider.setPercent = this.currentTime;
-                root.setVisiblePlayTimeText = this.currentTime;
+                if(root.playSlider.isIOS && !root.playSlider.onSliderTouch){
+                    root.playSlider.setPercent = this.currentTime;
+                    root.setVisiblePlayTimeText = this.currentTime;
+                }else{
+                    root.playSlider.setPercent = this.currentTime;
+                    root.setVisiblePlayTimeText = this.currentTime;
+                }
 
                 if(!root.GET_SLIDER_A11Y_SUPPORT){
                     root.setCurrentTimeText = this.currentTime;
                 }
-
                 if(this.currentTime === this.duration){
                     root.setPlayState = false;
                 }
-
             })
 
-            root.playSlider.addEventListener('focusin',function(){
-                this.setValueNow = root.Audio.currentTime;
-                root.setCurrentTimeText = root.getCurrentTime;
-            })
             
-            window.addEventListener('mousemove',function(){
-                if(root.playSlider.isDragging){
-                    root.Audio.currentTime = root.playSlider.getValueNow;
+            if(root.playSlider.isIOS){
+                root.playSlider.mobileAdjustableSlider.addEventListener('touchmove',function(){
                     root.setCurrentTimeText = root.getCurrentTime;
-                }
-            })
-
-            root.playSlider.mobileAdjustableSlider.addEventListener('input',function(e){
-                if(e.isTrusted){
+                    root.mobileAdjustAnnouncer.innerHTML = root.getCurrentTimeText;
+                    root.Audio.currentTime = this.value;
+                })
+                root.playSlider.mobileAdjustableSlider.addEventListener('change',adjustCurrentTime);
+            }
+            else{
+                //Android
+                window.addEventListener('mousemove',function(){
+                    if(root.playSlider.isDragging){
+                        root.Audio.currentTime = root.playSlider.getValueNow;
+                        root.setCurrentTimeText = root.getCurrentTime;
+                    }
+                })
+                root.playSlider.addEventListener('focusin',function(){
+                    this.setValueNow = root.Audio.currentTime;
                     root.setCurrentTimeText = root.getCurrentTime;
-                }
-                root.Audio.currentTime = this.value;
-            })
-
-            root.playSlider.addEventListener('mousedown',function(){
-                root.Audio.currentTime = this.getValueNow;
-                root.setCurrentTimeText = root.getCurrentTime;
-            })
-
+                })
+                root.playSlider.addEventListener('mousedown',function(){
+                    root.Audio.currentTime = this.getValueNow;
+                    root.setCurrentTimeText = root.getCurrentTime;
+                })
+            }
+            //Common Events
+            root.playSlider.mobileAdjustableSlider.addEventListener('input',adjustCurrentTime)
             root.playSlider.addEventListener('keydown',function(e){
                 if(
                     e.key === 'ArrowUp' ||
@@ -376,6 +430,7 @@ class AudioPlayer extends HTMLElement{
         root.appendChild(root.playButton);
         root.appendChild(root.playSlider);
         root.appendChild(root.visiblePlayTime);
+        root.appendChild(root.mobileAdjustAnnouncer);
         
         root.playButton.addEventListener('click',togglePlay);
         
@@ -385,6 +440,13 @@ class AudioPlayer extends HTMLElement{
             }else{
                 root.setPlayState = true;
             }
+        }
+
+        function adjustCurrentTime(e){
+            if(e.isTrusted){
+                root.setCurrentTimeText = root.getCurrentTime;
+            }
+            root.Audio.currentTime = this.value;
         }
     }
 };customElements.define('audio-player',AudioPlayer);
