@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web A11y - Nvisions Soltuions</title>
+    <title>Web A11y - Nvisions Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="../style/common.css" type="text/css" />
     <link rel="stylesheet" href="../style/components.css" type="text/css" />
@@ -24,6 +24,13 @@
     <!--DOM and components Scripts-->
     <script defer src="../src/components/component.snippet.commonNav.js"></script>
     <script defer src="../src/components/component.class.slider.js"></script>
+    <script>
+        const title = document.head.querySelector('title');
+        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
+        window.addEventListener('DOMContentLoaded',function(){
+            title.innerHTML=document.querySelector('[aria-current=page]').textContent;
+        })
+    </script>
 </head>
 <body>
     <header>
@@ -37,6 +44,16 @@
             <h2>슬라이더(slider : range)</h2>
             <section>
                 <h3>개요(Overview)</h3>
+                <p>
+                    슬라이더는 양수/음수, 소숫점을 모두 허용한 숫자로 범위를 지정하여
+                    해당 범위 내로 숫자를 선택할 수 있게 해주는 요소로 HTML5의 type="range"가
+                    원형이다. Android에서는 시크 바(SeekBar)라고 불린다.
+                </p>
+                <p>
+                    비슷한 계열의 요소로는
+                    다운로드, 페이지 로드와 같이 무언가를 기다릴 때 진행상황 업데이트를 표시하고 알리는 진행률 막대(ProgressBar), 그래프와 같은 정적인 내용을 표시하는
+                    미터(meter) 요소가 있다.
+                </p>
             </section>
             <section>
                 <h3>주요 속성</h3>
