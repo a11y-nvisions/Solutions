@@ -121,7 +121,7 @@ class CustomSlider extends HTMLElement {
         window.addEventListener('mouseup',HandleDragActionHandler)
         window.addEventListener('mouseleave',HandleDragActionHandler)
         root.addEventListener('keydown',preventKeyDownToScroll);
-        root.mobileAdjustableSlider.addEventListener('change',AdjustMobileSliderHandler);
+        root.mobileAdjustableSlider.addEventListener('input',AdjustMobileSliderHandler);
 
         function preventKeyDownToScroll (e){
             if(
@@ -339,7 +339,7 @@ class AudioPlayer extends HTMLElement{
                 }
             })
 
-            root.playSlider.mobileAdjustableSlider.addEventListener('change',function(){
+            root.playSlider.mobileAdjustableSlider.addEventListener('input',function(){
                 root.Audio.currentTime = this.value;
                 root.setCurrentTimeText = root.getCurrentTime;
             })
