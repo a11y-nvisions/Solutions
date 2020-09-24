@@ -81,8 +81,6 @@ class CustomSlider extends HTMLElement {
         const subClass = v === true ? 'enabled' : 'disabled';
         if( !this.mobileAdjustableSlider.classList.contains('enabled'||'disabled') ){
             this.mobileAdjustableSlider.classList.add(subClass);
-            this.removeAttribute('tabindex');
-            this.removeAttribute('role');
         }
     }
 
@@ -92,14 +90,16 @@ class CustomSlider extends HTMLElement {
         root.setValueNow = root.getValueNow;
         root.mobileAdjustableSlider.className='mobile-adjustable-slider';
         root.MobileSupport = root.isMobile;
-        root.setAttribute('role','slider');
+        if(!root.isMobile){
+            root.setAttribute('role','slider');
+            root.tabIndex = 0;
+        }
         root.labelString = root.getAttribute('aria-label');
         root.getAttribute('aria-label') !== null && root.mobileAdjustableSlider.setAttribute('aria-label',root.labelString);
         root.mobileAdjustableSlider.setAttribute('type','range');
 
         root.ProgressedTrack.classList.add('custom-slider-progressed-track');
         root.classList.add('custom-slider-track');
-        root.tabIndex = 0;
         
         root.getAttribute('data-adjust-step') !== null ?  //{
             root.step=Number( root.getAttribute('data-adjust-step')) : (
