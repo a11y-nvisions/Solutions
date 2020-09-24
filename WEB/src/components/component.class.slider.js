@@ -339,9 +339,11 @@ class AudioPlayer extends HTMLElement{
                 }
             })
 
-            root.playSlider.mobileAdjustableSlider.addEventListener('input',function(){
+            root.playSlider.mobileAdjustableSlider.addEventListener('input',function(e){
+                if(e.isTrusted){
+                    root.setCurrentTimeText = root.getCurrentTime;
+                }
                 root.Audio.currentTime = this.value;
-                root.setCurrentTimeText = root.getCurrentTime;
             })
 
             root.playSlider.addEventListener('mousedown',function(){
