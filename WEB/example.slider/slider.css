@@ -55,7 +55,7 @@ custom-slider .custom-slider-handle{
 }
 
 .custom-slider-handle.onDragging{
-    opacity: 0.7; pointer-events: none;
+    opacity: 0.7; pointer-events: none; touch-action: none;
 }
 
 custom-slider:focus{
@@ -120,4 +120,14 @@ custom-slider input[type=range]::-moz-range-thumb{
 
 .mobile-adjustable-slider.disabled{
     display: none;
+}
+
+@media screen and (max-width:1024px){
+    :root{
+        --slider-height:1.2rem;
+        --handle-height:1.7em;
+    }
+    audio-player{
+        width:95%;
+    }
 }

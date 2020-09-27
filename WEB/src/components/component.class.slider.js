@@ -130,16 +130,18 @@ class CustomSlider extends HTMLElement {
         root.addEventListener('keydown',AdjustValueKeyHandler);
         root.addEventListener('keydown',preventKeyDownToScroll);
         
-        if(!root.isIOS){
+        if(!root.isMobile){
             window.addEventListener('mouseup',HandleDragActionHandler);
             window.addEventListener('mouseleave',HandleDragActionHandler);
-            root.addEventListener('mousedown',AdjustValueClickHandler,{capture:false});
-            root.addEventListener('mousemove',HandleDragActionHandler,{capture:false});
-            root.sliderHandle.addEventListener('mousedown',HandleDragActionHandler,{capture:false});
+            root.addEventListener('mousedown',AdjustValueClickHandler);
+            root.addEventListener('mousemove',HandleDragActionHandler);
+            root.sliderHandle.addEventListener('mousedown',HandleDragActionHandler);
             root.mobileAdjustableSlider.addEventListener('input',AdjustMobileSliderHandler);
         }else{
-            root.mobileAdjustableSlider.addEventListener('change',AdjustMobileSliderHandler);
-            root.mobileAdjustableSlider.addEventListener('touchmove',TouchDragHandler);
+            if(root.isIOS === true){
+                root.mobileAdjustableSlider.addEventListener('change',AdjustMobileSliderHandler);
+                root.mobileAdjustableSlider.addEventListener('touchmove',TouchDragHandler);
+            }
         }
 
         
@@ -199,16 +201,30 @@ class CustomSlider extends HTMLElement {
         }
 
         function TouchDragHandler (e){
-            const percent=(e.layerX / root.offsetWidth)*100;
+            let percent=(root.sliderHandle.offsetLeft / root.mobileAdjustableSlider.offsetWidth) * 100;
+            
             const limit_max = root.getRange['aria-valuemax'];
             const limit_min = root.getRange['aria-valuemin'];
+            
             if(e.type==='touchmove'){
-                if(percent > 100 || percent < 0 && !root.isDragging){
-                    root.sliderHandle.classList.toggle('onDragging')
-                    percent > 100 ? root.setValueNow = limit_max :
-                    percent < 0 ? root.setValueNow = limit_min : false;
+                
+                if( percent > 100 || percent < 0 && !root.onSliderTouch ){
+                    root.sliderHandle.classList.toggle('onDragging');
+
+                    percent > 100 ? 
+                        (
+                            percent=100,
+                            root.setValueNow = limit_max
+                        )
+                    :
+                    percent < 0 ? (
+                        percent=0,
+                        root.setValueNow = limit_min
+                        ) : false;
                 }
-                root.setValueNow = (root.range['aria-valuemax'] * percent) / 100
+
+                console.log(e.touches[0].clientX,percent)
+                root.setValueNow = (limit_max * percent) / 100;
             }
 
             if(e.type === 'touchstart'){
