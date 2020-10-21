@@ -2,7 +2,7 @@
 var AnnounceOrientation=document.querySelector('.announce-orientation')
 if(!document.body.contains(AnnounceOrientation)){
     var AnnounceOrientationArea = document.createElement('div')
-    AnnounceOrientationArea.setAttribute('aria-live','assertive')
+    AnnounceOrientationArea.setAttribute('aria-live','polite')
     AnnounceOrientationArea.classList.add('announce-orientation');
     AnnounceOrientationArea.classList.add('live');
     AnnounceOrientationArea.id='announce-orientation';

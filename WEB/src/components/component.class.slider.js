@@ -130,19 +130,15 @@ class CustomSlider extends HTMLElement {
         root.addEventListener('keydown',AdjustValueKeyHandler);
         root.addEventListener('keydown',preventKeyDownToScroll);
         
-        if(!root.isMobile){
-            window.addEventListener('mouseup',HandleDragActionHandler);
-            window.addEventListener('mouseleave',HandleDragActionHandler);
-            root.addEventListener('mousedown',AdjustValueClickHandler);
-            root.addEventListener('mousemove',HandleDragActionHandler);
-            root.sliderHandle.addEventListener('mousedown',HandleDragActionHandler);
-            root.mobileAdjustableSlider.addEventListener('input',AdjustMobileSliderHandler);
-        }else{
-            if(root.isIOS === true){
-                root.mobileAdjustableSlider.addEventListener('change',AdjustMobileSliderHandler);
-                root.mobileAdjustableSlider.addEventListener('touchmove',TouchDragHandler);
-            }
-        }
+        window.addEventListener('mouseup',HandleDragActionHandler);
+        window.addEventListener('mouseleave',HandleDragActionHandler);
+        root.addEventListener('mousedown',AdjustValueClickHandler);
+        root.addEventListener('mousemove',HandleDragActionHandler);
+        root.sliderHandle.addEventListener('mousedown',HandleDragActionHandler);
+        root.mobileAdjustableSlider.addEventListener('input',AdjustMobileSliderHandler);
+        //next line's for IOS
+        root.mobileAdjustableSlider.addEventListener('touchmove',TouchDragHandler);
+        root.mobileAdjustableSlider.addEventListener('change',AdjustMobileSliderHandler);
 
         
         function preventKeyDownToScroll (e){
@@ -201,8 +197,13 @@ class CustomSlider extends HTMLElement {
         }
 
         function TouchDragHandler (e){
-            let percent=(root.sliderHandle.offsetLeft / root.mobileAdjustableSlider.offsetWidth) * 100;
-            
+            let percent = !root.isIOS ?
+            (root.sliderHandle.offsetLeft / root.mobileAdjustableSlider.offsetWidth) * 100 
+            : 
+            (
+                (!e.layerX ? e.touches[0].clientX : e.layerX) / root.mobileAdjustableSlider.offsetWidth
+            ) * 100;
+
             const limit_max = root.getRange['aria-valuemax'];
             const limit_min = root.getRange['aria-valuemin'];
             
@@ -223,7 +224,6 @@ class CustomSlider extends HTMLElement {
                         ) : false;
                 }
 
-                console.log(e.touches[0].clientX,percent)
                 root.setValueNow = (limit_max * percent) / 100;
             }
 
@@ -324,7 +324,7 @@ class AudioPlayer extends HTMLElement{
 
         const visiblePlayTimeText = current_hour+':'+current_min.padStart(2,'0')+':'+current_sec.padStart(2,'0');
         const visibleTotalPlayTimeText = total_hour+':'+total_min.padStart(2,'0')+':'+total_sec.padStart(2,'0');
-        this.visiblePlayTime.innerHTML=visiblePlayTimeText+'<span id="playTime_total"> / <span class="visuallyhidden">총 재생시간</span>'+visibleTotalPlayTimeText+'</span>';
+        this.visiblePlayTime.innerHTML=visiblePlayTimeText+'<span id="playTime_total" aria-hidden="true"> / <span class="visuallyhidden">총 재생시간</span>'+visibleTotalPlayTimeText+'</span>';
     }
 
     set setPlayState(v){
@@ -338,15 +338,6 @@ class AudioPlayer extends HTMLElement{
             this.isPlaying = false;
             this.playButton.innerText = 'play_arrow';
             this.playButton.setAttribute('aria-label','재생')
-        }
-    }
-
-    set setPlayTime(v){
-        if(typeof v === 'number') {
-            if( !v < 0 || !v > this.Audio.duration ){
-                this.Audio.currentTime = v;
-                this.playSlider.setValueNow=v;
-            }
         }
     }
     
@@ -372,19 +363,14 @@ class AudioPlayer extends HTMLElement{
             root.Audio.addEventListener('puase',function(){
                 if ( this.currentTime === this.duration ){
                     this.currentTime = 0;
-                    root.playSlider.setValueNow = 0;
                     root.playSlider.setAttribute('aria-valuetext','정지됨');
                 }
             })
 
             root.Audio.addEventListener("timeupdate",function(){
-                if(root.playSlider.isIOS && !root.playSlider.onSliderTouch){
-                    root.playSlider.setPercent = this.currentTime;
-                    root.setVisiblePlayTimeText = this.currentTime;
-                }else{
-                    root.playSlider.setPercent = this.currentTime;
-                    root.setVisiblePlayTimeText = this.currentTime;
-                }
+                root.playSlider.setPercent = this.currentTime;
+                root.setVisiblePlayTimeText = this.currentTime;
+                
 
                 if(!root.GET_SLIDER_A11Y_SUPPORT){
                     root.setCurrentTimeText = this.currentTime;
@@ -397,9 +383,9 @@ class AudioPlayer extends HTMLElement{
             
             if(root.playSlider.isIOS){
                 root.playSlider.mobileAdjustableSlider.addEventListener('touchmove',function(){
-                    root.setCurrentTimeText = root.getCurrentTime;
                     root.mobileAdjustAnnouncer.innerHTML = root.getCurrentTimeText;
-                    root.Audio.currentTime = this.value;
+                    root.Audio.currentTime = root.playSlider.getValueNow;
+                    root.setCurrentTimeText = root.getCurrentTime;
                 })
                 root.playSlider.mobileAdjustableSlider.addEventListener('change',adjustCurrentTime);
             }
@@ -436,8 +422,7 @@ class AudioPlayer extends HTMLElement{
                     root.Audio.currentTime = Number(this.getAttribute('aria-valuenow'));
                     root.setCurrentTimeText = root.getCurrentTime;
                 }
-
-                if(e.key === " " ){
+                if(e.key === " "){
                     root.playButton.click();
                 }
             })
@@ -462,7 +447,8 @@ class AudioPlayer extends HTMLElement{
             if(e.isTrusted){
                 root.setCurrentTimeText = root.getCurrentTime;
             }
-            root.Audio.currentTime = this.value;
+            console.log(e.target.value);
+            root.Audio.currentTime = e.target.value;
         }
     }
 };customElements.define('audio-player',AudioPlayer);
