@@ -33,7 +33,7 @@
     </script>
     <style>
         .carousel-loaded{
-            margin:1rem;
+            margin:1rem 0;
         }
 
         .hide{
@@ -52,7 +52,7 @@
         }
 
         div.my-banner-zone_inaccessible.no1{
-            --width-var:50vw;
+            --width-var:70vw;
             width:var(--width-var);
             height:calc(var(--width-var)*0.5625);
         }
@@ -70,7 +70,6 @@
             position:relative; display:block;
             width:100%; height:100%;
             border:solid 1px; z-index:0;
-            margin:2rem;
         }
 
         .rolling-carousel-visibleThumb{
@@ -94,7 +93,7 @@
 
         .carousel-floating-remote-box {
             width:100%; height:100%; z-index: 99;
-            position: absolute; top:0; pointer-events: none;
+            position: absolute; top:0; left:0; pointer-events: none;
             touch-action: none;
         }
 
@@ -151,6 +150,47 @@
                 0 1px 0 #000,
                 0 -1px 0 #000,
                 0 0 4px #000;
+        }
+
+        @media screen and (max-width:1024px){
+
+            button.slide_indicators{
+                width:1rem; height:1rem;
+                font-size:0.7rem;
+                line-height:0.5rem;
+            }
+
+            .carousel-floating-remote-box [aria-current="true"],
+            .carousel-floating-remote-box [data-current="true"]{
+                height:1.5rem; width:1.5rem;
+                font-size:1rem;
+            }
+
+            .my-banner-zone{
+                --width-var:90vw;
+                width:var(--width-var);
+                height:calc(var(--width-var)*0.5625);
+            }
+            .my-banner-zone2{
+                --width-var:50vw;
+                width:var(--width-var);
+                height:calc(var(--width-var)*0.5625);
+            }
+
+            div.my-banner-zone_inaccessible.no1{
+                --width-var:100%;
+                width:var(--width-var);
+                height:calc(var(--width-var)*0.5625);
+            }
+            div.my-banner-zone_inaccessible.no2{
+                --width-var:50%;
+                width:var(--width-var);
+                height:calc(var(--width-var)*0.5625);
+            }
+
+            button.carousel-auto-slide-controller{
+            font-size:1rem;
+            }
         }
     </style>
 </head>
