@@ -61,6 +61,11 @@ SolutionPage=[
                 "URL":"../example.accordionNavigation/index.html",
                 "TEXT":"올바른 드롭다운 네비게이션",
                 "STATE":"OPEN"
+            },
+            {
+                "URL":"../example.carouselSlide/index.html",
+                "TEXT":"배너(캐러셀)의 접근성 예시",
+                "STATE":"OPEN"
             }
         ]
     }
