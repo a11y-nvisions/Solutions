@@ -160,7 +160,21 @@ class MainTreeViewElement extends HTMLUListElement {
             this.Element.prepend(this.mouseExpander,this.Controller);
             this.defineAccessibleSubTreeInfo = this.hasSubTree['boolean']
             this.Controller.addEventListener('keydown',NavigateHandler);
-
+            window.addEventListener('keydown',function(e){
+                if(
+                    (e.target === MainTree || e.target || MainTree.contains(e.target) ) &&
+                    e.key === ' ' 
+                    || e.key === 'Enter' 
+                    || e.key === 'Home' 
+                    || e.key === 'End'
+                    || e.key === 'ArrowUp'
+                    || e.key === 'ArrowDown'
+                    || e.key === 'ArrowLeft'
+                    || e.key === 'ArrowRight'
+                ){
+                    e.preventDefault();
+                }
+            })
             this.Controller.addEventListener('click',function(e){
                 MainTree.navigateTreeView = e.target.manager.IndexOfList;
                 MainTree.navigatedElement.focus();
@@ -184,7 +198,36 @@ class MainTreeViewElement extends HTMLUListElement {
                     if(e.altKey && e.code === 'KeyM'){
                         manager.getContent.focus();
                     }
-                    if(e.key === 'Enter'){
+                    if(e.key === 'Enter' || e.key === ' '){
+                        e.target.click();
+                    }
+                })
+                new TreeItemContent(this.getContent,this);
+            }
+            this.Controller.addEventListener('click',function(e){
+                MainTree.navigateTreeView = e.target.manager.IndexOfList;
+                MainTree.navigatedElement.focus();
+                const contents = document.querySelectorAll('.treeItem-main-content')
+                for(const content of contents){
+                    if(content.manager.item !== manager){
+                        MainTree.navigatedElement.parentElement.classList.remove('active');
+                        content.manager.showContent = false;
+                    }else{
+                        MainTree.navigatedElement.parentElement.classList.add('active');
+                        content.manager.showContent = true;
+                    }
+                }
+            },{capture:false});
+            
+            if(this.hasContent){
+                this.Controller.setAttribute('aria-describedBy','MSG_GO_MAIN_CONTENT');
+                
+
+                this.Controller.addEventListener('keydown',function(e){
+                    if(e.altKey && e.code === 'KeyM'){
+                        manager.getContent.focus();
+                    }
+                    if(e.key === 'Enter' || e.key === ' '){
                         e.target.click();
                     }
                 })
@@ -194,6 +237,7 @@ class MainTreeViewElement extends HTMLUListElement {
             function NavigateHandler(e){
                 const list = MainTree.list;
                 const el = list[manager.IndexOfList];
+
                 if(e.key === 'ArrowUp'){
                     const PrevElement = MainTree.getNavigatableItem[getIndex(MainTree.getNavigatableItem,el)-1];
                     if(PrevElement && PrevElement.manager){

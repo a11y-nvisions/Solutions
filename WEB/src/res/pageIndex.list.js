@@ -24,7 +24,7 @@ SolutionPage=[
             },
             {
                 "URL":"../example.tabControl/index.html",
-                "TEXT":"올바른 탭 컨트롤 제공 방법",
+                "TEXT":"탭 컨트롤 제공 방법",
                 "STATE":"OPEN"
             },
             {
