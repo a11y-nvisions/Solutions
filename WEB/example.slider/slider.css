@@ -1,14 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Icons');
-*{margin:0; padding:0;}
 
 :root{
     --slider-height:1rem;
     --handle-height:1.5em;
-}
-
-html,body{
-    width:100%;height:100%;overflow:hidden;
-    font-size:16px;
 }
 
 .material-icons{
@@ -16,6 +10,7 @@ html,body{
 }
 
 custom-slider{
+    font-size:16px;
     display: inline-block; position:relative;
     width:10rem; height:var(--slider-height);
     margin:0.5rem 1rem; background-color:#7cf;
