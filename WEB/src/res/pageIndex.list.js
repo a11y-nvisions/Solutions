@@ -54,7 +54,7 @@ SolutionPage=[
             },
             {
                 "URL":"../example.treeView/index.html",
-                "TEXT":"커스텀 슬라이더 제공 방법",
+                "TEXT":"커스텀 트리뷰 제공 방법",
                 "STATE":"OPEN"
             },
             {
