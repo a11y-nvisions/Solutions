@@ -98,76 +98,78 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>
-            <a href="javascript:location.href=document.querySelector('.GNB a:first-child').href" class="logo"><img src="../style/img/SolutionsLogo.png" alt="Solutions For Web Accessibility" /></a>
-        </h1>
-    </header>
-    <div class="middle-wrap">
-        <nav class="GNB"></nav>
-        <main data-simplebar>
-			<section>
-                <h3>RIGHT EXAMPLE</h3>
-                <div is="nav-list" aria-label="접근성 테스트 환경지원">
-                    <ul>
-                        <li><expand-button control-target="#browser-download">브라우저 다운로드</expand-button>
-                            <ul id="browser-download">
-                                <li class="icons Chrome"><a href="#">Chrome</a></li>
-                                <li class="icons Firefox"><a href="#">Firefox</a></li>
-                                <li class="icons Edge"><a href="#">Edge</a></li>
-                            </ul>
-                        </li>
-                        <li><expand-button control-target="#SR-download">스크린리더 다운로드</expand-button>
-                            <ul id="SR-download">
-                                <li class="icons JAWS"><a href="#">JAWS</a></li>
-                                <li class="icons NVDA"><a href="#">NVDA</a></li>
-                                <li class="icons SenseReader"><a href="#">Sense Reader</a></li>
-                            </ul>
-                        </li>
-                        <li><expand-button control-target="#help-mobileA11y">모바일 접근성 도움말</expand-button>
-                            <ul id="help-mobileA11y">
-                                <li class="icons AppleA11y"><a href="#">iOS</a></li>
-                                <li class="icons AAS"><a href="#">Android</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            
-            <section>
-                <h3>WRONG EXAMPLE</h3>
-                <div is="nav-list" aria-label="접근성 테스트 환경지원">
-                    <ul class="inaccessible">
-                        <li><button>브라우저 다운로드</button>
-                            <ul id="browser-download">
-                                <li class="icons Chrome"><a href="#">Chrome</a></li>
-                                <li class="icons Firefox"><a href="#">Firefox</a></li>
-                                <li class="icons Edge"><a href="#">Edge</a></li>
-                            </ul>
-                        </li>
-                        <li><button>스크린리더 다운로드</button>
-                            <ul id="SR-download">
-                                <li class="icons JAWS"><a href="#">JAWS</a></li>
-                                <li class="icons NVDA"><a href="#">NVDA</a></li>
-                                <li class="icons SenseReader"><a href="#">Sense Reader</a></li>
-                            </ul>
-                        </li>
-                        <li><button>모바일 접근성 도움말</button>
-                            <ul id="help-mobileA11y">
-                                <li class="icons AppleA11y"><a href="#">iOS</a></li>
-                                <li class="icons AAS"><a href="#">Android</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-        </main>
-    </div>
-    <footer>
-        <div class="copyright">
-            <span>Copyright &copy; 
-            <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
+    <div class="wrapper">
+        <header>
+            <h1>
+                <a href="javascript:location.href=document.querySelector('.GNB a:first-child').href" class="logo"><img src="../style/img/SolutionsLogo.png" alt="Solutions For Web Accessibility" /></a>
+            </h1>
+        </header>
+        <div class="middle-wrap">
+            <nav class="GNB"></nav>
+            <main data-simplebar>
+                <section>
+                    <h3>RIGHT EXAMPLE</h3>
+                    <div is="nav-list" aria-label="접근성 테스트 환경지원">
+                        <ul>
+                            <li><expand-button control-target="#browser-download">브라우저 다운로드</expand-button>
+                                <ul id="browser-download">
+                                    <li class="icons Chrome"><a href="#">Chrome</a></li>
+                                    <li class="icons Firefox"><a href="#">Firefox</a></li>
+                                    <li class="icons Edge"><a href="#">Edge</a></li>
+                                </ul>
+                            </li>
+                            <li><expand-button control-target="#SR-download">스크린리더 다운로드</expand-button>
+                                <ul id="SR-download">
+                                    <li class="icons JAWS"><a href="#">JAWS</a></li>
+                                    <li class="icons NVDA"><a href="#">NVDA</a></li>
+                                    <li class="icons SenseReader"><a href="#">Sense Reader</a></li>
+                                </ul>
+                            </li>
+                            <li><expand-button control-target="#help-mobileA11y">모바일 접근성 도움말</expand-button>
+                                <ul id="help-mobileA11y">
+                                    <li class="icons AppleA11y"><a href="#">iOS</a></li>
+                                    <li class="icons AAS"><a href="#">Android</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section>
+                    <h3>WRONG EXAMPLE</h3>
+                    <div is="nav-list" aria-label="접근성 테스트 환경지원">
+                        <ul class="inaccessible">
+                            <li><button>브라우저 다운로드</button>
+                                <ul id="browser-download">
+                                    <li class="icons Chrome"><a href="#">Chrome</a></li>
+                                    <li class="icons Firefox"><a href="#">Firefox</a></li>
+                                    <li class="icons Edge"><a href="#">Edge</a></li>
+                                </ul>
+                            </li>
+                            <li><button>스크린리더 다운로드</button>
+                                <ul id="SR-download">
+                                    <li class="icons JAWS"><a href="#">JAWS</a></li>
+                                    <li class="icons NVDA"><a href="#">NVDA</a></li>
+                                    <li class="icons SenseReader"><a href="#">Sense Reader</a></li>
+                                </ul>
+                            </li>
+                            <li><button>모바일 접근성 도움말</button>
+                                <ul id="help-mobileA11y">
+                                    <li class="icons AppleA11y"><a href="#">iOS</a></li>
+                                    <li class="icons AAS"><a href="#">Android</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
         </div>
-    </footer>
+        <footer>
+            <div class="copyright">
+                <span>Copyright &copy; 
+                <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

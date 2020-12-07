@@ -3,6 +3,17 @@
     --tab-controller-selected-color:rgba(225,175,115,0.8);
     --tab-controller-color:#bf8b5c;
     --outline-chkbox:0.1rem;
+    --dialog-color-pattern:linear-gradient(to bottom left, #555 50%, #ffaf00, #ffcf00) no-repeat,
+    linear-gradient(45deg, rgba(255,255,255,0.7) 50%, transparent 50%) 0 0,
+    linear-gradient(-45deg, rgba(255,255,255,0.7) 50%, transparent 50%) 0 0,
+    linear-gradient(135deg, rgba(255,255,255,0.7) 50%, transparent 50%) 0 0,
+    linear-gradient(-135deg, rgba(255,255,255,0.7) 50%, transparent 50%) 0 0;
+    --dialog-main-button-color:rgba(255,255,255,0.5);
+}
+
+[aria-hidden=true]{
+    user-select:none;
+    cursor:default;
 }
 
 .live{
@@ -49,6 +60,12 @@ custom-button[disabled],expand-button[disabled],button[disabled]{
         --tab-controller-color:#1a1c38;
         --tab-controller-selected-color:#2b3d89;
         --radio-selected-color:#5af;
+        --dialog-color-pattern:linear-gradient(to bottom left, #113f6d 50%, #002f5a, #002041) no-repeat,
+        linear-gradient(45deg, rgba(0,50,95,0.7) 50%, transparent 50%) 0 0,
+        linear-gradient(-45deg, rgba(0,50,95,0.7) 50%, transparent 50%) 0 0,
+        linear-gradient(135deg, rgba(0,50,95,0.7) 50%, transparent 50%) 0 0,
+        linear-gradient(-135deg, rgba(0,50,105,0.7) 50%, transparent 50%) 0 0;
+        --dialog-main-button-color:rgba(255,255,255,0.2);
     }
 
     custom-button,expand-button,button{
@@ -258,7 +275,11 @@ custom-search .box-voice-hint{
 }
 
 [role="tabpanel"]>*{
-    overflow:hidden; overflow-y:auto;
+    overflow:hidden;
+}
+
+[role=tabpanel] .simplebar-wrapper{
+    overflow:auto;
 }
 
 .graphicInfo{
@@ -329,6 +350,7 @@ select-box button{
     all:inherit;
     margin:0;
 }
+
 select-box [role=combobox]{
     border-radius:0.5rem; display:block; width:100%;
     color:var(--theme-text-color); background-color:var(--tab-controller-color);
@@ -337,6 +359,10 @@ select-box [role=combobox]{
     border:solid 0.01em; text-align: center;
     min-height:1em;
     user-select:none;
+}
+
+.radius-wrap{
+    width:15rem;
 }
 
 select-box [role="combobox"]:focus{
@@ -365,6 +391,7 @@ select-box [role=combobox][aria-expanded=true]:after{
 
 select-box [role=listbox]{
     background-color:var(--tab-controller-color);
+    width:15rem;
     transition: height 0.3s, max-height 0.3s, opacity 0.3s, visibility 0.3s;
     border:solid 1px;
     border-radius: 0.5rem;
@@ -460,4 +487,99 @@ custom-checkbox[aria-checked="mixed"] .mixed{
    width:90%; height:0.3em; position: absolute;
    top:50%; left:50%; transform: translateY(-50%) translateX(-50%);
    background-color:#5fefff;
+}
+
+
+.dialog-root-element{
+    font-family: '맑은 고딕';
+    position:fixed; top:0; left:0; z-index:9999;
+    width:100%; height:100%;    
+}
+
+.dialog-dimmed-effect-layer{
+    background-color:rgba(0,0,0,0.56);
+    width:100%; height:100%;
+    display:grid; grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: 1fr 8fr 1fr;
+}
+
+.dialog-root-element [role=dialog]{
+    background-color:#fff; display:flex;
+    grid-column: 2/3;
+    grid-row:2/3; flex-flow:column;
+    background:var(--dialog-color-pattern);
+    background-blend-mode:overlay;
+    background-size:
+    100% 100%,
+    30px 30px,
+    30px 30px,
+    30px 30px,
+    30px 30px;
+}
+
+[role=dialog] header{
+    color:#fff;
+    display:flex; padding:0.5rem;
+    background:
+    linear-gradient(45deg, rgba(0,0,0,0.7) 50%, transparent 50%) 0 0,
+    linear-gradient(-45deg, rgba(0,0,0,0.7) 50%, transparent 50%) 0 0,
+    linear-gradient(135deg, rgba(0,0,0,0.7) 50%, transparent 50%) 0 0,
+    linear-gradient(-135deg, rgba(0,0,0,0.7) 50%, transparent 50%) 0 0,
+    linear-gradient(to left, #0f3f9f,#76cfff, #3fdf8f) no-repeat;
+    background-blend-mode:overlay;
+    background-size:
+    30px 30px,
+    30px 30px,
+    30px 30px,
+    30px 30px,
+     100% 100%;
+}
+
+[role=dialog] header button{
+    appearance: none;
+    -webkit-appearance: none;
+    border:none; background-color:transparent;
+    color:inherit;
+}
+
+[role=dialog] header h2{flex:1; text-align:center;}
+
+[role=dialog] main{
+    display:flex; flex-flow:column;
+    place-content:center; place-items: center;
+    height:100%; font-size:1.5rem;
+    background:transparent;
+    color:var(--theme-text-color);
+}
+
+[role=dialog] input[type=text]{
+    border:none; border-bottom:solid 0.1rem var(--theme-text-color);
+    background-color:transparent; font-size:1.5rem; font-weight:bold;
+    letter-spacing: 0.2rem; text-align:center;
+    width:min-content; justify-self: center;
+    color:var(--theme-text-color);
+}
+
+.dialog-button-collection{
+    display:flex; padding:1rem;
+    place-content:center;
+    place-items:center;
+    background:transparent;
+}
+
+.dialog-button-collection button{
+    appearance:none; display:inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    border:solid 1px;
+    min-width:6rem; font-size:1.5rem; margin:0 0.5rem; padding:0.25rem;
+    background:var(--dialog-main-button-color);
+    box-shadow: 1px 1px 0 0 #000;
+    color:var(--theme-text-color);
+}
+
+@media screen and (max-width:1024px) {
+    [role=dialog] input[type=text],[role=dialog] main{
+        font-size:100%;
+    }
 }

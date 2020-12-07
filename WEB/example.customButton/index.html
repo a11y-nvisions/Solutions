@@ -67,86 +67,88 @@
     </script>
 </head>
 <body>
-    <header>
-        <h1>
-            <a href="javascript:location.href=document.querySelector('.GNB a:first-child').href" class="logo"><img src="../style/img/SolutionsLogo.png" alt="Solutions For Web Accessibility" /></a>
-        </h1>
-    </header>
-    <div class="middle-wrap">
-        <nav class="GNB"></nav>
-        <main data-simplebar>
-        <h2>버튼</h2>
-        <section>
-            <h3>개요(Overview)</h3>
-            <p>
-                <strong>버튼</strong> 요소의 button은 사전적 의미로 단추를 의미하며, 기계에서의 버튼이란 무언가를 작동시키기 위한 누를 수 있는 단추를 얘기한다.
-                누룰 수 있기 때문에 물리적으로 움푹 들어가 있거나, 돌출되어 있다. 이 점을 참고하여 웹에서의 버튼도 사용자가 누를 수 있는 요소임을 인지할 수 있도록 양갹효과나 돌출 효과,
-                또는 배경색과 대비되는 디자인으로 제공하는 것이 바람직하다.
-            </p>
-            <p>웹에서의 버튼은 입력 서식을 모아놓은 양식(form)을 서버로 전송하거나, 웹에서의 각종 기능을 실행하는 용도로 사용한다.</p>
-        </section>
-        <section>
-            <h3>구현 방법 핵심 및 주요 개념</h3>
-            <table class="pc">
-                <colgroup>
-                    <col class="col1" />
-                    <col class="col2" />
-                </colgroup>
-                <tbody>
-                    <tr>
-                        <th colspan="2">필수 속성 및 원칙</th>
-                    </tr>
-                    <tr>
-                        <th>요소유형 인지</th>
-                        <td>
-                            같은 페이지 내에서 특정 기능을 실행하거나, 서버로 데이터를 전송하는 요소는
-                            반드시 <span class="attribute">role="<span class="tag">button</span>"</span>
-                            을 통해 버튼 요소임을 스크린 리더 사용자가 알 수 있도록 해야 한다.
-                        </td>
-                    </tr>
-                    <tr>
-                        <th id="state" tabindex="-1">버튼의 상태와 초점 관리</th>
-                        <td>
-                            <p>버튼 요소에는 기본적으로 두 가지 상태가 있다.
-                            아무 속성도 부여하지 않은 활성화 상태와 누를 수 없는 disabled(unavailable:비활성화, 흐리게 표시됨)이 있다.</p>
-                            <p><strong>활성화 상태의 경우</strong> : 버튼의 의미에 맞게 키보드 사용자가 누를 수 있도록 tabindex="0" 속성을 제공하여
-                            초점을 제공해야 한다.</p>
-                            <p><strong>disabled 상태의 경우</strong> : 누를 수 없는 상태이기 때문에 tabindex="-1"을 제공해주어야 하며, aria-disabled="true"를 통해 가상커서로 해당 버튼에 접근하였을 때
-                                누를 수 없는 상태임을 스크린 리더 사용자에게 알려야 한다.
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>키보드 조작</th>
-                        <td>
-                            <p>
-                                버튼 요소는 키보드를 통해 마우스 왼쪽 버튼 클릭과 동등한 활성화 동작을 수행할 수 있어야 한다.
-                                버튼 요소는 space bar와 Enter로 활성화 가능하며, 스크린 리더가 켜져있을 경우 가상 커서 기능이 꺼졌을 때를 기준으로 한다.
-                            </p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        <section>
-            <h3>EXAMPLE</h3>
-            <div>
-				<h4>Right Example</h4>
-                <custom-button>Hello? Nice to meet you!<span>:)</span></custom-button>
-                <custom-button disabled>Sorry, I can't interact with you now<span>:(</span></custom-button>
-                
-                <h4>Wrong Example</h4>
-                <custom-button tabindex="0" inaccessible>Hello? Nice to meet you!<span>:)</span></custom-button>
-                <custom-button tabindex="0" inaccessible disabled>Sorry, I can't interact with you now<span>:(</span></custom-button>
-            </div>
-        </section>
-        </main>
-    </div>
-    <footer>
-        <div class="copyright">
-            <span>Copyright &copy; 
-            <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
+    <div class="wrapper">
+        <header>
+            <h1>
+                <a href="javascript:location.href=document.querySelector('.GNB a:first-child').href" class="logo"><img src="../style/img/SolutionsLogo.png" alt="Solutions For Web Accessibility" /></a>
+            </h1>
+        </header>
+        <div class="middle-wrap">
+            <nav class="GNB"></nav>
+            <main data-simplebar>
+            <h2>버튼</h2>
+            <section>
+                <h3>개요(Overview)</h3>
+                <p>
+                    <strong>버튼</strong> 요소의 button은 사전적 의미로 단추를 의미하며, 기계에서의 버튼이란 무언가를 작동시키기 위한 누를 수 있는 단추를 얘기한다.
+                    누룰 수 있기 때문에 물리적으로 움푹 들어가 있거나, 돌출되어 있다. 이 점을 참고하여 웹에서의 버튼도 사용자가 누를 수 있는 요소임을 인지할 수 있도록 양갹효과나 돌출 효과,
+                    또는 배경색과 대비되는 디자인으로 제공하는 것이 바람직하다.
+                </p>
+                <p>웹에서의 버튼은 입력 서식을 모아놓은 양식(form)을 서버로 전송하거나, 웹에서의 각종 기능을 실행하는 용도로 사용한다.</p>
+            </section>
+            <section>
+                <h3>구현 방법 핵심 및 주요 개념</h3>
+                <table class="pc">
+                    <colgroup>
+                        <col class="col1" />
+                        <col class="col2" />
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th colspan="2">필수 속성 및 원칙</th>
+                        </tr>
+                        <tr>
+                            <th>요소유형 인지</th>
+                            <td>
+                                같은 페이지 내에서 특정 기능을 실행하거나, 서버로 데이터를 전송하는 요소는
+                                반드시 <span class="attribute">role="<span class="tag">button</span>"</span>
+                                을 통해 버튼 요소임을 스크린 리더 사용자가 알 수 있도록 해야 한다.
+                            </td>
+                        </tr>
+                        <tr>
+                            <th id="state" tabindex="-1">버튼의 상태와 초점 관리</th>
+                            <td>
+                                <p>버튼 요소에는 기본적으로 두 가지 상태가 있다.
+                                아무 속성도 부여하지 않은 활성화 상태와 누를 수 없는 disabled(unavailable:비활성화, 흐리게 표시됨)이 있다.</p>
+                                <p><strong>활성화 상태의 경우</strong> : 버튼의 의미에 맞게 키보드 사용자가 누를 수 있도록 tabindex="0" 속성을 제공하여
+                                초점을 제공해야 한다.</p>
+                                <p><strong>disabled 상태의 경우</strong> : 누를 수 없는 상태이기 때문에 tabindex="-1"을 제공해주어야 하며, aria-disabled="true"를 통해 가상커서로 해당 버튼에 접근하였을 때
+                                    누를 수 없는 상태임을 스크린 리더 사용자에게 알려야 한다.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>키보드 조작</th>
+                            <td>
+                                <p>
+                                    버튼 요소는 키보드를 통해 마우스 왼쪽 버튼 클릭과 동등한 활성화 동작을 수행할 수 있어야 한다.
+                                    버튼 요소는 space bar와 Enter로 활성화 가능하며, 스크린 리더가 켜져있을 경우 가상 커서 기능이 꺼졌을 때를 기준으로 한다.
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h3>EXAMPLE</h3>
+                <div>
+                    <h4>Right Example</h4>
+                    <custom-button>Hello? Nice to meet you!<span>:)</span></custom-button>
+                    <custom-button disabled>Sorry, I can't interact with you now<span>:(</span></custom-button>
+                    
+                    <h4>Wrong Example</h4>
+                    <custom-button tabindex="0" inaccessible>Hello? Nice to meet you!<span>:)</span></custom-button>
+                    <custom-button tabindex="0" inaccessible disabled>Sorry, I can't interact with you now<span>:(</span></custom-button>
+                </div>
+            </section>
+            </main>
         </div>
-    </footer>
+        <footer>
+            <div class="copyright">
+                <span>Copyright &copy; 
+                <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

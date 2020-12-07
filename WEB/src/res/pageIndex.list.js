@@ -1,25 +1,25 @@
 SolutionPage=[
     {
-    GroupName:"올바른 ARIA 커스텀 요소",
+    GroupName:"ARIA 커스텀 요소",
     List:[
             {
             "URL":"../example.radioButton/index.html",
-            "TEXT":"올바른 커스텀 라디오 제공 방법",
+            "TEXT":"커스텀 라디오 제공 방법",
             "STATE":"OPEN"
             },
             {
             "URL":"../example.customButton/index.html",
-            "TEXT":"올바른 커스텀 버튼 제공 방법",
+            "TEXT":"커스텀 버튼 제공 방법",
             "STATE":"OPEN"
             },
             {
             "URL":"../example.accordionButton/index.html",
-            "TEXT":"올바른 아코디언 요소 제공 방법",
+            "TEXT":"아코디언 요소 제공 방법",
             "STATE":"OPEN"
             },
             {
                 "URL":"../example.autoComplete/index.html",
-                "TEXT":"올바른 자동완성 기능 제공 방법",
+                "TEXT":"자동완성 기능 제공 방법",
                 "STATE":"OPEN"
             },
             {
@@ -29,27 +29,37 @@ SolutionPage=[
             },
             {
                 "URL":"../example.selectBox/index.html",
-                "TEXT":"올바른 콤보박스 제공 방법",
+                "TEXT":"콤보박스 제공 방법",
                 "STATE":"OPEN"
             },
             {
                 "URL":"../example.checkbox/index.html",
-                "TEXT":"올바른 체크상자 제공 방법",
+                "TEXT":"체크상자 제공 방법",
                 "STATE":"OPEN"
             },
             {
                 "URL":"../example.roleDescription/index.html",
-                "TEXT":"올바른 aria-roledescription 사용 방법",
+                "TEXT":"aria-roledescription 사용 방법",
                 "STATE":"OPEN"
             },
             {
                 "URL":"../example.customContext/index.html",
-                "TEXT":"올바른 커스텀 컨텍스트 메뉴 제공 방법",
+                "TEXT":"커스텀 컨텍스트 메뉴 제공 방법",
                 "STATE":"OPEN"
             },
             {
                 "URL":"../example.slider/index.html",
-                "TEXT":"올바른 커스텀 슬라이더 제공 방법",
+                "TEXT":"커스텀 슬라이더 제공 방법",
+                "STATE":"OPEN"
+            },
+            {
+                "URL":"../example.treeView/index.html",
+                "TEXT":"커스텀 슬라이더 제공 방법",
+                "STATE":"OPEN"
+            },
+            {
+                "URL":"../example.customDialog/index.html",
+                "TEXT":"커스텀 대화상자 예시",
                 "STATE":"OPEN"
             }
         ]
@@ -59,7 +69,7 @@ SolutionPage=[
         List:[
             {
                 "URL":"../example.accordionNavigation/index.html",
-                "TEXT":"올바른 드롭다운 네비게이션",
+                "TEXT":"드롭다운 네비게이션",
                 "STATE":"OPEN"
             },
             {

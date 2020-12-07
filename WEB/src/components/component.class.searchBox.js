@@ -69,6 +69,7 @@ class SearchBox extends HTMLElement{
     }
     set select(val){
         this.__select__=val;
+        console.log(this.__select__);
     }
     connectedCallback(root=this){
         root.expanded=false;
@@ -151,6 +152,7 @@ class SearchBox extends HTMLElement{
             const list = root.ListBox.querySelectorAll('li[role="option"]');
             let container='';
             let target=e.target
+            e.stopImmediatePropagation();
 
             function showList(){
                 for(let i=0; i<NavItems.length; i++){
@@ -186,11 +188,11 @@ class SearchBox extends HTMLElement{
                     if(root.expanded){
                         if(e.keyCode == 38 ){
                             if(root.select <= 0){
-                                root.select=list.length-1;
+                                root.select = ( list.length - 1 );
                                 list[list.length-1].classList.add('selected');
                                 list[list.length-1].id=root.activeID;
                             }else{
-                                root.select=root.__select__-1;
+                                root.select = ( root.select - 1 );
                                 list[root.select].classList.add('selected');
                                 list[root.select].id=root.activeID;
                             }
@@ -200,9 +202,9 @@ class SearchBox extends HTMLElement{
                             if(root.select == list.length-1){
                                 root.select=0;
                                 list[0].classList.add('selected');
-                                list[0].id=root.activeID;
+                                list[0].id = root.activeID;
                             }else{
-                                root.select=root.__select__+1;
+                                root.select = (root.select+1);
                                 list[root.select].classList.add('selected');
                                 list[root.select].id=root.activeID;
                             }

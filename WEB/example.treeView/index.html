@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>솔루션</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../style/common.css" type="text/css" />
+    <link rel="stylesheet" href="../style/components.css" type="text/css" />
+    <link rel="stylesheet"href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
+    <!--polyfills-->
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
+    <!--Methods-->
+    <script defer src="../src/methods/Element.multipleSetter.js"></script>
+    <script defer src="../src/methods/Element.getParents.js"></script>
+    <!--Resource Script-->
+    <script defer src="../src/res/style.setting.js"></script>
+    <script defer src="../src/res/pageIndex.list.js"></script>
+    <!--DOM and components Scripts-->
+    <script defer src="../src/components/component.snippet.commonNav.js"></script>
+    <script defer src="../src/components/component.class.treeView.js.js"></script>
+    <!--load a main script-->
+    <script defer src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <script defer src="../src/etc/SimpleBar_loader.js"></script>
+    <style>
+        *{scrollbar-width:none;}
+        ::-webkit-scrollbar{
+            background-color:transparent;
+            display:none;
+        }::-webkit-scrollbar-button{
+            background-color:transparent;
+        }
+
+        .TreeViewContent{
+            display:grid; position:relative;
+            grid-template-columns:8fr 12fr;
+            width:100%; height:100%;
+            grid-auto-flow:column;
+        }
+
+        ul[is=main-tree]{
+            position: sticky;
+            top:0; left:0;
+            grid-column: 1;
+            overflow: hidden;
+        }
+
+        .nav-treeview{      
+            display:flex; position:relative;  
+            scroll-behavior: smooth;
+            border:solid 1px;
+            height:100%; width:100%;
+            opacity: 0.8;
+        }
+
+        .nav-treeview:focus-within{
+            opacity:1;
+        }
+
+        article.treeContents{
+            grid-column: 2 / 3;
+            padding:1rem;
+            position:relative;
+        }
+
+        .main-tree{
+            width:100%;
+            height:100%;
+            overflow-y:auto;
+            overflow:auto;
+        }
+
+        .tree-main-content{
+            width:100%; height:100%;
+            display:flex; flex-flow:column;
+            place-items: center;
+            place-content: center;
+        }
+
+        [role=tree]{
+            display:flex; 
+            position: relative;
+            user-select: none;
+            list-style:none;
+            flex-flow:column;
+            width:100%;
+        }
+
+        [role=none] [role=tree]{
+            margin-left:1rem; width:100%;
+        }
+
+        [role=none]{
+            display:flex;
+            width:100%;
+            user-select:none;
+            font-size:1.2rem;
+            flex-flow:row wrap;
+        }
+
+        [role="treeitem"]{
+            flex:1;
+        }
+    
+        .pointer>[role=treeitem]{
+            flex:1;
+            background-color:rgba(10,120,245,0.5);
+            color:#fff;
+        }
+
+        .pointer>[role=treeitem]:focus{
+            background-color:rgba(10,120,245,1);
+            color:#fff;
+        }
+
+        .for-mouse{
+            width:1.2rem;
+            margin-right:0.3em;
+        }
+
+        .for-mouse.collapsed:after{
+            content:"▶";
+        }
+        .for-mouse.expanded:after{
+            content:"▼";
+        }
+
+
+        .speaker-name{
+            text-align:right;
+            margin-top:3em;
+        }
+
+        dt{
+            font-weight:bold;
+            margin-top:1.5rem;
+        }
+        dd{
+            margin-bottom:1.5rem;
+        }
+
+        .hide{
+            display:none;
+        }
+
+        .hide *{
+            display:inherit;
+        }
+
+        @media screen and (max-width:1024px){
+            .TreeViewContent{
+                grid-auto-flow:row;
+                grid-auto-columns:100%;
+                grid-template-columns: 100%;
+                grid-template-rows: 8fr 12fr;
+            }
+
+            article.treeContents{
+                grid-column: 1;
+                padding:1rem; overflow:hidden; overflow-y:auto;
+                position:relative;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>
+                <a href="javascript:location.href=document.querySelector('.GNB a:first-child').href" class="logo"><img src="../style/img/SolutionsLogo.png" alt="Solutions For Web Accessibility" /></a>
+            </h1>
+        </header>
+        <div class="middle-wrap">
+            <nav class="GNB"></nav>
+            <main>
+                <h2>트리뷰</h2>
+                <div class="TreeViewContent">
+                    <nav aria-label="목차">
+                        <ul is="main-tree" class="aboutTreeView">
+                            <li aria-controls="overview">개요</li>
+                            <li aria-controls="how">구현방법
+                                <ul>
+                                    <li aria-controls="roles">트리뷰 구성요소</li>
+                                    <li aria-controls="attr">트리뷰 구현을 위한 속성</li>
+                                    <li aria-controls="keyInteraction">트리뷰 조작 구현</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <article class="treeContents">
+                        <section id="overview">
+                            <h3>개요(Overview)</h3>
+                            <p>
+                                트리뷰는 큰 목록에서 작은 항목으로 마치 나무처럼 한 줄기에서 여러 가지로 뻗어 나가는 것에서 유례된 이름으로
+                                큰 범주의 목록부터 시작해서 계층이 높아질 수록 조금더 세분화된 항목을 볼 수 있는 형태의 목록 상자이다.
+                            </p>
+                            <p>
+                                트리뷰는 Windows 운영체제에서 많이 볼 수 있으며, 파일 탐색기의 왼쪽에 있는 폴더 목록이 대표적이다.
+                            </p>
+                        </section>
+                        <section id="roles">
+                            <h3>트리뷰 구성 역할</h3>
+                            <dl>
+                                <dt><span class="attribute">role="<strong class="valueType">tree</strong>"</span></dt>
+                                <dd>
+                                    <p>
+                                        트리뷰 목록의 컨테이너입니다. ul의 역할과 같다고 보시면 됩니다. 선택된 
+                                        하위 항목으로는 <span class="attribute">role="<span class="valueType">treeitem</span>"</span>을 가질 수 있습니다.
+                                    </p>
+                                </dd>
+                                <dt><span class="attribute">role="<strong class="valueType">treeitem</strong>"</span></dt>
+                                <dd>
+                                    <p>트리뷰의 항목입니다. ul의 li와 같다고 보시면 됩니다.</p>
+                                    <p>트리뷰 항목은 하위 트리뷰를 가질 수 있으며, 키보드나 마우스로 선택하여 콘텐츠를 볼 수 있습니다.</p>
+                                    <p>
+                                        트리뷰 항목에는 확장/축소 동작을 클릭 한 번으로 수행할 수 있고, 시각적으로 확장됨과 축소됨을 구분할 수 있는
+                                        확장/축소 마크 요소를 넣을 수 있습니다.
+                                    </p>
+                                    <p>
+                                        더블 클릭이 어려운 사용자가 있으므로 해당 마크를 단순한 아이콘이 아닌 확장/축소 동작을 지원하는 버튼으로 추가하는 것을 권장합니다.
+                                    </p>
+                                </dd>
+                                <dt>패널 영역</dt>
+                                <dd>
+                                    <p>
+                                        트리뷰 목록을 선택하면 나타날 콘텐츠 영역을 정의할 수 있습니다.
+                                        따로 정해진 요소 유형은 없습니다.
+                                    </p>
+                                </dd>
+                            </dl>
+                        </section>
+                        <section id="attr">
+                            <h3>트리뷰 구현을 위한 속성</h3>
+                            <strong aria-hidden="true" id="reqAttr_treeContainer">
+                                트리 컨테이너 속성
+                                (<span class="attribute">
+                                role=<span class="valueType">"tree"</span>
+                                </span>)
+                            </strong>
+                            <dl aria-labelledby="reqAttr_treeContainer">
+                                <dt><span class="attribute">
+                                aria-label=<span class="valueType">"String(treeview name)"</span>
+                                </span></dt>
+                                <dd>
+                                    트리뷰 컨테이너에는 트리뷰에 담긴 콘텐츠를 예측할 수 있는
+                                    사용자 친화적인 텍스트를 aria-label로 제공하는 것이 좋습니다.
+                                </dd>
+                            </dl>
+                            <strong aria-hidden="true" id="reqAttr_treeitem">
+                                트리 항목 속성
+                                (<span class="attribute">
+                                role=<span class="valueType">"treeitem"</span>
+                                </span>)
+                            </strong>
+                            <dl aria-labelledby="reqAttr_treeitem">
+                                <dt>
+                                    <span class="attribute">
+                                        aria-expanded=<span class="valueType">"boolean"</span>
+                                    </span>
+                                </dt>
+                                <dd>
+                                    <p>(하위 항목이 있을 경우) 트리 항목은 aria-expanded 속성을 사용하여 하위 항목의 확장 및 축소를 스크린리더로 안내할 수 있습니다.</p>
+                                </dd>
+                                <dt>
+                                    <span class="attribute">
+                                        aria-level=<span class="valueType">"int"</span>
+                                    </span>
+                                </dt>
+                                <dd>
+                                    <p>트리 항목에는 DOM 계층에 맞게 aria-level에 정수값을 주어 몇 단계 트리 항목인지 명시해야 합니다.</p>
+                                </dd>
+                                <dt><span class="attribute">
+                                tabindex=<span class="valueType">"0"</span>
+                                </span></dt>
+                                <dd>
+                                    키보드로 탐색했던 마지막 위치, 마지막으로 클릭한
+                                    트리 항목은 tabindex="0"로 초점을 주어 트리뷰에 초점을
+                                    보낼 수 있도록 해야합니다.
+                                </dd>
+                                <dt>
+                                    <span class="attribute">
+                                        tabindex=<span class="valueType">"-1"</span>
+                                    </span>
+                                </dt>
+                                <dd>
+                                    반대로, 마지막으로 탐색한 항목이 아닌 항목들은 모두 tabindex="-1"을 사용하여 키보드 초점을
+                                    받지 않도록 해야합니다.
+                                </dd>
+                            </dl>
+                        </section>
+                        <section id="keyInteraction">
+                            <h3>트리뷰 조작 구현</h3>
+                            <dl>
+                                <dt>항목 탐색</dt>
+                                <dd>
+                                    <p>
+                                        <div class="keycaps">
+                                            <span aria-hidden="true" class="material-icons">keyboard_arrow_up</span>
+                                            <span class="visuallyhidden" role="none">위쪽 화살표 키</span>
+                                        </div>
+                                        <strong>이전 트리 항목 탐색</strong>
+                                    </p>
+                                    <p>
+                                        이전 트리 항목을 탐색합니다. 하위 트리 항목의 첫 번째 요소에 초점이 있다면
+                                        위쪽 화살표 키를 눌러 부모 트리 항목으로 이동할 수 있어야 합니다.
+                                    </p>
+                                    <p>
+                                        <div class="keycaps">
+                                            <span aria-hidden="true" class="material-icons">keyboard_arrow_down</span>
+                                            <span class="visuallyhidden" role="none">아래쪽 화살표 키</span>
+                                        </div>
+                                        <strong>다음 트리 항목 탐색</strong>
+                                    </p>
+                                    <p>
+                                        다음 트리 항목을 탐색합니다. 하위 트리 항목의 첫 번째 요소에 초점이 있다면
+                                        아래쪽 화살표 키를 눌러 부모 트리 항목의 형재 항목으로 이동할 수 있어야 합니다.
+                                    </p>
+                                    <p>
+                                        <div class="keycaps navKeys">
+                                            <span class="print-text">Home</span>
+                                            <span class="visuallyhidden" role="none">홈 키</span>
+                                        </div>
+                                        <strong>첫 번째 트리 항목으로 초점 이동</strong>
+                                    </p>
+                                    <p>
+                                        트리뷰에서는 Home 키를 눌러 하위 항목을 포함한 전체 항목의 첫 번째 트리 항목으로 초점을 이동할 수 있어야 합니다.
+                                        없어도 지장은 없으나, 트리 항목이 너무 많다면 이 기능을 반드시 제공해야 합니다.
+                                    </p>
+                                    <p>
+                                        <div class="keycaps navKeys">
+                                            <span class="print-text">End</span>
+                                            <span class="visuallyhidden" role="none">엔드 키</span>
+                                        </div>
+                                        <strong>마지막 트리 항목으로 초점 이동</strong>
+                                    </p>
+                                    <p>
+                                        트리뷰에서는 End 키를 눌러 하위 항목을 포함한 전체 트리의 마지막 항목으로 초점을 이동할 수 있어야 합니다. 
+                                        없어도 지장은 없으나, 트리 항목이 너무 많다면 이 기능을 반드시 제공해야 합니다.
+                                    </p>
+
+                                    <p>
+                                        <span class="visuallyhidden" role="none">마우스 왼쪽 버튼 클릭</span>
+                                        <span class="material-icons mouse left-click" aria-hidden="true">mouse</span>
+                                        <strong>트리 항목 탐색 및 선택</strong>
+                                    </p>
+                                    <p>
+                                        원하는 트리 항목을 선택합니다. 초점이 해당 트리 항목으로 이동됨과 동시에
+                                        해당 트리의 기능이 실행되어야 합니다.
+                                    </p>
+                                </dd>
+                                <dt>트리 확장 또는 축소</dt>
+                                <dd>
+                                    <p>
+                                        <div class="keycaps">
+                                            <span aria-hidden="true" class="material-icons">keyboard_arrow_left</span>
+                                            <span class="visuallyhidden" role="none">왼쪽 화살표 키</span>
+                                        </div>
+                                        <strong>항목 축소 또는 벗어나기</strong>
+                                    </p>
+                                    <p>현재 탐색중인 트리 항목이 하위 트리일 때, 탐색 중인 트리 항목의 순서와 상관없이 왼쪽 화살표 키를 눌러서 하위 목록으로부터 상위 항목으로 벗어날 수 있어야 합니다.</p>
+                                    <p>그리고 하위 항목이 확장된 트리 항목에서 왼쪽 화살표 키를 누르면 하위 항목이 축쇠되어야 합니다.</p>
+                                    <p>
+                                        <div class="keycaps">
+                                            <span aria-hidden="true" class="material-icons">keyboard_arrow_right</span>
+                                            <span class="visuallyhidden" role="none">오른쪽 화살표 키</span>
+                                        </div>
+                                        <strong>항목 확장 또는 들어가기</strong>
+                                    </p>
+                                    <p>하위 트리 목록이 있으며, 확장되지 않은 상태라면 오른쪽 화살표 키를 눌러 목록을 확장할 수 있어야 합니다.</p>
+                                    <p>그리고, 하위 트리 목록이 확장된 상태라면, 오른쪽 화살표 키를 눌러 하위 목록 안의 첫 번째 항목으로 들어갈 수 있어야 합니다.</p>
+                                    <div>
+                                        <span class="visuallyhidden" role="none">마우스 왼쪽 버튼 더블클릭</span><span class="material-icons mouse left-click">mouse</span><span aria-hidden="true" class="dblclick">x2</span>
+                                    </div>
+                                    <p>마우스로 트리 항목의 텍스트 상자를 더블클릭하여 하위 항목 확장/축소 토글이 가능해야 합니다.</p>
+                                    <div>
+                                        <span class="visuallyhidden" role="none">마우스 왼쪽 버튼 클릭</span><span class="material-icons mouse left-click">mouse</span>
+                                    </div>
+                                    <p>또는 확장/축소 화살표 마크를 마우스 왼쪽 버튼으로 클릭하여  확장/축소 동작이 가능해야 합니다.</p>
+                                </dd>
+                            </dl>
+                        </section>
+                    </article>
+                </div>
+            </main>
+        </div>
+        <footer>
+            <div class="copyright">
+                <span>Copyright &copy; 
+                <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
