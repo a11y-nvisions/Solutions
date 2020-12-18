@@ -65,17 +65,6 @@ public class NestedScrollExampleActivity extends AppCompatActivity {
     }
 
     final View.AccessibilityDelegate checkBoxAccessibilityDelegate = new View.AccessibilityDelegate() {
-
-        @Override
-        public boolean performAccessibilityAction(View host, int action, Bundle args) {
-
-            if (super.performAccessibilityAction(host, action, args)) {
-                return true;
-            }
-            return false;
-        }
-
-        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
             super.onInitializeAccessibilityNodeInfo(host, info);
@@ -92,8 +81,6 @@ public class NestedScrollExampleActivity extends AppCompatActivity {
 
         TextView text1View = findViewById(R.id.text1);
         text1View.setAccessibilityDelegate(null);
-
-
         TextView text2View = findViewById(R.id.text2);
         text2View.setAccessibilityDelegate(null);
 

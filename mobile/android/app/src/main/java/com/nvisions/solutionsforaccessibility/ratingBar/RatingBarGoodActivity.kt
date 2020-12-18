@@ -33,10 +33,8 @@ class RatingBarGoodActivity : AppCompatActivity() {
             if (accessibilityManager.isEnabled) { //접근성이 활성화 되어 있는 경우
                 accessibilityManager.interrupt()
             }
-            ratingBar2.contentDescription = rating.toInt().toString() + "점"
+            ratingBar2.contentDescription = rating.toInt().toString() + getString(R.string.score)
         }
-
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
