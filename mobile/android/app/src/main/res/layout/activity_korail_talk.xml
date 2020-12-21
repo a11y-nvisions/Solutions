@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".korailTalk.KorailTalkActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/startEndExplain"
+        android:id="@+id/startEndExplain"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@id/withAccessibiilty"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/withoutAccessibiilty"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="@string/without_accessibility"
+        app:layout_constraintTop_toTopOf="@id/startEndExplain"
+        app:layout_constraintBottom_toTopOf="@id/withAccessibiilty"
+        android:onClick="launchKarailTalkWithoutAccessibilityActivity"
+        />
+    <Button
+        android:id="@+id/withAccessibiilty"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="@string/with_accessibility"
+        app:layout_constraintTop_toBottomOf="@id/withoutAccessibiilty"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:onClick="launchKarailTalkWithAccessibilityActivity"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

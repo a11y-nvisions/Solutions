@@ -1,4 +1,4 @@
-package com.nvisions.solutionsforaccessibility.ratingBar
+package com.nvisions.solutionsforaccessibility.RatingBar
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -8,13 +8,13 @@ import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import com.nvisions.solutionsforaccessibility.R
-import kotlinx.android.synthetic.main.activity_rating_bar_good.*
+import kotlinx.android.synthetic.main.rating_bar_good_activity.*
 
 
 class RatingBarGoodActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_rating_bar_good)
+        setContentView(R.layout.rating_bar_good_activity)
         init()
     }
 

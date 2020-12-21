@@ -199,4 +199,23 @@
     <string name="refreshed">콘텐츠 새로고침: </string>
     <string name="changePeopleCount">인원수 변경</string>
 
+    <string name="customControl_main">커스텀 컨트롤 접근성</string>
+    <string name="customControl_descript">스크린 리더 사용자는 각 요소에 포커스 했을 때 스크린 리더가 읽어주는 요소 유형이나 상태 정보를 통해 화면의 레이아웃을 파악하고 어떤 제스처를 할 것인가를 결정합니다. 따라서 커스텀 컨트롤을 사용하는 경우에는 요소 유형 및 상태를 스크린 리더가 정확하게 읽어줄 수 있도록 추가 구현을 해 주어야 합니다. 또한 밀기 동작으로 컨트롤 제어 개발 시 스크린 리더 사용자는 이중탭, 클릭 동작으로 실행 가능하도록 추가 구현해 주어야 합니다.</string>
+    <string name="customControl_good">커스텀 컨트롤 사용, 접근성 적용한 경우</string>
+    <string name="customControl_bad">커스텀 컨트롤 사용, 접근성 적용하지 않은 경우</string>
+    <string name="customControl_button_down">감소</string>
+    <string name="customControl_button_up">증가</string>
+    <string name="customControl_radio_single">단품</string>
+    <string name="customControl_radio_set">세트</string>
+    <string name="customControl_confirm">확인</string>
+    <string name="customControl_confirm_text">밀어서 주문 확인</string>
+    <string name="customControl_banner_dialog_text">배너를 클릭했습니다</string>
+    <string name="customControl_banner_left">이전 배너</string>
+    <string name="customControl_banner_right">다음 배너</string>
+    <string name="customControl_banner_play">배너 재생</string>
+    <string name="customControl_banner_stop">배너 정지</string>
+    <string name="customControl_edittext_hint">수량</string>
+    <string name="hamburgerBrand">햄버거 브랜드, </string>
+
+
 </resources>

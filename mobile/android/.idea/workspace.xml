@@ -9,23 +9,89 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b035821-8cab-4e32-85b8-d1212ae9d46a" name="Default Changelist" comment="" />
+    <list default="true" id="34c3f688-7c98-42dc-8afb-ac2f2749f0ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/VoiceSearch/VoiceSearchActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/VoiceSearch/VoiceSearchWithAccessibilityActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/VoiceSearch/VoiceSearchWithoutAccessibilityActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/WebView/WebViewActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/WebView/WebViewWithAccessibilityActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/WebView/WebViewWithoutAccessibilityActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/korailTalk/KorailTalkActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/korailTalk/KorailTalkWithAccessibilityActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/korailTalk/KorailTalkWithoutAccessibilityActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/refreshContents/RefreshContentsActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/refreshContents/RefreshContentsWithAccessibilityActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/refreshContents/RefreshContentsWithoutAccessibilityActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/activity_webview.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/activity_webview_with_accessibility.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/activity_webview_without_accessibility.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/change.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_korail_talk.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_korail_talk_with_accessibility.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_korail_talk_without_accessibility.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_refresh_contents.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_refresh_contents_with_accessibility.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_refresh_contents_without_accessibility.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_voice_search.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_voice_search_with_accessibility.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_voice_search_without_accessibility.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_webview.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_webview_with_accessibility.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_webview_without_accessibility.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/raw/end.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/raw/start.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/accessibility_service_config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_annotation_annotation_1_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_arch_core_core_common_2_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_collection_collection_1_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_solver_1_1_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_common_2_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__cn_trinea_android_view_autoscrollviewpager_android_auto_scroll_view_pager_1_1_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_ebanx_swipe_button_0_8_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_ebanx_swipe_button_0_8_3_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_annotations_13_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_android_extensions_runtime_1_3_61_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_3_61_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_3_61_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_3_61_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Solutions for Accessibility.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/swipe-button/swipe-button.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/CustomControlActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/CustomControlActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/ViewPagerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/ViewPagerAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_control_viewpager_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_control_viewpager_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[R39M4001JGM]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1lRXsvavmQnI2f2tgogDtsbxUld" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1jhiikNxcLYgez3wuB9Qd0wGfIA" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -33,18 +99,25 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../android accessibility demos" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="PsdUISettings">
+    <option name="MODULE_TAB" value="Properties" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.nvisions.solutionsforaccessibility.refreshContents" />
-      <recent name="com.nvisions.solutionsforaccessibility.VoiceSearch" />
+      <recent name="com.nvisions.solutionsforaccessibility" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\solutions-for-accessibility\android accessibility demos\app\src\main\res" />
-      <recent name="D:\solutions-for-accessibility\android accessibility demos\app\src\main\res\layout" />
-      <recent name="D:\solutions-for-accessibility\android accessibility demos\app\src\main\java\com\nvisions\solutionsforaccessibility/refreshContents" />
-      <recent name="D:\solutions-for-accessibility\android accessibility demos\app\src\main\res\raw" />
+      <recent name="D:\android accessibility demos\app\src\main\res\layout" />
+      <recent name="D:\android accessibility demos\app\src\main\res" />
+      <recent name="D:\android accessibility demos\app\src\main\java\com\nvisions\solutionsforaccessibility" />
+      <recent name="D:\android accessibility demos\app\src\main\res\drawable" />
+      <recent name="D:\android accessibility demos\app\src\main\res\values" />
     </key>
   </component>
   <component name="RunManager">
@@ -118,34 +191,26 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4b035821-8cab-4e32-85b8-d1212ae9d46a" name="Default Changelist" comment="" />
-      <created>1607561087926</created>
+      <changelist id="34c3f688-7c98-42dc-8afb-ac2f2749f0ca" name="Default Changelist" comment="" />
+      <created>1604262853277</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1607561087926</updated>
+      <updated>1604262853277</updated>
     </task>
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="198" y="0" key="#com.intellij.ide.util.MemberChooser" timestamp="1607875895330">
+    <state x="0" y="178" key="#PSD" timestamp="1608357561394">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="198" y="0" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1607875895330" />
-    <state x="123" y="0" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607854507487">
+    <state x="0" y="178" key="#PSD/0.0.1536.864@0.0.1536.864" timestamp="1608357561394" />
+    <state x="173" y="0" key="FileChooserDialogImpl" timestamp="1608358824532">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="123" y="0" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1607854507487" />
-    <state x="173" y="0" key="FileChooserDialogImpl" timestamp="1608255062781">
+    <state x="173" y="0" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1608358824532" />
+    <state x="50" y="88" key="run.anything.popup" timestamp="1608172305449">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="173" y="0" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1608255062781" />
-    <state x="34" y="-59" width="700" height="530" key="recent.locations.popup" timestamp="1607561179200">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="34" y="-59" width="700" height="530" key="recent.locations.popup/0.0.1536.864@0.0.1536.864" timestamp="1607561179200" />
-    <state x="50" y="88" key="run.anything.popup" timestamp="1608105656247">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="50" y="88" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1608105656247" />
+    <state x="50" y="88" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1608172305449" />
   </component>
 </project>

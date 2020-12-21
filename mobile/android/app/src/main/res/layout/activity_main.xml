@@ -104,6 +104,12 @@ android:text="@string/progressBar"/>
         android:layout_gravity="center"
         android:text="@string/startEnd"/>
 
+    <Button
+        android:id="@+id/customControlButton"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/customControl_main" />
             <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

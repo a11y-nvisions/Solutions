@@ -1,14 +1,21 @@
-package com.nvisions.solutionsforaccessibility.ratingBar
+package com.nvisions.solutionsforaccessibility.RatingBar
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.MenuItem
+import android.view.View
+import android.widget.FrameLayout
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.nvisions.solutionsforaccessibility.R
+
 
 class RatingBarBadActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_rating_bar_bad)
+        setContentView(R.layout.rating_bar_bad_activity)
         init()
     }
 
@@ -24,3 +31,6 @@ class RatingBarBadActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 }
+
+
+

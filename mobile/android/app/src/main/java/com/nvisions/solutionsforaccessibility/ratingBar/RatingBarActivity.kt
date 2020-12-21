@@ -1,16 +1,16 @@
-package com.nvisions.solutionsforaccessibility.ratingBar
+package com.nvisions.solutionsforaccessibility.RatingBar
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.nvisions.solutionsforaccessibility.R
-import kotlinx.android.synthetic.main.activity_rating_bar.*
+import kotlinx.android.synthetic.main.rating_bar_activity.*
 
 class RatingBarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_rating_bar)
+        setContentView(R.layout.rating_bar_activity)
         init()
     }
     

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Solutions_for_Accessibility.iml" filepath="$PROJECT_DIR$/.idea/modules/Solutions_for_Accessibility.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Solutions_for_Accessibility.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Solutions_for_Accessibility.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/swipe-button/Solutions_for_Accessibility.swipe-button.iml" filepath="$PROJECT_DIR$/.idea/modules/swipe-button/Solutions_for_Accessibility.swipe-button.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="Gradle: com.ebanx:swipe-button:0.8.3@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c62ac99278ed57bbaa588c1177072c2d/jetified-swipe-button-0.8.3/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c62ac99278ed57bbaa588c1177072c2d/jetified-swipe-button-0.8.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c62ac99278ed57bbaa588c1177072c2d/jetified-swipe-button-0.8.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9f692360ba4418d82e5c36d75b4c108e/jetified-swipe-button-0.8.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9f692360ba4418d82e5c36d75b4c108e/jetified-swipe-button-0.8.3/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9f692360ba4418d82e5c36d75b4c108e/jetified-swipe-button-0.8.3/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dde5e68fb42dc62278df8e409ac949ae/jetified-swipe-button-0.8.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dde5e68fb42dc62278df8e409ac949ae/jetified-swipe-button-0.8.3/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dde5e68fb42dc62278df8e409ac949ae/jetified-swipe-button-0.8.3/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ebanx/swipe-button/0.8.3/ccb0e180ddcf0fb30a5a4d06e70c522f94c37970/swipe-button-0.8.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ebanx/swipe-button/0.8.3/259117d4f4e2c754c20ff3df1e009a2422dba55e/swipe-button-0.8.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

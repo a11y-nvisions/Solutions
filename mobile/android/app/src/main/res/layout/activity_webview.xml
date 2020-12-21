@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nvisions.solutionsforaccessibility.WebView.WebViewActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/webViewExplain"
+        android:id="@+id/webViewExplain"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@id/webViewWithoutAccessibility"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/webViewWithoutAccessibility"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:onClick="launchWebViewWithoutAccessibilityActivity"
+        android:text="@string/webview_without_accessibility"
+        app:layout_constraintBottom_toTopOf="@id/webViewWithAccessibility"
+        app:layout_constraintTop_toTopOf="@id/webViewExplain" />
+
+    <Button
+        android:id="@+id/webViewWithAccessibility"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:onClick="launchWebViewWithAccessibilityActivity"
+        android:text="@string/webview_with_accessibility"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/webViewWithoutAccessibility" />
+</androidx.constraintlayout.widget.ConstraintLayout>
