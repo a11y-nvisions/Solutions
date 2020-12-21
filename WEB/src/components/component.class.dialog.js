@@ -8,6 +8,9 @@ Element.prototype.setAttributes = function(obj){
 
 class Dialog{
     constructor(settings){
+        const keyboardfocusableElements = [...document.querySelectorAll(
+            'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+          )].filter(el => !el.hasAttribute('disabled'))
         const root = this;
         this.LanguagePack = {
             en:{
