@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/big_logo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+
+        android:src="@drawable/big_logo" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/big_logo"
+        android:layout_toLeftOf="@id/add_subscription"
+        android:layout_marginLeft="5dp"
+        android:textSize="18dp"
+        android:text="@string/channelTitle2"
+        android:textColor="#000000"
+        android:layout_centerVertical="true"
+        />
+
+    <Button
+        android:id="@+id/add_subscription"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:enabled="false"
+        android:background="@drawable/add_subscription"
+        android:contentDescription="@string/subscription"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="7dp"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>

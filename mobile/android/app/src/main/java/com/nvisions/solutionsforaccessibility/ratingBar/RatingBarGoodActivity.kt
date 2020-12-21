@@ -1,4 +1,4 @@
-package com.nvisions.solutionsforaccessibility.ratingBar
+package com.nvisions.solutionsforaccessibility.RatingBar
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -8,13 +8,13 @@ import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import com.nvisions.solutionsforaccessibility.R
-import kotlinx.android.synthetic.main.activity_rating_bar_good.*
+import kotlinx.android.synthetic.main.rating_bar_good_activity.*
 
 
 class RatingBarGoodActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_rating_bar_good)
+        setContentView(R.layout.rating_bar_good_activity)
         init()
     }
 
@@ -33,10 +33,8 @@ class RatingBarGoodActivity : AppCompatActivity() {
             if (accessibilityManager.isEnabled) { //접근성이 활성화 되어 있는 경우
                 accessibilityManager.interrupt()
             }
-            ratingBar2.contentDescription = rating.toInt().toString() + "점"
+            ratingBar2.contentDescription = rating.toInt().toString() + getString(R.string.score)
         }
-
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

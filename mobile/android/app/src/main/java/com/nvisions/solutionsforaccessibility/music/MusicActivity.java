@@ -38,5 +38,6 @@ Button example1 = (Button)findViewById(R.id.example1);
                 break;
         }
     }
+
 }
 
