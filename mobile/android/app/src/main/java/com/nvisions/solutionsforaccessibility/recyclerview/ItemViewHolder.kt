@@ -1,5 +1,6 @@
 package com.nvisions.solutionsforaccessibility.recyclerview
 
+import android.graphics.Color
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -26,6 +27,6 @@ class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private fun setDeletedState(item: Item) {
         itemView.item_delete_button.visibility = View.GONE
         itemView.item_name.text = itemView.context.getString(R.string.item_deleted_x, item.name)
-        itemView.item_name.setTextColor(ContextCompat.getColor(itemView.context, R.color.deletedTextColor))
+        itemView.item_name.setTextColor(Color.parseColor("#ff0000"));
     }
 }

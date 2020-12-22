@@ -1,11 +1,14 @@
 package com.nvisions.solutionsforaccessibility;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.nvisions.solutionsforaccessibility.CollapseExpand.CollapseExpandActivity;
 import com.nvisions.solutionsforaccessibility.CustomControl.CustomControlActivity;
@@ -28,6 +31,7 @@ import com.nvisions.solutionsforaccessibility.refreshContents.RefreshContentsAct
 public class MainActivity extends AppCompatActivity {
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -71,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
         progressBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ProgressBarActivity.class);
-startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(), ProgressBarActivity.class);
+            startActivity(intent);
             }
         });
 
@@ -80,8 +84,8 @@ startActivity(intent);
         timeLimit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TimeLimitActivity.class);
-                startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(), TimeLimitActivity.class);
+            startActivity(intent);
             }
         });
 
@@ -89,8 +93,8 @@ startActivity(intent);
         musicPlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MusicActivity.class);
-                startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(), MusicActivity.class);
+            startActivity(intent);
             }
         });
 
@@ -98,8 +102,8 @@ startActivity(intent);
         overlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), FocusActivity.class);
-                startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(), FocusActivity.class);
+            startActivity(intent);
             }
         });
 
@@ -183,7 +187,6 @@ startActivity(intent);
                 startActivity(intent);
             }
         });
-
     }
 }
 
