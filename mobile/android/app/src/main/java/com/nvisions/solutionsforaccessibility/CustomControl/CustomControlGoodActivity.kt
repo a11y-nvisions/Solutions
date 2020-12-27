@@ -1,13 +1,16 @@
 package com.nvisions.solutionsforaccessibility.CustomControl
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityManager
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Button
 import android.widget.EditText
+import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +21,6 @@ import kotlinx.android.synthetic.main.custom_control_good_activity.*
 import java.util.*
 import kotlin.concurrent.timer
 
-
 class CustomControlGoodActivity : AppCompatActivity() {
     private var count:String = "1"
     private var type:String = "단품"
@@ -28,22 +30,31 @@ class CustomControlGoodActivity : AppCompatActivity() {
     private var timerStat = false
     private lateinit var adapter: ViewPagerAdapter
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.custom_control_good_activity)
+        Handler().postDelayed( {
+            viewPager.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+            viewPager.requestFocus()
+        }, 1000)
         init()
     }
 
     fun init(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setTitle(getString(R.string.customControl_good))
-        initAdapter()
-//        if (isTalkBackEnabled()){
-            initAccessibility()
-//        }
-        initListener()
 
+        closeBanner.setOnClickListener {
+            viewPager.visibility = View.GONE
+            bannerButton.visibility = View.GONE
+            closeBanner.visibility = View.GONE
+            buttonDown.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+                    }
+        initAdapter()
+        if (isTalkBackEnabled()){
+            initAccessibility()
+        }
+        initListener()
     }
 
     private fun isTalkBackEnabled(): Boolean {
@@ -61,51 +72,20 @@ class CustomControlGoodActivity : AppCompatActivity() {
     }
 
     private fun initAccessibility(){
-        editText.accessibilityLiveRegion = View.ACCESSIBILITY_LIVE_REGION_NONE
-
-        editText.accessibilityDelegate = object : View.AccessibilityDelegate() {
-            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
-                super.onInitializeAccessibilityNodeInfo(host, info)
-                info?.isEnabled = false
-            }
-        }
-        swipeButton.accessibilityDelegate = object : View.AccessibilityDelegate(){
-            override fun addExtraDataToAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo, extraDataKey: String, arguments: Bundle?) {
-                super.addExtraDataToAccessibilityNodeInfo(host, info, extraDataKey, arguments)
-                info?.className = Button::class.java.name
-            }
-        }
+//        swipeButton.accessibilityDelegate = object : View.AccessibilityDelegate(){
+//            override fun addExtraDataToAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo, extraDataKey: String, arguments: Bundle?) {
+//                super.addExtraDataToAccessibilityNodeInfo(host, info, extraDataKey, arguments)
+//                info?.className = Button::class.java.name
+//            }
+//        }
 
         swipeButton.setOnClickListener {
-            if (isTalkBackEnabled()) {
+
                 Toast.makeText(applicationContext, "clicked", Toast.LENGTH_LONG).show()
                 completeOrder()
             }
-        }
 
         timer.cancel()
-
-        buttonLeft.visibility = View.VISIBLE
-        buttonRight.visibility = View.VISIBLE
-
-        buttonLeft.setOnClickListener {
-            currentPage--
-            if (currentPage <= -1) {
-                currentPage = 2
-            }
-            viewPager.setCurrentItem(currentPage, true)
-            it.announceForAccessibility(pagerList[currentPage])
-        }
-
-        buttonRight.setOnClickListener {
-            currentPage++
-            if (currentPage >= 3) {
-                currentPage = 0
-            }
-            viewPager.setCurrentItem(currentPage, true)
-            it.announceForAccessibility(pagerList[currentPage])
-        }
-
 
         bannerButton.visibility = View.VISIBLE
         bannerButton.setOnClickListener {
@@ -121,28 +101,67 @@ class CustomControlGoodActivity : AppCompatActivity() {
                 }
 
                 bannerButton.text = getString(R.string.customControl_banner_stop)
+                bannerButton.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_SELECTED)
                 timerStat = true
             }
             else{ //배너 플레이되고있는 상태
                 //배너 정지
                 timer.cancel()
                 bannerButton.text = getString(R.string.customControl_banner_play)
+                bannerButton.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_SELECTED)
                 timerStat = false
-
             }
         }
 
-
+        bannerButton.accessibilityDelegate =object : View.AccessibilityDelegate() {
+            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info?.className = SeekBar::class.java.name
+                info?.tooltipText = getString(R.string.bannerRolling)
+                                            }
+            override fun performAccessibilityAction(host: View?, action: Int, args: Bundle?): Boolean {
+                if (action == AccessibilityNodeInfo.ACTION_SCROLL_FORWARD) {
+                    currentPage--
+                    if (currentPage <= -1) {
+                        currentPage = 2
+                    }
+                    viewPager.setCurrentItem(currentPage, true)
+                    bannerButton.announceForAccessibility(pagerList[currentPage])
+                }
+                else if (action == AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD) {
+                    currentPage++
+                    if (currentPage >= 3) {
+                        currentPage = 0
+                    }
+                    viewPager.setCurrentItem(currentPage, true)
+                    bannerButton.announceForAccessibility(pagerList[currentPage])
+                }
+                return super.performAccessibilityAction(host, action, args)
+            }
+        }
 
         ViewCompat.replaceAccessibilityAction(editText, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_ACCESSIBILITY_FOCUS, "") { view, arguments ->
             editText.hint = getString(R.string.customControl_edittext_hint)
             false
         }
-//        ViewCompat.replaceAccessibilityAction(viewPager, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_ACCESSIBILITY_FOCUS, "롤링 배너 실행", null)
-
     }
 
     private fun initListener() {
+        swipeButton.contentDescription = getString(R.string.completeOrderContent)
+        editText.accessibilityDelegate = object : View.AccessibilityDelegate() {
+            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info?.isEnabled = false
+            }
+        }
+
+        swipeButton.accessibilityDelegate = object : View.AccessibilityDelegate() {
+            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info?.className = Button::class.java.name
+            }
+        }
+
         buttonDown.setOnClickListener {
             val num = Integer.parseInt(editText.text.toString()) - 1
             editText.setText(num.toString())
@@ -190,6 +209,7 @@ class CustomControlGoodActivity : AppCompatActivity() {
         }
         builder.create().show()
     }
+
 
     private fun initAdapter(){
         adapter = ViewPagerAdapter(this, pagerList)

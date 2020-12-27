@@ -3,6 +3,7 @@ package com.nvisions.solutionsforaccessibility.CustomControl
 import android.os.Bundle
 import android.os.Handler
 import android.view.MenuItem
+import android.view.View
 import android.view.accessibility.AccessibilityManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -22,14 +23,17 @@ class CustomControlBadActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.custom_control_bad_activity)
-
-
         init()
     }
 
     fun init(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setTitle(getString(R.string.customControl_bad))
+
+        closeBanner.setOnClickListener {
+            viewPager.visibility = View.GONE
+            closeBanner.visibility = View.GONE
+        }
         initAdapter()
         initListener()
         initTimer()

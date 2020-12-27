@@ -1,17 +1,15 @@
 package com.nvisions.solutionsforaccessibility;
 
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import com.nvisions.solutionsforaccessibility.CollapseExpand.CollapseExpandActivity;
 import com.nvisions.solutionsforaccessibility.CustomControl.CustomControlActivity;
+import com.nvisions.solutionsforaccessibility.LayerFocus.LayerFocusActivity;
 import com.nvisions.solutionsforaccessibility.LiveRegion.LiveRegionActivity;
 import com.nvisions.solutionsforaccessibility.NestedScroll.NestedScrollActivity;
 import com.nvisions.solutionsforaccessibility.RatingBar.RatingBarActivity;
@@ -24,14 +22,12 @@ import com.nvisions.solutionsforaccessibility.labelFor.LabelForActivity;
 import com.nvisions.solutionsforaccessibility.music.MusicActivity;
 import com.nvisions.solutionsforaccessibility.overlay.FocusActivity;
 import com.nvisions.solutionsforaccessibility.progress.ProgressBarActivity;
-import com.nvisions.solutionsforaccessibility.RatingBar.RatingBarActivity;
 import com.nvisions.solutionsforaccessibility.recyclerview.StayFocusActivity;
 import com.nvisions.solutionsforaccessibility.refreshContents.RefreshContentsActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -75,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
         progressBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Intent intent = new Intent(getApplicationContext(), ProgressBarActivity.class);
-            startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), ProgressBarActivity.class);
+startActivity(intent);
             }
         });
 
@@ -84,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
         timeLimit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Intent intent = new Intent(getApplicationContext(), TimeLimitActivity.class);
-            startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), TimeLimitActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -93,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
         musicPlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Intent intent = new Intent(getApplicationContext(), MusicActivity.class);
-            startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), MusicActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -102,8 +98,8 @@ public class MainActivity extends AppCompatActivity {
         overlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Intent intent = new Intent(getApplicationContext(), FocusActivity.class);
-            startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), FocusActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -187,6 +183,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        Button newLayerButton = (Button)findViewById(R.id.newLayerButton);
+        newLayerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LayerFocusActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
 

@@ -118,5 +118,12 @@
         android:id="@+id/refreshContents"
         android:layout_gravity="center"
         android:text="@string/refreshContents"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/newLayerButton"
+        android:layout_gravity="center"
+        android:text="@string/newLayerName"/>
 </LinearLayout>
 </ScrollView>

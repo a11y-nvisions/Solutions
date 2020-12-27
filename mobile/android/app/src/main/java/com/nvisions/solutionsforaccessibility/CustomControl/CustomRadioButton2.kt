@@ -11,11 +11,11 @@ import android.widget.RadioButton
 import com.nvisions.solutionsforaccessibility.R
 import kotlinx.android.synthetic.main.custom_control_radio_view.view.*
 
- class CustomRadioButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)
+ class CustomRadioButton2 @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)
             :LinearLayout(context, attrs, defStyleAttr) {
 
     init {
-        inflate(context, R.layout.custom_control_radio_view, this)
+        inflate(context, R.layout.custom_control_radio_view2, this)
         button1.isSelected = true
         button2.isSelected = false
         button1.setOnClickListener {
@@ -27,28 +27,7 @@ import kotlinx.android.synthetic.main.custom_control_radio_view.view.*
             button2.isSelected = true
             button1.isSelected = false
         }
-
-        button1.accessibilityDelegate = object : View.AccessibilityDelegate() {
-            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
-                super.onInitializeAccessibilityNodeInfo(host, info)
-                info?.className = RadioButton::class.java.name
-                info?.isCheckable = true
-                info?.isChecked = button1.isSelected
-                info?.isSelected = false
-
             }
-        }
-
-        button2.accessibilityDelegate = object : View.AccessibilityDelegate() {
-            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
-                super.onInitializeAccessibilityNodeInfo(host, info)
-                info?.className = RadioButton::class.java.name
-                info?.isCheckable = true
-                info?.isChecked = button2.isSelected
-                info?.isSelected = false
-            }
-        }
-    }
 
 
     fun getStateSelected(): Int{

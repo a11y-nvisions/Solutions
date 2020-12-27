@@ -14,18 +14,37 @@
         android:theme="@style/Theme.AppCompat.DayNight"
         android:background="?android:attr/colorBackground"
         android:usesCleartextTraffic="true">
-        <activity android:name=".refreshContents.RefreshContentsWithoutAccessibilityActivity" android:parentActivityName=".refreshContents.RefreshContentsActivity"/>
-        <activity android:name=".refreshContents.RefreshContentsWithAccessibilityActivity" android:parentActivityName=".refreshContents.RefreshContentsActivity"/>
-        <activity android:name=".refreshContents.RefreshContentsActivity" android:parentActivityName=".MainActivity"/>
-        <activity android:name=".VoiceSearch.VoiceSearchActivity" android:parentActivityName=".MainActivity"/>
-        <activity android:name=".VoiceSearch.VoiceSearchWithAccessibilityActivity" android:parentActivityName=".VoiceSearch.VoiceSearchActivity"/>
-        <activity android:name=".VoiceSearch.VoiceSearchWithoutAccessibilityActivity" android:parentActivityName=".VoiceSearch.VoiceSearchActivity"/>
-        <activity android:name=".korailTalk.KorailTalkWithoutAccessibilityActivity"
-            android:parentActivityName=".korailTalk.KorailTalkActivity"/>
-        <activity android:name=".korailTalk.KorailTalkWithAccessibilityActivity"
-            android:parentActivityName=".korailTalk.KorailTalkActivity"/>
-        <activity android:name=".korailTalk.KorailTalkActivity"
-            android:parentActivityName=".MainActivity"/>
+
+        <activity android:name=".LayerFocus.LayerFocusBadActivity"></activity>
+        <activity android:name=".LayerFocus.LayerFocusGoodActivity" />
+        <activity android:name=".LayerFocus.LayerFocusActivity" />
+        <activity
+            android:name=".refreshContents.RefreshContentsWithoutAccessibilityActivity"
+            android:parentActivityName=".refreshContents.RefreshContentsActivity" />
+        <activity
+            android:name=".refreshContents.RefreshContentsWithAccessibilityActivity"
+            android:parentActivityName=".refreshContents.RefreshContentsActivity" />
+        <activity
+            android:name=".refreshContents.RefreshContentsActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".VoiceSearch.VoiceSearchActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".VoiceSearch.VoiceSearchWithAccessibilityActivity"
+            android:parentActivityName=".VoiceSearch.VoiceSearchActivity" />
+        <activity
+            android:name=".VoiceSearch.VoiceSearchWithoutAccessibilityActivity"
+            android:parentActivityName=".VoiceSearch.VoiceSearchActivity" />
+        <activity
+            android:name=".korailTalk.KorailTalkWithoutAccessibilityActivity"
+            android:parentActivityName=".korailTalk.KorailTalkActivity" />
+        <activity
+            android:name=".korailTalk.KorailTalkWithAccessibilityActivity"
+            android:parentActivityName=".korailTalk.KorailTalkActivity" />
+        <activity
+            android:name=".korailTalk.KorailTalkActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".WebView.WebViewActivity"
             android:parentActivityName=".MainActivity" />
@@ -50,16 +69,21 @@
         <activity
             android:name=".TabControl.TabBadActivity"
             android:parentActivityName=".TabControl.TabControlActivity" />
-        <activity android:name=".RatingBar.RatingBarActivity" android:parentActivityName=".MainActivity"/>
-        <activity android:name=".RatingBar.RatingBarGoodActivity" android:parentActivityName=".RatingBar.RatingBarActivity"/>
-        <activity android:name=".RatingBar.RatingBarBadActivity" android:parentActivityName=".RatingBar.RatingBarActivity"/>
+        <activity
+            android:name=".RatingBar.RatingBarActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".RatingBar.RatingBarGoodActivity"
+            android:parentActivityName=".RatingBar.RatingBarActivity" />
+        <activity
+            android:name=".RatingBar.RatingBarBadActivity"
+            android:parentActivityName=".RatingBar.RatingBarActivity" />
         <activity
             android:name=".NestedScroll.NestedScrollExampleActivity"
             android:parentActivityName=".NestedScroll.NestedScrollActivity" />
         <activity
             android:name=".NestedScroll.NestedScrollActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".ratingBar.RatingBarActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -147,19 +171,22 @@
             android:name=".overlay.FocusActivity"
             android:label="@string/overlay"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".CustomControl.CustomControlBadActivity"></activity>
+        <activity android:name=".CustomControl.CustomControlBadActivity" />
         <activity android:name=".CustomControl.CustomControlGoodActivity" />
         <activity android:name=".CustomControl.CustomControlActivity" />
-        <service android:name=".MyAccessibilityService"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
-            android:label="@string/accessibility_service_label">
-            <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
-            </intent-filter>
-            <meta-data
-                android:name="android.accessibilityservice"
-                android:resource="@xml/accessibility_service_config" />
-        </service>
+
+        <!--        <service-->
+        <!--            android:name=".MyAccessibilityService"-->
+        <!--            android:label="@string/accessibility_service_label"-->
+        <!--            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.accessibilityservice.AccessibilityService" />-->
+        <!--            </intent-filter>-->
+
+        <!--            <meta-data-->
+        <!--                android:name="android.accessibilityservice"-->
+        <!--                android:resource="@xml/accessibility_service_config" />-->
+        <!--        </service>-->
     </application>
 
 </manifest>

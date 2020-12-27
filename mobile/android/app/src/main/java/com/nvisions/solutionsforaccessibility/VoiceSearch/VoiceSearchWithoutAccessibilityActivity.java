@@ -14,7 +14,7 @@ import com.nvisions.solutionsforaccessibility.R;
 public class VoiceSearchWithoutAccessibilityActivity extends AppCompatActivity implements View.OnClickListener {
     private MediaPlayer mediaPlayer;
     private MediaPlayer mPlayer;
-private TextView textView;
+    private TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,11 +22,11 @@ private TextView textView;
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle(getString(R.string.badExample));
-final Button example1 = (Button)findViewById(R.id.button1);
+        final Button example1 = (Button)findViewById(R.id.button1);
         mediaPlayer = MediaPlayer.create(this, R.raw.start);
-mPlayer = MediaPlayer.create(this, R.raw.end);
-textView = (TextView)findViewById(R.id.textView3);
-mediaPlayer.start();
+        mPlayer = MediaPlayer.create(this, R.raw.end);
+        textView = (TextView)findViewById(R.id.textView3);
+        mediaPlayer.start();
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -37,7 +37,7 @@ mediaPlayer.start();
             }
         }, 5000);
 
-            example1.setOnClickListener(this);
+        example1.setOnClickListener(this);
     }
 
     @Override
@@ -47,10 +47,12 @@ mediaPlayer.start();
                 Button example1 = (Button)findViewById(R.id.button1);
                 TextView textView = (TextView)findViewById(R.id.textView3);
                 if (example1.getText().toString() == getString(R.string.voiceCancel)) {
-    example1.setText(R.string.voiceListen);
-    textView.setVisibility(View.GONE);
+                    example1.setText(R.string.voiceListen);
+                    example1.setEnabled(true);
+                    textView.setVisibility(View.GONE);
                 } else {
                     example1.setText(R.string.voiceCancel);
+                    example1.setEnabled(false);
                     mediaPlayer.start();
                     textView.setText(R.string.voiceListening);
                 }
@@ -64,6 +66,7 @@ mediaPlayer.start();
                 textView.setText(R.string.voiceNotUnderstand);
                 Button example1 = (Button)findViewById(R.id.button1);
                 example1.setText(R.string.voiceListen);
+                example1.setEnabled(true);
             }
         }, 5000);
     }

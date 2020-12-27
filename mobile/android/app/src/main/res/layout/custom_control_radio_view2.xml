@@ -7,8 +7,7 @@
 
     <ImageView
         android:id="@+id/button1"
-        android:contentDescription="@string/customControl_radio_single"
-        android:layout_width="wrap_content"
+                android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/textView1"
         app:layout_constraintHorizontal_bias="0.5"
@@ -31,7 +30,6 @@
 
     <ImageView
         android:id="@+id/button2"
-        android:contentDescription="@string/customControl_radio_set"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"

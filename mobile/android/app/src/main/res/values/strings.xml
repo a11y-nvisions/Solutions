@@ -168,28 +168,28 @@
     <string name="korailTalk">코레일톡</string>
     <string name="without_accessibility">접근성이 적용되지 않은 경우</string>
     <string name="with_accessibility">접근성이 적용된 경우</string>
-<string name="changeStartStation">출발역 변경</string>
-<string name="changeArrivingStation">도착역 변경</string>
-<string name="seoul">서울</string>
-<string name="daejeon">대전</string>
-<string name="startEndSimulation">출발, 도착역 선택 시뮬레이션</string>
+    <string name="changeStartStation">출발역 변경</string>
+    <string name="changeArrivingStation">도착역 변경</string>
+    <string name="seoul">서울</string>
+    <string name="daejeon">대전</string>
+    <string name="startEndSimulation">출발, 도착역 선택 시뮬레이션</string>
     <string name="startEndExplain">화면에 레이어가 표시되거나 레이어가 사라지는 경우 초점 이동에 대한 접근성 구현이 필요합니다. 또한 버튼, 체크박스와 같은 각 컨트롤은 스크린 리더 사용자에게 의미에 맞게 제공해 주어야 합니다.</string>
-<string name="startEnd">출발, 도착역 설정 시뮬레이션</string>
-<string name="setStartStation">출발역</string>
+    <string name="startEnd">출발, 도착역 설정 시뮬레이션</string>
+    <string name="setStartStation">출발역</string>
     <string name="setDestinationStation">도착역</string>
-<string name="trainReservation">승차권 예매</string>
-<string name="changeStartEndOrder">출발, 도착역 바꾸기</string>
+    <string name="trainReservation">승차권 예매</string>
+    <string name="changeStartEndOrder">출발, 도착역 바꾸기</string>
     <string name="accessibility_service_description">accessibility service to test Korailtalk accessibility</string>
     <string name="accessibility_service_label">Korailtalk accessibility service</string>
     <string name="voiceSearch">음성검색 시뮬레이션</string>
-<string name="busan">부산</string>
-<string name="dongdaegu">동대구</string>
-<string name="peopleCountLabel">인원수</string>
-<string name="peopleCount">1명</string>
-<string name="popupLayer">팝업 레이어</string>
-<string name="choosePeopleCount">인원수를 선택해 주세요.</string>
-<string name="peopleNumber">명</string>
-<string name="voiceSearchExplain">음성 검색이 실행되는 경우에는 톡백이 화면의 내용을 전혀 읽지 못하게 구현을 해야 합니다. 또한 음성 검색을 종료했을 때 에러 메시지가 출력되는 경우에는 반드시 이를 음성 출력할 수 있도록 구형해야 합니다.</string>
+    <string name="busan">부산</string>
+    <string name="dongdaegu">동대구</string>
+    <string name="peopleCountLabel">인원수</string>
+    <string name="peopleCount">1명</string>
+    <string name="popupLayer">팝업 레이어</string>
+    <string name="choosePeopleCount">인원수를 선택해 주세요.</string>
+    <string name="peopleNumber">명</string>
+    <string name="voiceSearchExplain">음성 검색이 실행되는 경우에는 톡백이 화면의 내용을 전혀 읽지 못하게 구현을 해야 합니다. 또한 음성 검색을 종료했을 때 에러 메시지가 출력되는 경우에는 반드시 이를 음성 출력할 수 있도록 구형해야 합니다.</string>
     <string name="voiceListening">듣는 중</string>
     <string name="voiceCancel">취소</string>
     <string name="voiceListen">듣기</string>
@@ -217,5 +217,13 @@
     <string name="customControl_edittext_hint">수량</string>
     <string name="hamburgerBrand">햄버거 브랜드, </string>
 
+    <string name="newLayerName">새 레이어 포커스</string>
+    <string name="newLayer_good">새 레이어 포커스, 접근성 적용한 경우</string>
+    <string name="newLayer_bad">새 레이어 포커스, 접근성 적용하지 않은 경우</string>
+
+    <string name="completeOrderContent">주문 완료</string>
+    <string name="closeBanner">배너 닫기</string>
+    <string name="layerFocusExplain"> 레이어를 표시할 때 기존 콘텐츠를 흐리게 표시하는 경우가 있습니다. 이때 접근성 구현을 하지 않으면 스크린 리더 사용자는 레이어와 뒷배경 콘텐츠를 구분할 수 없어 콘텐츠를 탐색하는데 많은 어려움이 있습니다.</string>
+    <string name="bannerRolling">볼륨키로 배너 넘기기</string>
 
 </resources>
