@@ -139,11 +139,6 @@ class CustomControlGoodActivity : AppCompatActivity() {
                 return super.performAccessibilityAction(host, action, args)
             }
         }
-
-        ViewCompat.replaceAccessibilityAction(editText, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_ACCESSIBILITY_FOCUS, "") { view, arguments ->
-            editText.hint = getString(R.string.customControl_edittext_hint)
-            false
-        }
     }
 
     private fun initListener() {
@@ -152,6 +147,7 @@ class CustomControlGoodActivity : AppCompatActivity() {
             override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
                 super.onInitializeAccessibilityNodeInfo(host, info)
                 info?.isEnabled = false
+                info?.hintText = getString(R.string.customControl_edittext_hint)
             }
         }
 
@@ -162,6 +158,7 @@ class CustomControlGoodActivity : AppCompatActivity() {
             }
         }
 
+        buttonDown.contentDescription = getString(R.string.customControl_edittext_hint) + buttonDown.text
         buttonDown.setOnClickListener {
             val num = Integer.parseInt(editText.text.toString()) - 1
             editText.setText(num.toString())
@@ -170,6 +167,8 @@ class CustomControlGoodActivity : AppCompatActivity() {
             }
             editText.announceForAccessibility("수량 " + num.toString())
         }
+
+        buttonUp.contentDescription = getString(R.string.customControl_edittext_hint) + buttonUp.text
         buttonUp.setOnClickListener {
             val num = Integer.parseInt(editText.text.toString()) + 1
             editText.setText(num.toString())

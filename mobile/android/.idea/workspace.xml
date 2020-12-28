@@ -12,7 +12,66 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34c3f688-7c98-42dc-8afb-ac2f2749f0ca" name="Default Changelist" comment="" />
+    <list default="true" id="34c3f688-7c98-42dc-8afb-ac2f2749f0ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/CustomRadioButton2.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/ViewPagerAdapter2.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/LayerFocus/LayerFocusActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/LayerFocus/LayerFocusBadActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/LayerFocus/LayerFocusBaseAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/LayerFocus/LayerFocusGoodActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/LayerFocus/LayerFocusHorizontalAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_korail_talk_with_accessibility.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_layer_focus.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_layer_focus_bad.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_layer_focus_good.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_layer_focus_list_row.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_control_radio_view2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_annotation_annotation_1_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_arch_core_core_common_2_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_collection_collection_1_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_solver_1_1_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_common_2_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__cn_trinea_android_view_autoscrollviewpager_android_auto_scroll_view_pager_1_1_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_ebanx_swipe_button_0_8_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_ebanx_swipe_button_0_8_3_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_annotations_13_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_android_extensions_runtime_1_3_61_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_3_61_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_3_61_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_3_61_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/CustomControlActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/CustomControlActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/CustomControlBadActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/CustomControlBadActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/CustomControlGoodActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/CustomControlGoodActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/CustomRadioButton.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/CustomRadioButton.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/ViewPagerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/ViewPagerAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/recyclerview/ItemViewHolder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nvisions/solutionsforaccessibility/recyclerview/ItemViewHolder.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_delete_black_24dp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_delete_black_24dp.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_collapse_expand.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_collapse_expand.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_recycler_view_focus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_recycler_view_focus.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_control_bad_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_control_bad_activity.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_control_good_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_control_good_activity.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_control_radio_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_control_radio_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_control_viewpager_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_control_viewpager_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_item_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_item_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_item_main2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_item_main2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_item_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_item_search.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_item_search2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_item_search2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/view_holder_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/view_holder_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +80,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_4_API_28]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[R39M4001JGM]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -42,7 +101,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jhiikNxcLYgez3wuB9Qd0wGfIA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -59,8 +118,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android-custom-viewC:/Users/qwqw3/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="android-custom-viewD:/project/Solutions/mobile/android/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/CustomRadioButton.kt_SELECTED" value="CustomRadioButton" />
+    <property name="android-custom-viewD:/project/Solutions/mobile/android/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/CustomRadioButton2.kt_SELECTED" value="CustomRadioButton2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../android accessibility demos" />
     <property name="multi-representation-previewC:/Users/qwqw3/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_selected" value="Custom views" />
+    <property name="multi-representation-previewD:/project/Solutions/mobile/android/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/CustomRadioButton.kt_selected" value="Custom views" />
+    <property name="multi-representation-previewD:/project/Solutions/mobile/android/app/src/main/java/com/nvisions/solutionsforaccessibility/CustomControl/CustomRadioButton2.kt_selected" value="Custom views" />
     <property name="not.eligible.for.single.variant.sync" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
@@ -75,11 +138,11 @@
       <recent name="com.nvisions.solutionsforaccessibility" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project\Solutions\mobile\android\app\src\main\res\layout" />
+      <recent name="D:\project\Solutions\mobile\android\app\src\main\java\com\nvisions\solutionsforaccessibility\CustomControl" />
+      <recent name="D:\project\Solutions\mobile\android\app\src\main\java\com\nvisions\solutionsforaccessibility" />
       <recent name="D:\android accessibility demos\app\src\main\res\layout" />
       <recent name="D:\android accessibility demos\app\src\main\res" />
-      <recent name="D:\android accessibility demos\app\src\main\java\com\nvisions\solutionsforaccessibility" />
-      <recent name="D:\android accessibility demos\app\src\main\res\drawable" />
-      <recent name="D:\android accessibility demos\app\src\main\res\values" />
     </key>
   </component>
   <component name="RunManager">
@@ -182,10 +245,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="758" y="266" key="AndroidProcessChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608608977062" />
-    <state x="216" y="0" key="FileChooserDialogImpl" timestamp="1608595519662">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="173" y="0" key="FileChooserDialogImpl" timestamp="1609078163894">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="173" y="0" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1608358824532" />
+    <state x="173" y="0" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1609078163894" />
     <state x="216" y="0" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608595519662" />
     <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1608607580601">
       <screen x="0" y="0" width="1920" height="1040" />
