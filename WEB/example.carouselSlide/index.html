@@ -70,25 +70,27 @@
             position:relative; display:block;
             width:100%; height:100%;
             border:solid 1px; z-index:0;
+            overflow:hidden;
         }
 
         .rolling-carousel-visibleThumb{
-            white-space:nowrap;
-            width:98%; height:98%; position: absolute;
-            top:50%; left:50%; display:grid;
-            transform:translateY(-50%) translateX(-50%);
-            border:solid 1px; overflow:hidden;
-            background-color:#000; background-size:contain;
-            scroll-behavior: smooth;
-            grid-template-columns: 100% 100% 100%;
-            padding:0;
+            position:relative;
+            width:98%; height:98%;
+            overflow:hidden;
+            background-color:rgba(0,0,0,0.5);
         }
 
         .rolling-carousel-visibleThumb a{
-            width:100%; height:100%;
+            width:100%; height:100%; position:absolute;
             display:inline-block; color:transparent;
-            text-align:center;
-            user-select:none; z-index:0;
+            text-align:center; user-select:none;
+            
+        }
+        .rolling-carousel-visibleThumb a[aria-hidden=false]{
+            animation:fadeIn 0.4s;
+        }
+        .rolling-carousel-visibleThumb a[aria-hidden=true]{
+            animation:fadeOut 0.4s;
         }
 
         .carousel-floating-remote-box {
@@ -190,6 +192,23 @@
 
             button.carousel-auto-slide-controller{
             font-size:1rem;
+            }
+        }
+
+        @keyframes fadeIn{
+            from{
+                left:-100%;
+            }
+            to{
+                left:0;
+            }
+        }
+        @keyframes fadeOut{
+            from{
+                left:0;
+            }
+            to{
+                left:100%;
             }
         }
     </style>

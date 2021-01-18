@@ -18,7 +18,7 @@ const Banner = function (HTML_PATH = document.body,option={}){
         this.show_indicators = true
         this.auto_slide = true
         this.slide_cycle = 4000;
-        for(p in obj){
+        for(let p in obj){
             if(this.hasOwnProperty(p)){
                 this[p] = obj[p]
             }
@@ -26,7 +26,6 @@ const Banner = function (HTML_PATH = document.body,option={}){
     };
 
     root.option = new Option(option);
-
     Object.defineProperty(root,'loadIterationElement',{
         set:function(v){
             for( let i = 0; i < v; i++){   
@@ -40,8 +39,10 @@ const Banner = function (HTML_PATH = document.body,option={}){
                 })
                 links[i].style.background='url('+links[i].getAttribute('data-image-path')+')'
                 links[i].style.backgroundRepeat='no-repeat';
-                links[i].style.backgroundSize='98% 98%';
-                links[i].style.backgroundPosition='center';
+                links[i].style.backgroundSize='100% 100%';
+                links[i].style.left="0";
+
+                links[i].style.zIndex="0";
                 root.carouselThumbBox.append(links[i]);
         
                 //set and append indicators
@@ -113,13 +114,8 @@ const Banner = function (HTML_PATH = document.body,option={}){
                     }
 
                     if(i === current_num){
-                        const currentImage = root.carouselLinks[i];
-                        root.carouselThumbBox.scrollTo(
-                            {
-                                left:currentImage.offsetLeft,
-                                top:0,
-                                behavior:'smooth'
-                            });
+                        root.carouselLinks[i].style.left="0";
+                        root.carouselLinks[i].style.zIndex="1";
                         if(root.option.a11ySupport){
                             root.carouselLinks[i].setAttributes({
                                 'aria-hidden':'false',
@@ -143,6 +139,8 @@ const Banner = function (HTML_PATH = document.body,option={}){
                                 'tabindex':'-1',
                             })
                         }
+                        root.carouselLinks[i].style.zIndex="0";
+                        root.carouselLinks[i].style.left="100%";
                         root.indicatorList[i].removeAttribute('aria-current');
                         root.indicatorList[i].removeAttribute('data-current');
                     }
