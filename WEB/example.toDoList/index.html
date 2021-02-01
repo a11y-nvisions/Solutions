@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web A11y - Nvisions Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../style/common.css" type="text/css" />
+    <link rel="stylesheet" href="../style/components.css" type="text/css" />
+    <link rel="stylesheet" href="../style/todo.style.css" type="text/css" />
+    <link rel="stylesheet"href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <!--polyfills-->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/custom-elements-es5-adapter.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-bundle.js.map"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.1/webcomponents-loader.js"></script>
+    <!--Methods-->
+    <script defer src="../src/methods/Element.getParents.js"></script>
+    <script defer src="../src/methods/Element.multipleSetter.js"></script>
+    <!--Resource Script-->
+    <script defer src="../src/res/style.setting.js"></script>
+    <script defer src="../src/res/pageIndex.list.js"></script>
+    <script defer src="../src/components/component.snippet.commonNav.js"></script>
+    <!--DOM and components Scripts-->
+    <script defer src="../src/res/todo.string.js"></script>
+    <script defer src="../src/components/component.idea.todoList.js"></script>
+    <script>
+        const title = document.head.querySelector('title');
+        const mainScroll = document.querySelector('main .simplebar-content-wrapper')
+        window.addEventListener('DOMContentLoaded',function(){
+            title.innerHTML=document.querySelector('[aria-current=page]').textContent;
+            const Todo = new ToDoList(document.querySelector('.toDoArea'));
+        })
+    </script>
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="javascript:location.href=document.querySelector('.GNB a:first-child').href" class="logo"><img src="../style/img/SolutionsLogo.png" alt="Solutions For Web Accessibility" /></a>
+        </h1>
+    </header>
+    <div class="wrapper">
+        <div class="middle-wrap">
+            <nav class="GNB"></nav>
+            <main data-simplebar>
+                </section>
+                    <h3>ToDoList 예제로 만나보는 추가/삭제 알림 및 초점관리</h3>
+                    <p>이 아래에는 사용자가 추가, 변경, 삭제할 수 있는 동적 할 일 목록이 있습니다.</p>
+                    <p>할 일 영역에 내용을 추가하고, 삭제해보세요.</p>
+                    <div class="toDoArea"></div>
+                </section>
+            </main>
+        </div>
+        <footer>
+            <div class="copyright">
+                <span>Copyright &copy; 
+                <img class="logo" src="https://ssl.pstatic.net/static/pwe/wm/common/ncs/img_logo_nvisions.png" alt="(주)엔비전스" />
+            </div>
+        </footer>
+    </div>
+</html>

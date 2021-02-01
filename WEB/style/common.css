@@ -225,11 +225,41 @@ footer{border-color:
         --search-input-background-color-interact:rgba(50,100,140,0.3);
         --keycap-gradient-color:linear-gradient(to left, #0f0f25, var(--common-box-color), #0f0f2f);
         --keycap-print-color:#afcfff;
+        --textField-default-bgColor:#0c0f25;
+        --textField-active-bgColor:#1c2f55;
+        --textField-default-textColor:rgba(255,255,255,0.6);
+        --textField-active-textColor:var(--theme-text-color);
+        --textField-default-placeHolder-textColor:rgba(180,255,255,0.6);
+        --textField-active-placeHolder-textColor:rgba(190,255,255,1);
     }
     header .logo img{filter:invert(0);}
     html{background-color:rgba(50,50,50,0.99); color:#fff;}
     main{background-color:rgba(10,10,20,0.35);}
     header,footer{background-color:rgba(10,10,30,0.6);}
+    input[type="text"],input[type="number"],input[type="password"],
+    input[type="tel"],input[type="email"],input[type="search"],textarea{
+        background-color:var(--textField-default-bgColor);
+        color:var(--textField-default-textColor);
+        border:solid 1px; 
+    }
+
+    input::placeholder,textarea::placeholder{
+        color:var(--textField-default-placeHolder-textColor);
+    }
+    input[type]::placeholder:focus,
+    input[type]::-webkit-placeholder:focus,
+    input[type]::-moz-placeholder:focus,
+    textarea[type]::placeholder:focus,
+    input[type]::-webkit-placeholder:focus,
+    textarea[type]::-moz-placeholder:focus{
+        color:var(--textField-active-placeHolder-textColor);
+    }
+
+    input[type="text"]:focus,input[type="number"]:focus,input[type="password"]:focus,
+    input[type="tel"]:focus,input[type="email"]:focus,input[type="search"]:focus,textarea:focus{
+        background-color:var(--textField-active-bgColor);
+        color:var(--textField-active-textColor);
+    }
     
     .keycaps{
         color:var(--keycap-print-color);
