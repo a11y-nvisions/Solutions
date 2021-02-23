@@ -12,7 +12,7 @@ var languagePacks = {
 
         "label_ToDoDescriptionInput":"이 할일에 대한 자세한 설명 입력",
         "label_mod_ToDoDescriptionInput":"수정할 자세한 설명 작성",
-        "placeHolder_ToDoDescriptionInput":"설명",
+        "placeHolder_ToDoDescriptionInput":"이 할일에 대한 설명을 여기에 작성해주세요",
 
         "hint_mod":"수정하기",
         "hint_del":"지우기",
@@ -51,10 +51,10 @@ var languagePacks = {
         "label_mod_ToDoTextInput":"Type new this ToDo Title<span aria-hidden=\"true\" class=\"required\">　필수</span>",
         "placeHolder_ToDoTextInput":"e.g: Go to lunch engagement with Mr. OOO",
 
-        "label_TodoDescription":"Description of this ToDo",
+        "label_ToDoDescriptionInput":"Description of this ToDo",
         "label_mod_ToDoDescriptionInput":"Type to-modified description for this Todo",
-        "placeHolder_TodoDescription":"Description",
-
+        "placeHolder_ToDoDescriptionInput":"Write the explaining of this todo here",
+        
         "scHint_modify":"modify",
         "scHint_delete":"delete",
         "btn_mod_done":"Done",
