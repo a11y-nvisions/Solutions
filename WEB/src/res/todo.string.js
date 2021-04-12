@@ -20,7 +20,7 @@ var languagePacks = {
         "btn_mod_cancel":"수정 취소",
 
         
-        "msg_error_TypedLessThanMin":["이 ToDo 앱은 "," 년에 만들어졌습니다. 이 입력서식은 최소 년도가 2020년으로 제한되어 있습니다."],
+        "msg_error_typedLessThanMinYear":["이 ToDo 앱은 "," 년에 만들어졌습니다. 이 입력서식은 최소 년도가 2020년으로 제한되어 있습니다."],
         "msg_error_typedWrongMonth":"지구에 온 것을 환영합니다. 당신은 외계인이신가요? 지구에는 그런 달은 없네요.",
         "msg_error_typedDateOverThanMaxDate":"이 달의 마지막 날짜보다 많은 수를 잘못 작성하셨습니다. 자동으로 1일이 채워졌습니다.",
         "msg_error_typedDateLessThanMinDate":["1보다 낮은 숫자를 작성하려고 하셨습니다. 자동으로 마지막 날짜인 ","일이 채워졌습니다."],
@@ -44,19 +44,19 @@ var languagePacks = {
         "LangCode":"en",
         "formLabel_AddToDos":"fill content To-Added ToDo",
 
-        "label_BtnLoadDate":"Get the ToDo list Data of this date",
-        "label_BtnAdd":"Add to ToDo List",
+        "label_btnLoadDate":"Get the ToDo list Data of this date",
+        "label_btnAdd":"Add to ToDo List",
 
         "label_ToDoTextInput":"What will you do?(Title)<span aria-hidden=\"true\" class=\"required\">　Required</span>",
-        "label_mod_ToDoTextInput":"Type new this ToDo Title<span aria-hidden=\"true\" class=\"required\">　필수</span>",
+        "label_mod_ToDoTextInput":"Type a new title<span aria-hidden=\"true\" class=\"required\">　필수</span>",
         "placeHolder_ToDoTextInput":"e.g: Go to lunch engagement with Mr. OOO",
 
         "label_ToDoDescriptionInput":"Description of this ToDo",
         "label_mod_ToDoDescriptionInput":"Type to-modified description for this Todo",
         "placeHolder_ToDoDescriptionInput":"Write the explaining of this todo here",
         
-        "scHint_modify":"modify",
-        "scHint_delete":"delete",
+        "hint_mod":"modify",
+        "hint_del":"delete",
         "btn_mod_done":"Done",
         "btn_mod_cancel":"Cancel",
 

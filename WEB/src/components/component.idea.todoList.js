@@ -57,6 +57,7 @@ class ToDoItem {
                 this.labelText_Mod_ToDoText = document.createElement('span');
                     this.labelText_Mod_ToDoText.innerHTML=this.language["label_mod_ToDoTextInput"];
                 this.mod_ToDoTextInput = document.createElement('input');
+                    this.mod_ToDoTextInput.type="text";
                     this.mod_ToDoTextInput.value = this.ToDoText;
             this.label_for_Mod_ToDoText.append(this.labelText_Mod_ToDoText,this.mod_ToDoTextInput);
             
