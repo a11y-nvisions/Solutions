@@ -1,0 +1,108 @@
+@import url(https://fonts.googleapis.com/css2?family=Material+Icons);
+@import url('./WEB/new/color-sys-index.css');
+@import url('./WEB/new/style.css');
+*{margin:0; padding:0; box-sizing: border-box;
+transition: opacity 0.5s;}
+
+html,body,body>.root{
+    width:100%;
+    height:100%;
+    position: relative;
+}
+
+.root {
+    background-color: var(--root-bg);
+    color:var(--root-fg);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y:auto;
+}
+.sizer {
+    width:80%; height:100%;
+    margin:0 auto;
+}
+
+.skew {
+    transform:skew(-20deg) scale(0.85);
+    font-weight:bold;
+    text-align: center;
+}
+
+.icon-link-collection {
+    display: grid;
+    width:100%;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0.2em;
+}
+
+.icon-link-collection a:any-link{
+    color:white;
+    text-decoration: none;
+}
+
+.icon-link {
+    border:solid 1px;
+    display: grid; width:100%;
+    aspect-ratio: 4/3;
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center; border-radius: 0.3em;
+    gap:0.25em; padding: 0.25em;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; height: 100%; width:100%;
+    transition: background-color 0.25s;
+}
+
+.icon .material-icons{
+    font-size:15em; flex:1;
+}
+
+.icon.old {
+    background-image: url(./WEB/old/style/img/SolutionsLogo.png);
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+
+.icon .badge-new {
+    display: block; position: absolute;
+    top:0; left:0;
+    background-color: red;
+    width:0.35em; height:0.35em;
+    border-radius: 50%;
+    margin: 0.5em;
+    justify-self: flex-end;
+}
+
+.icon-link:hover,
+.icon-link:focus {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.icon:hover,
+.icon-link:focus .icon {
+    background-color: var(--accent-extra-light);
+
+}
+
+@media screen and ( max-width:768px ) {
+    .sizer{ width:100%; }
+
+    .icon-link {
+        font-size:0.7em;
+    }
+    .icon .material-icons{
+        font-size:5em;
+    }
+}

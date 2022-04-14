@@ -1,0 +1,32 @@
+{
+  "name": "treeview-component",
+  "version": "1.0.0",
+  "description": "",
+  "main": "treeview.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "highlight.js": "^11.5.1",
+    "mobile-detect": "^1.4.5",
+    "prismjs": "^1.27.0",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.4",
+    "html-loader": "^3.1.0",
+    "i": "^0.3.7",
+    "i18n": "^0.14.2",
+    "i18next": "^21.6.15",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  }
+}
